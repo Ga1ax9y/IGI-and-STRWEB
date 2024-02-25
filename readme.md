@@ -1,1 +1,2 @@
 Labs for IGI and STRWEB
+BSUIR 2024
