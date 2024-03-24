@@ -1,5 +1,14 @@
 INPUT_ERROR = "Ошибка ввода! Повторите еще раз"
 
+def my_decorator(func):
+    def something():
+        print("Начало")
+        result = func()
+        print("Конец")
+        return result
+    return something
+
+@my_decorator
 def Multiplication():
     """The function takes integers and multiplies them.
 
@@ -25,5 +34,3 @@ def Multiplication():
             except ValueError:
                 print(INPUT_ERROR)
     return result
-
-

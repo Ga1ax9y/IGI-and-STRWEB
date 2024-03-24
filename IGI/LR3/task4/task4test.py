@@ -13,7 +13,7 @@ def main():
     print("Каждое нечетное слово:")
     odd_words = notEvenWords(s)
     print(*odd_words)
-
+    #print(words_count.__doc__,longest_word.__doc__,notEvenWords.__doc__)
 
 if __name__ == "__main__":
     main()

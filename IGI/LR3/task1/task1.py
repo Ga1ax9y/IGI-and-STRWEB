@@ -1,6 +1,5 @@
 from math import pow
 
-
 def powerSeries(x,eps):
     """Calculating the value of a function by decomposing into a power series.
 
@@ -25,5 +24,3 @@ def powerSeries(x,eps):
             break
 
     return (result, n+1)
-
-

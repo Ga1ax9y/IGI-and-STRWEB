@@ -32,3 +32,12 @@ def Sum_after(arr):
             result +=num
         return result
     else: return 0
+
+def print_list(arr):
+    """Function for printing elements of list
+
+    Keyword argument:
+    arr -- list
+
+    """
+    print("Элементы получившегося списка: ",*arr)
