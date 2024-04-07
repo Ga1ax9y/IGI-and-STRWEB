@@ -1,3 +1,6 @@
+import string
+uppercase_letters = string.ascii_uppercase
+
 def Uppercaseletters_find(s):
     """Function for counting the number of uppercase letters and numbers
 
@@ -10,15 +13,8 @@ def Uppercaseletters_find(s):
     """
     count = 0
     for c in s:
-        if c.isupper() or c.isdigit():
+        if c in uppercase_letters or c.isdigit():
             count+=1
     return count
 
-def main():
-    s = input("Введите строку: ")
-    result = Uppercaseletters_find(s)
-    print(f"Количество заглавных букв и цифр: {result}")
 
-
-if __name__ == "__main__":
-    main()

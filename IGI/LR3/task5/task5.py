@@ -22,16 +22,14 @@ def Sum_after(arr):
 
     '''
     result = 0
-    first = -228
     for i in range(len(arr)):
         if arr[i] > 0:
-            first = i+1
+            first = i
             break
-    if first != -228:
-        for num in arr[first:]:
-            result +=num
-        return result
-    else: return 0
+    for num in arr[first:]:
+        result +=num
+    return result
+
 
 def print_list(arr):
     """Function for printing elements of list

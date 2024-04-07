@@ -1,5 +1,12 @@
 import random
 INPUT_ERROR = "Ошибка ввода! Повторите еще раз"
+def generate(a,size):
+    count = 0
+    i = a
+    while count <= size:
+        yield i
+        i+=1
+        count+=1
 
 def user_init(arr):
     '''Function for initializing the list by the user
@@ -14,6 +21,8 @@ def user_init(arr):
     while True:
         try:
             size = int(input("Введите размер списка: "))
+            if size <=0:
+                raise ValueError
             break
         except ValueError:
             print(INPUT_ERROR)
@@ -43,7 +52,6 @@ def rand_init(arr):
             break
         except ValueError:
             print(INPUT_ERROR)
-    for i in range(size):
-        num = random.randint(-10,10)
-        arr.append(num)
+    for x in generate(5,size):
+        arr.append(x)
     return arr
