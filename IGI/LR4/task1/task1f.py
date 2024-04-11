@@ -1,7 +1,8 @@
-import pickle
-import csv
+
 
 class Elections():
+
+    electioin_country = "Belarus"
 
     def __init__(self, candidates= {}) -> None:
         self.availiable_voters = 2000
@@ -60,5 +61,3 @@ class Elections():
                 print(f"Кандидат {candidate} не прошел!")
         if len(passed_candidates) == 0:
             print("Необходимо провести повторные выборы!")
-
-

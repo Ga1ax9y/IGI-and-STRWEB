@@ -1,4 +1,4 @@
-from task5f import *
+from task5.task5f import *
 
 input_error = "Ошибка ввода! Повторите попытку"
 def check_error(text):

@@ -1,5 +1,5 @@
-from task1f import * #######
-
+from task1.task1f import * #######
+from task1.Serializers import *
 def main():
     elec = Elections()
     print("1.Добавить кандидатов самостоятельно\n2.Использовать готовых\nВыберите вариант: ",end="")
@@ -46,28 +46,17 @@ def main():
 
     #Сериализация
     #1 способ
-    with open("CsvSer.csv","w",encoding="utf-8", newline="") as fh:
-        writer = csv.writer(fh,quoting=csv.QUOTE_ALL)
-        writer.writerow(["Кандидат", "Количество голосов"])
-        for name,votes in sorted(elec.candidates.items(),key= lambda x: x[1],reverse=True):
-            writer.writerow([name,votes])
+    first_ser = CsvSerializer()
 
-    rows = []
-    with open("CsvSer.csv","r",encoding="utf-8") as fh:
-        reader = csv.DictReader(fh)
-        rows = list(reader)
-    for row in rows:
-        print(row)
+    first_ser.serialize(elec)
+    first_ser.unserialize()
 
     #2 способ
-    filename = "PickleSer.txt"
-    with open(filename,"wb") as fh:
-        pickle.dump(sorted(elec.candidates.items(),key= lambda x: x[1],reverse=True),fh)
-    des_candidates = []
+    second_ser = TxtSerializer()
 
-    with open(filename,"rb") as fh:
-        des_candidates = pickle.load(fh)
-    print(des_candidates)
+    second_ser.serialize(elec)
+    second_ser.unserialize()
+
 
 
 if __name__ == "__main__":
