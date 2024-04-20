@@ -1,12 +1,15 @@
 from task2.task2f import *
-import zipfile
+from task2.fileworker import *
+
 
 def main():
-    filenamer = r"C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\IGI\LR4\task2\string_from_file.txt"
-    filenamew = r"C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\IGI\LR4\task2\file_from.txt"
 
-    with open(filenamer,"r",encoding="utf-8") as file:
-        text = file.read()
+    filenamer = r".\task2\string_from_file.txt"
+    filenamew = r".\task2\file_from.txt"
+
+    File_work = ZipWorker()
+    
+    text = File_work.read_from_file(filenamer)
 
     text_output = ""
     text_output += TextAnalyzer.find_sentences(text)
@@ -39,12 +42,9 @@ def main():
     text_output += TextAnalyzer.alpha_sort(text)
     print(TextAnalyzer.alpha_sort(text))
 
-    with open(filenamew, "w",encoding="utf-8") as file:
-        file.write(text_output)
+    File_work.write_to_file(filenamew,text_output)
 
-    with zipfile.ZipFile(r'C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\IGI\LR4\task2\Task2_archive.zip', 'w') as zip_ref:
-        zip_ref.write(filenamer)
-        zip_ref.write(filenamew)
+    File_work.archive_file(filenamer,filenamew)
 
 if __name__ == "__main__":
     main()

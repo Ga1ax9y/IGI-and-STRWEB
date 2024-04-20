@@ -8,12 +8,15 @@ class Drawer():
         self.power_series = power_series
 
     def draw_series(self):
+        '''Function for drawing graph
+
+        '''
         x = np.concatenate((np.arange(-100, 1, 0.1), np.arange(1.0000001, 100, 0.1)))
         f1 = np.log((x+1)/(x-1))
         plt.plot(x, f1,label="math log",color="green")
 
         con = self.power_series.calculate()
-        f2 =  2*sum(1/((2*n+1) * np.power(x,2*n+1)) for n in range(100))
+        f2 =  2*sum(1/((2*n+1) * np.power(x,2*n+1)) for n in range(len(self.power_series.serie)))
         plt.plot(x, f2,label="my log",color="blue")
         plt.axhline(y=0, color='black', linestyle='--', linewidth=1)
         plt.axvline(x=1, color='red', linestyle="--", linewidth=1)

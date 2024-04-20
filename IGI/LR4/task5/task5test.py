@@ -1,24 +1,27 @@
-from task5.task5f import *
+'''
+Laboratory work 4
+Topic: Working with files, classes, serializers, regular expressions, and standard libraries.
+version 1.0
+Developer: Stanishewsky Alexandr Dmitrievich
+Date of development: 12.04.2024
 
-input_error = "Ошибка ввода! Повторите попытку"
-def check_error(text):
-    while True:
-        try:
-            value = int(input(text))
-            return value
-            break
-        except ValueError:
-            print(input_error)
+
+
+'''
+from task5.task5f import *
+from my_input import input_error,check_error_int
+
+
 def main():
     A = ()
     print("1.Создать матрицу\n2.Создать массив\n")
-    choise = check_error("Выберите вариант: ")
+    choise = check_error_int("Выберите вариант: ")
     if choise == 1:
         while True:
             try:
-                n = check_error("Введите n: ")
-                m = check_error("Введите m: ")
-                max_value = check_error("Введите максимальное значение: ")
+                n = check_error_int("Введите n: ")
+                m = check_error_int("Введите m: ")
+                max_value = check_error_int("Введите максимальное значение: ")
                 A = NumpyResearch.create_matrix(n,m,max_value)
                 break
             except ValueError:
@@ -27,9 +30,9 @@ def main():
     elif choise == 2:
         while True:
             try:
-                n = check_error("Введите минимальное число: ")
-                m = check_error("Введите максимальное число: ")
-                size = check_error("Введите размерность массива: ")
+                n = check_error_int("Введите минимальное число: ")
+                m = check_error_int("Введите максимальное число: ")
+                size = check_error_int("Введите размерность массива: ")
                 A = NumpyResearch.create_array(n,m,size)
                 break
             except ValueError:
@@ -40,26 +43,26 @@ def main():
         return
 
     print("1.Вывести элемент массива\n2.Вывести разрез массива\n3.Универсальные функции")
-    choise = check_error("Выберите вариант: ")
+    choise = check_error_int("Выберите вариант: ")
     if choise == 1:
         while True:
             try:
-                num = check_error("Введите индекс элемена массива: ")
+                num = check_error_int("Введите индекс элемена массива: ")
                 print(NumpyResearch.index_array(A,num))
                 break
             except ValueError:
                 print(input_error)
-    if choise == 2:
+    elif choise == 2:
         while True:
             try:
-                start = check_error("Введите начало среза: ")
-                end = check_error("Введите конец среза: ")
-                step = check_error("Введите шаг: ")
+                start = check_error_int("Введите начало среза: ")
+                end = check_error_int("Введите конец среза: ")
+                step = check_error_int("Введите шаг: ")
                 print(NumpyResearch.slice_array(A,start,end,step))
                 break
             except ValueError:
                 print(input_error)
-    if choise == 3:
+    elif choise == 3:
         print("========================================")
         print("Библиотека NumPy")
         print("1.Сложить два массива\n2.Массив в степени:\n3.Синусы массива\n4.Корень массива")
@@ -67,7 +70,7 @@ def main():
         print("Математические и статистические операции")
         print("5.Среднее значение элементов массива\n6.Медиана\n7.Корреляция\n8.Дисперсия\n9.Стандартное отклонение\n10.Cумма модулей отрицательных нечетных элементов")
         print("========================================")
-        uni_choise = check_error("Выберите вариант: ")
+        uni_choise = check_error_int("Выберите вариант: ")
         if uni_choise == 1:
             new_arr = A * 2
             print("Первый массив:\n", A)
@@ -75,7 +78,7 @@ def main():
             print(NumpyResearch.sum_2_arrays(A,new_arr))
         elif uni_choise == 2:
             print("Первый массив:\n", A)
-            power = check_error("Введите степень: ")
+            power = check_error_int("Введите степень: ")
             print(NumpyResearch.power_array(A,power))
         elif uni_choise == 3:
             print("Первый массив:\n", A)

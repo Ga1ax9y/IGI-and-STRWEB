@@ -1,14 +1,6 @@
 from task4.task4f import *
-
-input_error = "Ошибка ввода! Повторите попытку"
-def check_error(text):
-    while True:
-        try:
-            value = int(input(text))
-            return value
-            break
-        except ValueError:
-            print(input_error)
+from my_input import check_error,input_error
+import matplotlib.colors as mcolors
 
 def main():
     diag1 = check_error("Введите размер первой диагонали: ")
@@ -17,11 +9,12 @@ def main():
     while True:
         try:
             col = input("Введите цвет фигуры: ")
-            a = Parallelogram(diag1,diag2,angle,col)
+            mcolors.to_rgb(col)
             break
         except ValueError:
             print("Ошибка выбора цвета")
 
+    a = Parallelogram(diag1,diag2,angle,col)
     print(a.get_info())
     name = input("Введите имя фигуры: ")
     a.draw(name)

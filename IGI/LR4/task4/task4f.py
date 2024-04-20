@@ -25,10 +25,8 @@ class Color(ColorMixin):
         return self.hidden_color
 
     def set_color(self, value):
-        if (value == "green" or value == "red" or value == "blue" or value == "yellow" or value == "black" or value == "white"):
             self.hidden_color = value
-        else:
-            raise ValueError
+
 
     color = property(get_color,set_color)
 
@@ -64,15 +62,26 @@ class Parallelogram(GeometricFigure):
 
 
     def calculate_area(self):
+        '''Function for calculating area of parallelogram
+
+        '''
         return (self.diagonal1 * self.diagonal2 * sin(radians(self.angle)))/2
 
     def get_info(self):
+        '''Function for getting info about figure
+
+        '''
         area = round(self.calculate_area(),2)
         info = "Параллелограмм {} цвета с диагональю №1 равной {}, диагональю №2 равной {}, уголом между ними {} градусов, площадью {}.".format(self.color.color,self.diagonal1,self.diagonal2,self.angle,area)
         return info
 
     def draw(self, title):
+        '''Function for drawing figure
 
+        keyword argument:
+        title -- title(name) of figuree
+
+        '''
         angle_rad = np.radians(self.angle)
 
         x_A = 0

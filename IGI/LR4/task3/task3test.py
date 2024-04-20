@@ -22,7 +22,7 @@ def main():
 
     table = PrettyTable()
     table.field_names = ["x", "n", "F(x)", "Math F(x)","eps"]
-    a = PowerSeries(x,eps)
+    a = PowerSeriesExtended(x,eps)
     cor = a.calculate()
     table.add_row([x, cor[1], cor[0], log((x+1)/(x-1)), eps])
     print(table)

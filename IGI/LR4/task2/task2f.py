@@ -1,10 +1,17 @@
 import re
 from collections import Counter
-
-class TextAnalyzer():
-
+class StandartAnalyzer():
     @classmethod
-    def find_sentences(self,text: str) ->str:
+    def find_sentences(cls,text: str) ->str:
+        '''Function for finding amount of sentences
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- amount of sentences (str)
+        '''
         pattern = r'[^.!?]*[.!?]+'
         sentences = re.findall(pattern, text)
         output = "Количество предложений: "
@@ -13,7 +20,16 @@ class TextAnalyzer():
         return output
 
     @classmethod
-    def find_sentences_bytype(self, text:str) ->None:
+    def find_sentences_bytype(cls, text:str) ->None:
+        '''Function for finding types of sentences
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- types of sentences (str)
+        '''
         pattern_narrative = r'[^.!?]*[.]+'
         pattern_interrogative = r'[^.!?]*[?]+'
         pattern_imperative = r'[^.!?]*[!]+'
@@ -34,7 +50,16 @@ class TextAnalyzer():
         return output
 
     @classmethod
-    def avg_sentence(self, text:str) ->str:
+    def avg_sentence(cls, text:str) ->str:
+        '''Function for finding average sentence
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- average sentence length(str)
+        '''
         pattern = r'[^.!?]*[.!?]+'
         sentences = re.findall(pattern, text)
 
@@ -56,7 +81,16 @@ class TextAnalyzer():
         return output
 
     @classmethod
-    def avg_word(self, text:str) -> str:
+    def avg_word(cls, text:str) -> str:
+        '''Function for finding average word
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- average word length(str)
+        '''
         punct_pattern = r'[^\w\s]'
         text_without_punc = re.sub(punct_pattern, '', text)
 
@@ -71,7 +105,16 @@ class TextAnalyzer():
         return output
 
     @classmethod
-    def smile_count(self,text:str) -> str:
+    def smile_count(cls,text:str) -> str:
+        '''Function for finding amount of smiles
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- amount of smiles (str)
+        '''
         pattern = r'(?<![:;])[;:]-*(?:\[+|\]+|\)+|\(+)'
         smileys = re.findall(pattern, text)
         count = 0
@@ -82,8 +125,19 @@ class TextAnalyzer():
         output += "\n"
         return output
 
+class TextAnalyzer(StandartAnalyzer):
+
     @classmethod
-    def phone_number(self,text:str) -> str:
+    def phone_number(cls,text:str) -> str:
+        '''Function for finding phone number that starts from 29 and contains from 7 other numbers
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- amount of sentences (str)
+        '''
         pattern = r'\b29\d{7}\b'
         phone_numbers = re.findall(pattern, text)
 
@@ -95,19 +149,37 @@ class TextAnalyzer():
         return output
 
     @classmethod
-    def vowel(self,text:str) -> str:
-         pattern = r'\b\w[bcdfghjklmnpqrstvwxyz][aeiou]\w*\b'
-         words = re.findall(pattern, text, re.IGNORECASE)
+    def vowel(cls,text:str) -> str:
+        '''Function for finding vord with vowel in 2 position and consonant in 3
 
-         output = "Слова, у которых вторая буква согласная, а третья – гласная: "
-         for word in words:
-             output += word
-             output += " "
-         output += "\n"
-         return output
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- string that contains this words (str)
+        '''
+        pattern = r'\b\w[bcdfghjklmnpqrstvwxyz][aeiou]\w*\b'
+        words = re.findall(pattern, text, re.IGNORECASE)
+
+        output = "Слова, у которых вторая буква согласная, а третья – гласная: "
+        for word in words:
+            output += word
+            output += " "
+        output += "\n"
+        return output
 
     @classmethod
-    def space_word(self, text:str) -> str:
+    def space_word(cls, text:str) -> str:
+        '''Function for finding word that has space in left and right
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- word (str)
+        '''
         pattern = r'\b[A-Za-zА]+\b'
         words = re.findall(pattern, text)
         default_words = text.split()
@@ -123,7 +195,16 @@ class TextAnalyzer():
 
 
     @classmethod
-    def count_letter_occurrences(self,text:str):
+    def count_letter_occurrences(cls,text:str):
+        '''Function for counting each letter
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- letters (str)
+        '''
         punct_pattern = r'[^\w\s]'
         text_without_punc = re.sub(punct_pattern, '', text)
         text_without_punc = text_without_punc.replace(" ", "")
@@ -135,7 +216,16 @@ class TextAnalyzer():
         return output
 
     @classmethod
-    def alpha_sort(self,text:str) -> str:
+    def alpha_sort(cls,text:str) -> str:
+        '''Function for sorting words between comas
+
+        keyword argument:
+        text -- input text
+
+
+        return value:
+        output -- sorted words (str)
+        '''
         pattern = r'(?<=,)\s*([^,]+)\s*(?=,)'
         words_between_commas = re.findall(pattern, text)
         sorted_words = sorted(words_between_commas)
@@ -146,5 +236,3 @@ class TextAnalyzer():
             output += ", "
         output += "\n"
         return output
-
-
