@@ -13,9 +13,12 @@ class IFileWorker(ABC):
         text -- text from file
 
         '''
-        with open(path,"r",encoding="utf-8") as file:
-            text = file.read()
-        return text
+        try:
+            with open(path,"r",encoding="utf-8") as file:
+                text = file.read()
+            return text
+        except Exception:
+            print("Ошибка открытия файла")
 
     def write_to_file(self, path:str, text_output:str):
         '''Function for writing in file
@@ -25,8 +28,11 @@ class IFileWorker(ABC):
         text_output -- your text
 
         '''
-        with open(path, "w",encoding="utf-8") as file:
-            file.write(text_output)
+        try:
+            with open(path, "w",encoding="utf-8") as file:
+                file.write(text_output)
+        except Exception:
+            print("Ошибка открытия файла")
 
     @abstractmethod
     def archive_file():

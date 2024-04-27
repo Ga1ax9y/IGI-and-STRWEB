@@ -30,11 +30,12 @@ class StandartAnalyzer():
         return value:
         output -- types of sentences (str)
         '''
-        pattern_narrative = r'[^.!?]*[.]+'
+       # pattern_narrative = r'[^.!?]*[.]+'
+        pattern_narrative2 = r'([^.!?]*[.]{1,3})'
         pattern_interrogative = r'[^.!?]*[?]+'
         pattern_imperative = r'[^.!?]*[!]+'
 
-        sentences_narrative = re.findall(pattern_narrative, text)
+        sentences_narrative = re.findall(pattern_narrative2, text)
         sentences_quest = re.findall(pattern_interrogative, text)
         sentences_imperative = re.findall(pattern_imperative, text)
         output = ""
@@ -44,7 +45,7 @@ class StandartAnalyzer():
         output += "Количество вопросительных предложений: "
         output += str(len(sentences_quest))
         output += "\n"
-        output += "Количество вопросительных предложений: "
+        output += "Количество восклицательных предложений: "
         output += str(len(sentences_imperative))
         output += "\n"
         return output
@@ -205,15 +206,19 @@ class TextAnalyzer(StandartAnalyzer):
         return value:
         output -- letters (str)
         '''
-        punct_pattern = r'[^\w\s]'
-        text_without_punc = re.sub(punct_pattern, '', text)
-        text_without_punc = text_without_punc.replace(" ", "")
-
-        letter_counts = Counter(text_without_punc).most_common()
+        letters = re.findall(r'[a-zA-Z]', text)
+        letters = [letter.lower() for letter in letters]
+        letter_counts = {}
+        for letter in letters:
+            if letter in letter_counts:
+                letter_counts[letter] += 1
+            else:
+                letter_counts[letter] = 1
         output = "Сколько раз повторяется каждая буква: "
         output += str(letter_counts)
         output += "\n"
         return output
+
 
     @classmethod
     def alpha_sort(cls,text:str) -> str:

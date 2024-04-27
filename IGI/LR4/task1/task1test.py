@@ -18,6 +18,8 @@ def main():
                 candidate_name = input("Введите имя кандидата: ")
                 try:
                     votes = int(input("Введите количество голосов за: "))
+                    if votes <=0:
+                        raise ValueError
                     elec.add_candidate(candidate_name,votes)
                     break
                 except ValueError:

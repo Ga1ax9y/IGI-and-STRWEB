@@ -12,11 +12,7 @@ class GeometricFigure(ABC):
         pass
 
 
-class ColorMixin:
-    def reinit(self,color):
-        self.color = color
-
-class Color(ColorMixin):
+class Color():
     def __init__(self,color) -> None:
         self.hidden_color = color
 
@@ -30,8 +26,11 @@ class Color(ColorMixin):
 
     color = property(get_color,set_color)
 
+class MessageMixin:
+    def message(self,message):
+        print(f"Фигура: {message}")
 
-class Parallelogram(GeometricFigure):
+class Parallelogram(GeometricFigure,MessageMixin):
     name = "Паралеллограмм"
     def __init__(self, diagonal1:float, diagonal2:float, angle:float, col:str):
 
@@ -40,6 +39,9 @@ class Parallelogram(GeometricFigure):
         self.diagonal2 = diagonal2
         self.angle = angle
         self.color = Color(col)
+
+    def do_something(self):
+        self.message("Параллелограмм")
 
     def __eq__ (self,other):
             return self.calculate_area() == other.calculate_area()

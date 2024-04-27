@@ -8,8 +8,13 @@ def main():
     filenamew = r".\task2\file_from.txt"
 
     File_work = ZipWorker()
-    
-    text = File_work.read_from_file(filenamer)
+
+    while True:
+        try:
+            text = File_work.read_from_file(filenamer)
+            break
+        except FileExistsError:
+            print("Не удалось открыть файл")
 
     text_output = ""
     text_output += TextAnalyzer.find_sentences(text)
