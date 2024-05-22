@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Профиль сотрудника {{employee.user.username}} {% endblock %}
+{% block content %}
+<h1>{{ employee.full_name }}</h1>
+<p><strong>Никнейм:</strong> {{ employee.user.username }}</p>
+<p><strong>ФИО пользователя:</strong> {{ employee.full_name }}</p>
+{% if employee.photo %}
+<p><strong>Фото:</strong> <br> <img src="{{ employee.photo.url }}" alt="Фото сотрудника" width="250" height="auto"></p>
+{% endif %}
+<p><strong>Рабочий телефон:</strong> {{ uemployeeser.work_phone }}</p>
+<p><strong>Рабочая почта:</strong> {{ employee.work_email }}</p>
+<p><strong>Описание работ:</strong> {{ employee.description }}</p>
+<p><strong>Специализации:</strong></p>
+<ul>
+    {% for specialization in employee.specializations.all %}
+        <li>{{ specialization.name }}</li>
+    {% endfor %}
+</ul>
+{% if user_is_superuser%}
+<h1>Заказы {{ employee.full_name }}:</h1>
+    {% for order in orders %}
+        <h2>Заказ на {{ order.date_of_work }}</h2>
+        <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
+        <p><strong>Адрес:</strong> {{ order.address }}</p>
+        <p><strong>Сотрудник:</strong>
+            <a href="{% url 'customer_detail' order.customer.id %}">{{ order.customer.full_name }}</a>
+        <p><strong>Услуги:</strong></p>
+        <ul>
+            {% for service in order.services.all %}
+                <li>{{ service.title }} - {{ service.price }} руб.</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Добавить тип усоуги{% endblock %}
+
+{% block content %}
+<div style="display: flex; flex-direction: column;">
+    <h1>Все типы услуг</h1>
+    {% for servicetype in servicetypes %}
+      <div>{{ servicetype.name }}</div>
+    {% endfor %}
+</div>
+<h1>Добавить тип услуги</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить</button>
+</form>
+{% endblock %}

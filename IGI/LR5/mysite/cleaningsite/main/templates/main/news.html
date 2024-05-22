@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+
+<p><h1>Новости</h1></p>
+<div style="display: flex; align-items: start; margin-bottom: 30px;">
+    {% for news in news_list %}
+    <div style="display: flex; align-items: start; margin-bottom: 30px;">
+        <img src="{{ news.image.url }}" alt="{{ news.title }}" width="250" height="auto">
+        <div style="margin-left: 20px;">
+            <h2 style="margin-top: 0;">{{ news.title }}</h2>
+            <p>{{ news.summary }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

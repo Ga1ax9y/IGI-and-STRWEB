@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+{% block title %}Неназначенные заказы{% endblock %}
+
+{% block content %}
+<h1>Неназначенные заказы</h1>
+{% if orders %}
+    <ul>
+        {% for order in orders %}
+            <li>
+                <h2>Заказ на {{ order.date_of_work }}</h2>
+                <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
+                <p><strong>Адрес:</strong> {{ order.address }}</p>
+                <p><strong>Заказчик:</strong>
+                    <a href="{% url 'customer_detail' order.customer.id %}">{{ order.customer.full_name }}</a>
+                </p>
+
+                <p><strong>Услуги:</strong></p>
+                <ul>
+                    {% for service in order.services.all %}
+                        <li>{{ service.title }} - {{ service.price }} руб.</li>
+                    {% endfor %}
+                </ul>
+                <br>
+                <form action="{% url 'edit_order' order.id %}" method="get">
+                    <button type="submit">Оформить заказ</button>
+                </form>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Нет заказов без назначенного сотрудника.</p>
+{% endif %}
+{% endblock %}

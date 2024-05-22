@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Добавить специализацию{% endblock %}
+
+{% block content %}
+<div style="display: flex; flex-direction: column;">
+    <h1>Все специализации</h1>
+    {% for spezialization in spezializations %}
+      <div>{{ spezialization.name }}</div>
+    {% endfor %}
+</div>
+<h1>Добавление специализации</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить</button>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Изменить сервис{% endblock %}
+{% block content %}
+<form action="{% url 'home' %}" method="post">
+    <h1>Изменяемая услуга - {{service.title}}</h1>
+    {% csrf_token %}
+
+    <label for="description">Описание:</label><br>
+    <textarea id="description" name="description" rows="4" cols="50">{{ service.description }}</textarea><br><br>
+
+    <label for="price">Цена:</label><br>
+    <input type="number" id="price" name="price" value="{{ service.price }}"><br><br>
+
+    <label for="service_type">Тип сервиса:</label><br>
+    <select id="service_type" name="service_type">
+        {% for service_type in service_types %}
+            <option value="{{ service_type.id }}" {% if service.service_type.id == service_type.id %} selected {% endif %}>{{ service_type.name }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="service_title" value="{{ service.title }}">
+        <button type="submit" name="action" value="update">Сохранить</button>
+    </form>
+</form>
+
+{% endblock %}

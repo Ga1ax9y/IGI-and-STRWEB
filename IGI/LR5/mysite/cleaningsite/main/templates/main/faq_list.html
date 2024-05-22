@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Словарь {% endblock %}
+{% block content %}
+
+<h1>Словарь терминов и понятий</h1>
+<h2>Задать вопрос</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+
+<ul>
+    {% for faq in faqs %}
+        <li>
+            <h3>Вопрос: {{ faq.question }}</h3>
+            <p>Ответ: {{ faq.answer|default:"На вопрос еще не ответили" }}</p>
+            <p><small>Дата добавления: {{ faq.date_added|date:"d/m/Y" }}</small></p>
+            {% if is_employee and not faq.answer or user_is_superuser and not faq.answer %}
+                <form action="{% url 'answer_faq' faq.id %}" method="get">
+                    <button type="submit">Ответить на вопрос</button>
+                </form>
+            {% endif %}
+            <hr>
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Панель админа{% endblock %}
+
+{% block content %}
+<h1>Панель администратора</h1>
+<div style="display: flex; flex-direction: column;">
+    <a href="{% url 'add_specialization'%}">Добавить специализацию</a>
+    <br>
+    <a href="{% url 'add_service_type'%}">Добавить тип товара</a>
+    <br>
+    <a href="{% url 'management'%}">Управление сотрудниками</a>
+    <br>
+    <a href="{% url 'statistics'%}">Статистика</a>
+    <br>
+</div>
+{% endblock %}

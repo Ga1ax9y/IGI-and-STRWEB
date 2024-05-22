@@ -1,0 +1,29 @@
+
+{% extends 'main/base.html' %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block content %}
+<h1>Контакты</h1>
+<ul>
+    {% for employee in employees %}
+        <li>
+            <h2>{{ employee.full_name }}</h2>
+            <p><strong>Дата рождения:</strong> {{ employee.birth_date }}</p>
+            <p><strong>Специализации:</strong>
+                {% for spec in employee.specializations.all %}
+                    {{ spec.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            {% if employee.photo %}
+                <img src="{{ employee.photo.url }}" alt="{{ employee.full_name }}" width="150" height="150">
+            {% endif %}
+            <p><strong>Рабочий телефон:</strong> {{ employee.work_phone }}</p>
+            <p><strong>Рабочая почта:</strong> {{ employee.work_email }}</p>
+            <p><strong>Описание работ:</strong> {{ employee.description }}</p>
+            <hr>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

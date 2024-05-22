@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Профиль клиента {{customer.user.username}} {% endblock %}
+{% block content %}
+<h1>{{ customer.full_name }}</h1>
+<p><strong>Никнейм:</strong> {{ customer.user.username }}</p>
+<p><strong>ФИО пользователя:</strong> {{ customer.full_name }}</p>
+<p><strong>Рабочий телефон:</strong> {{ customer.company_name }}</p>
+<p><strong>Рабочая почта:</strong> {{ customer.contact_phone }}</p>
+<p><strong>Описание работ:</strong> {{ customer.get_customer_type_display }}</p>
+{% if user_is_superuser%}
+<h1>Заказы {{ customer.full_name }}:</h1>
+    {% for order in orders %}
+        <h2>Заказ на {{ order.date_of_work }}</h2>
+        <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
+        <p><strong>Адрес:</strong> {{ order.address }}</p>
+        <p><strong>Сотрудник:</strong>
+            {% if order.employee %}
+            <a href="{% url 'employee_detail' order.employee.id %}">{{ order.employee.full_name }}</a>
+            {% else %}
+                Не назначен
+            {% endif %}
+        <p><strong>Услуги:</strong></p>
+        <ul>
+            {% for service in order.services.all %}
+                <li>{{ service.title }} - {{ service.price }} руб.</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endif %}
+{% endblock %}

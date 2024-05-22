@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Мои заказы{% endblock %}
+
+{% block content %}
+<h1>Мои заказы</h1>
+<form action="{% url 'orders' %}" method="get" style="display: inline-block;">
+    {% if user_is_superuser %}
+    <label for="employee_id">Выберите сотрудника:</label>
+    <select name="employee_id" id="employee_id" style="padding: 5px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; color: #333;">
+        <option value="">Все сотрудники</option>
+        {% for employee in employees %}
+            <option value="{{ employee.id }}" {% if selected_employee_id == employee.id|stringformat:"s" %}selected{% endif %}>
+                {{ employee.full_name }}
+            </option>
+        {% endfor %}
+    </select>
+    {% endif %}
+    <label for="sort_direction">Сортировать по дате:</label>
+    <select name="sort_direction" id="sort_direction" style="padding: 5px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; color: #333;">
+        <option value="asc" {% if sort_direction == "asc" %}selected{% endif %}>По возрастанию дат</option>
+        <option value="desc" {% if sort_direction == "desc" %}selected{% endif %}>По убыванию дат</option>
+    </select>
+    <button type="submit" style="background-color: orange; color: white; padding: 10px; border: none; cursor: pointer;">Отсортировать</button>
+</form>
+
+{% if orders %}
+    <ul>
+        {% for order in orders %}
+            <li>
+                <h2>Заказ на {{ order.info.date_of_work }}</h2>
+                <p><strong>Код заказа:</strong> {{ order.info.order_code }}</p>
+                <p><strong>Адрес:</strong> {{ order.info.address }}</p>
+                <p><strong>Услуги:</strong></p>
+                <ul>
+                    {% for service in order.info.services.all %}
+                        <li>{{ service.title }} - {{ service.price }} руб.</li>
+                    {% endfor %}
+                </ul>
+                <p><strong>Итого: </strong>{{ order.total_order_price }} рублей</p>
+                {% if is_customer or user_is_superuser %}
+                <p><strong>Сотрудник:</strong>
+                    {% if order.info.employee %}
+                    <a href="{% url 'employee_detail' order.info.employee.id %}">{{ order.info.employee.full_name }}</a>
+                    {% else %}
+                        Не назначен
+                    {% endif %}
+                {% endif %}
+                </p>
+                {% if is_employee or user_is_superuser %}
+                <p><strong>Заказчик:</strong>
+                    <a href="{% url 'customer_detail' order.info.customer.id %}">{{ order.info.customer.full_name }}</a>
+                </p>
+
+                {% endif %}
+            </li>
+            <hr>
+
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>У вас пока нет заказов.</p>
+{% endif %}
+{% endblock %}
