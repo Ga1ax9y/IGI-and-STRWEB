@@ -9,13 +9,14 @@
     <p><strong>Имя :</strong> {{ user.username }}</p>
 {% elif is_employee%}
     {% if user.photo %}
-    <p>Фото:</strong> <br> <img src="{{ user.photo.url }}" alt="Фото сотрудника"></p>
+    <p>Фото:</strong> <br> <img src="{{ user.photo.url }}" alt="Фото сотрудника" width="250" height="250"></p>
     {% endif %}
     <p><strong>Никнейм :</strong> {{ nickname.username }}</p>
     <p><strong>ФИО пользователя:</strong> {{ user.full_name }}</p>
     <p><strong>Рабочий телефон:</strong> {{ user.work_phone }}</p>
     <p><strong>Рабочая почта:</strong> {{ user.work_email }}</p>
     <p><strong>Описание работ:</strong> {{ user.description }}</p>
+    <p><strong>День рождения:</strong> {{ user.birth_date |date:"d/m/Y"}}</p>
     <p><strong>Специализации:</strong></p>
     <ul>
         {% for specialization in user.specializations.all %}

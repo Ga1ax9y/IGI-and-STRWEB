@@ -28,7 +28,7 @@
     <ul>
         {% for order in orders %}
             <li>
-                <h2>Заказ на {{ order.info.date_of_work }}</h2>
+                <h2>Заказ на {{ order.info.date_of_work |date:"d/m/Y"}}</h2>
                 <p><strong>Код заказа:</strong> {{ order.info.order_code }}</p>
                 <p><strong>Адрес:</strong> {{ order.info.address }}</p>
                 <p><strong>Услуги:</strong></p>
@@ -37,6 +37,9 @@
                         <li>{{ service.title }} - {{ service.price }} руб.</li>
                     {% endfor %}
                 </ul>
+                {% if order.info.promo_code %}
+                    <p>Промокод: {{order.info.promo_code.discount_coefficient}} стоимости</p>
+                {% endif %}
                 <p><strong>Итого: </strong>{{ order.total_order_price }} рублей</p>
                 {% if is_customer or user_is_superuser %}
                 <p><strong>Сотрудник:</strong>
@@ -51,11 +54,21 @@
                 <p><strong>Заказчик:</strong>
                     <a href="{% url 'customer_detail' order.info.customer.id %}">{{ order.info.customer.full_name }}</a>
                 </p>
-
+                {% endif %}
+                {% if user_is_superuser %}
+                <form action="" method="post" style="display: inline-block;">
+                    {% csrf_token %}
+                    <input type="hidden" name="order_id" value="{{ order.info.id }}">
+                    <button type="submit" name="delete_order" style="background-color: red; color: white; padding: 10px; border: none; cursor: pointer;">Удалить</button>
+                </form>
+                <form action="" method="post" style="display: inline-block;">
+                    {% csrf_token %}
+                    <input type="hidden" name="order_id" value="{{ order.info.id }}">
+                    <button type="submit" name="update_order" style="background-color: blue; color: white; padding: 10px; border: none; cursor: pointer;">Изменить</button>
+                </form>
                 {% endif %}
             </li>
             <hr>
-
         {% endfor %}
     </ul>
 {% else %}

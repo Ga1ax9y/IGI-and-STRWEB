@@ -171,9 +171,11 @@ class PromoCode(models.Model):
 
 
     def is_valid(self):
-        if self.valid_until >= timezone.now().date():
-            self.is_active == False
-            
+        if self.valid_until and self.valid_until < timezone.now().date():
+            self.is_active = False
+            self.save() 
+        return self.is_active
+
     def __str__(self):
         return self.code
 

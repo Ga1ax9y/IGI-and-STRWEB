@@ -1,59 +1,14 @@
 {% extends 'main/base.html' %}
 
 {% block title %}Изменить профиль{% endblock %}
+
 {% block content %}
+<h1>Редактирование профиля</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {% if is_customer %}
-    <br>
-    <label for="full_name">ФИО заказчика:</label>
-    <input type="text" id="full_name" name="full_name" value="{{ user.full_name }}"><br>
-    <br>
-
-    <label for="company_name">Название компании:</label>
-    <input type="text" id="company_name" name="company_name" value="{{ user.company_name }}"><br>
-    <br>
-
-    <label for="contact_phone">Контактный телефон:</label>
-    <input type="text" id="contact_phone" name="contact_phone" value="{{ user.contact_phone }}"><br>
-    <br>
-
-    <label for="customer_type">Тип заказчика:</label>
-    <select id="customer_type" name="customer_type">
-      {% for choice in user.CUSTOMER_TYPE_CHOICES %}
-        <option value="{{ choice.0 }}" {% if choice.0 == user.customer_type %} selected {% endif %}>{{ choice.1 }}</option>
-      {% endfor %}
-    </select><br>
-    <br>
-    {% elif is_employee %}
-    <label for="full_name">ФИО:</label><br>
-    <input type="text" id="full_name" name="full_name" value="{{ user.full_name }}"><br><br>
-
-    <label for="specializations">Специализации:</label><br>
-    <select name="specializations" multiple>
-        {% for specialization in specializations %}
-            <option value="{{ specialization.pk }}" {% if specialization in employee.specializations.all %}selected{% endif %}>
-                {{ specialization.name }}
-            </option>
-        {% endfor %}
-    </select>
-    <br>
-
-    <label for="photo">Фото:</label><br>
-    <input type="file" id="photo" name="photo"><br><br>
-
-    <label for="work_phone">Рабочий телефон:</label><br>
-    <input type="text" id="work_phone" name="work_phone" value="{{ user.work_phone }}"><br><br>
-
-    <label for="work_email">Рабочая почта:</label><br>
-    <input type="email" id="work_email" name="work_email" value="{{ user.work_email }}"><br><br>
-
-    <label for="description">Описание:</label><br>
-    <textarea id="description" name="description">{{ user.description }}</textarea><br><br>
-
-    {% endif %}
+    {{ form.as_p }}
     <button type="submit">Сохранить изменения</button>
-  </form>
-  <br>
-  <button onclick="window.location.href = '{% url 'profile' %}';">Отменить изменения</button>
+</form>
+<br>
+<button onclick="window.location.href = '{% url 'profile' %}';">Отменить изменения</button>
 {% endblock %}

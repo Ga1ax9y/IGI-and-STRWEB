@@ -5,7 +5,10 @@
 <form action="{% url 'home' %}" method="post">
     <h1>Изменяемая услуга - {{service.title}}</h1>
     {% csrf_token %}
-
+    {% if user_is_superuser%}
+    <label for="title">Описание:</label><br>
+    <textarea id="title" name="title" rows="1" cols="50" >{{ service.title }}</textarea><br><br>
+    {% endif%}
     <label for="description">Описание:</label><br>
     <textarea id="description" name="description" rows="4" cols="50">{{ service.description }}</textarea><br><br>
 

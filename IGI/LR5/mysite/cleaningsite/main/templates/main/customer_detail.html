@@ -1,31 +1,47 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Профиль клиента {{customer.user.username}} {% endblock %}
+{% block title %}Профиль клиента {{ customer.user.username }}{% endblock %}
+
 {% block content %}
 <h1>{{ customer.full_name }}</h1>
 <p><strong>Никнейм:</strong> {{ customer.user.username }}</p>
 <p><strong>ФИО пользователя:</strong> {{ customer.full_name }}</p>
-<p><strong>Рабочий телефон:</strong> {{ customer.company_name }}</p>
-<p><strong>Рабочая почта:</strong> {{ customer.contact_phone }}</p>
-<p><strong>Описание работ:</strong> {{ customer.get_customer_type_display }}</p>
-{% if user_is_superuser%}
+<p><strong>Телефон:</strong> {{ customer.company_name }}</p>
+<p><strong>Почта:</strong> {{ customer.contact_phone }}</p>
+<p><strong>Тип заказчика:</strong> {{ customer.get_customer_type_display }}</p>
+
+{% if user_is_superuser %}
 <h1>Заказы {{ customer.full_name }}:</h1>
-    {% for order in orders %}
-        <h2>Заказ на {{ order.date_of_work }}</h2>
-        <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
-        <p><strong>Адрес:</strong> {{ order.address }}</p>
-        <p><strong>Сотрудник:</strong>
-            {% if order.employee %}
-            <a href="{% url 'employee_detail' order.employee.id %}">{{ order.employee.full_name }}</a>
-            {% else %}
-                Не назначен
-            {% endif %}
-        <p><strong>Услуги:</strong></p>
-        <ul>
-            {% for service in order.services.all %}
-                <li>{{ service.title }} - {{ service.price }} руб.</li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
+
+<form method="get" action="{% url 'customer_detail' customer.id %}">
+    <label for="start_date">Дата начала:</label>
+    <input type="date" id="start_date" name="start_date" value="{{ start_date|default_if_none:'' }}">
+    <label for="end_date">Дата окончания:</label>
+    <input type="date" id="end_date" name="end_date" value="{{ end_date|default_if_none:'' }}">
+    <button type="submit" style="background-color: orange; color: white; padding: 10px; border: none; cursor: pointer;">Применить</button>
+</form>
+
+{% if start_date and end_date %}
+    <h2>Заказы за период с {{ start_date | date:"d/m/Y"}} по {{ end_date | date:"d/m/Y"}}</h2>
+    <p><strong>Общая стоимость услуг:</strong> {{ total_cost }} руб.</p>
+{% endif %}
+
+{% for order in orders %}
+    <h2>Заказ на {{ order.date_of_work | date:"d/m/Y" }}</h2>
+    <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
+    <p><strong>Адрес:</strong> {{ order.address }}</p>
+    <p><strong>Сотрудник:</strong>
+        {% if order.employee %}
+        <a href="{% url 'employee_detail' order.employee.id %}">{{ order.employee.full_name }}</a>
+        {% else %}
+            Не назначен
+        {% endif %}
+    <p><strong>Услуги:</strong></p>
+    <ul>
+        {% for service in order.services.all %}
+            <li>{{ service.title }} - {{ service.price }} руб.</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
 {% endif %}
 {% endblock %}

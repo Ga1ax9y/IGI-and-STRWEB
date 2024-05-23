@@ -4,13 +4,14 @@
 {% block content %}
 
 <h1>Словарь терминов и понятий</h1>
+{% if is_auth%}
 <h2>Задать вопрос</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Отправить</button>
 </form>
-
+{% endif %}
 <ul>
     {% for faq in faqs %}
         <li>
@@ -26,6 +27,5 @@
         </li>
     {% endfor %}
 </ul>
-
 
 {% endblock %}

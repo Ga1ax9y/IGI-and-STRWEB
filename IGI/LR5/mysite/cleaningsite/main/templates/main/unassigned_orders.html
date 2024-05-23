@@ -7,7 +7,7 @@
     <ul>
         {% for order in orders %}
             <li>
-                <h2>Заказ на {{ order.date_of_work }}</h2>
+                <h2>Заказ на {{ order.date_of_work |date:"d/m/Y"}}</h2>
                 <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
                 <p><strong>Адрес:</strong> {{ order.address }}</p>
                 <p><strong>Заказчик:</strong>

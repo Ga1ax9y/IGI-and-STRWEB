@@ -1,4 +1,4 @@
-from .models import Service,Customer,ServiceType,Order,EmployeeSpecialization,Review,FAQ,Vacancy,PromoCode
+from .models import Service,Customer,ServiceType,Order,EmployeeSpecialization,Review,FAQ,Vacancy,PromoCode,News,Employee
 from django.forms import ModelForm, TextInput, NumberInput,ModelChoiceField,Select,CheckboxSelectMultiple,DateInput,DateField,CharField
 from datetime import date
 from django.core.exceptions import ValidationError
@@ -50,6 +50,19 @@ class CustomerRegistrationForm(ModelForm):
         model = Customer
         fields = ['full_name','birth_date', 'company_name', 'contact_phone', 'customer_type']
 
+class EmployeeForm(ModelForm):
+    birth_date = DateField(
+        validators=[validate_birth_date],
+        input_formats=['%d/%m/%Y'],
+        widget=DateInput(attrs={'type': 'text', 'placeholder': 'DD/MM/YYYY'})
+    )
+    work_phone = CharField(
+        validators=[validate_phone_number],
+        widget=TextInput(attrs={'placeholder': '+375 (29) XXX-XX-XX'})
+    )
+    class Meta:
+        model = Employee
+        fields = ['full_name','birth_date', 'specializations', 'photo','work_email','description','work_phone']
 
 class OrderForm(ModelForm):
     class Meta:
@@ -100,4 +113,15 @@ class VacancyForm(ModelForm):
 class PromoCodeForm(ModelForm):
     class Meta:
         model = PromoCode
-        fields = ['code', 'description', 'valid_until']
+        fields = ['code', 'description', 'valid_until','discount_coefficient']
+
+class NewsForm(ModelForm):
+    class Meta:
+        model = News
+        fields = ['title', 'summary', 'image']
+
+
+class FullOrderForm(ModelForm):
+    class Meta:
+        model = Order
+        fields = ['order_code', 'services', 'address', 'date_of_work', 'customer', 'employee']

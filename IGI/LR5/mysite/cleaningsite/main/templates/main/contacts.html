@@ -9,7 +9,6 @@
     {% for employee in employees %}
         <li>
             <h2>{{ employee.full_name }}</h2>
-            <p><strong>Дата рождения:</strong> {{ employee.birth_date }}</p>
             <p><strong>Специализации:</strong>
                 {% for spec in employee.specializations.all %}
                     {{ spec.name }}{% if not forloop.last %}, {% endif %}
