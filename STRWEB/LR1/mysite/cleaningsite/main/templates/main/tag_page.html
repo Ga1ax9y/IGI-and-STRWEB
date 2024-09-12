@@ -1,0 +1,99 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Словарь {% endblock %}
+{% block content %}
+<!--Специальные символы -->
+<p>&#9749;</p>
+<p contenteditable="true">&lt;</p>
+<a id='up' href="#down">Вниз (якорь)</a>
+<input type="button" accesskey="t" hidden/>
+<div itemscope itemtype="https://schema.org/Movie">
+    <h1 itemprop="name">Avatar</h1>
+    <span>
+      Director: <span itemprop="director">James Cameron</span> (born August 16,
+      1954)
+    </span>
+    <span itemprop="genre">Science fiction</span>
+    <a href="https://youtu.be/0AY1XIkX7bY" itemprop="trailer">Trailer</a>
+</div>
+<em>I</em> like <b>apples</b> and <b>oranges</b>.
+My favorite kind of orange is the mandarin,
+properly known as <i>citrus reticulata</i>.
+Oranges at my local store cost
+<s>$1 each</s> $2 for 3 <small>(plus tax)</small>.
+
+<strong>Warning:</strong> Eating <u>too many</u> oranges
+can give you heart burn.
+
+The point x<sub>10</sub> is the 10<sup>th</sup> point.
+
+
+<h2>Пример фрагмента кода:</h2>
+<pre><code>var x = 10;</code></pre>
+
+<h2>Пример переменной (курсив):</h2>
+<p><em>x</em> = 10</p>
+
+<h2>Пример результата работы программы:</h2>
+<samp>Hello, world!</samp>
+
+<h2>Пример ввода пользователя:</h2>
+<kbd>Ctrl+C</kbd>
+
+<h2>Пример сокращения:</h2>
+<abbr title="As soon as possible">ASAP</abbr>
+
+<p><dfn>API</dfn> — это интерфейс прикладного программирования.</p>
+
+<h2>Пример цитаты:</h2>
+<q cite="https://parade.com/1219723/alexandra-hurtado/thanos-quotes/">As long as there are those that remember what was, there will always be those that are unable to accept what can be. They will resist.</q>
+<h2>Пример даты времени:</h2>
+At <time datetime="15:00">3 o'clock</time>
+on <time datetime="1984-12-7">December 7th</time>.
+
+<h2>Выделение текста:</h2>
+I would like a <mark>pair</mark> of <mark>pears</mark>
+
+<h2>Выделение текста:</h2>
+I WANDERED lonely as a cloud<br>
+
+<h2>Перевод строки:</h2>
+That floats on high o'er vales and hills,<br>
+When all at once I saw a crowd,<br>
+A host, of golden daffodils;
+A host, of golden daffodils;
+
+<h2>Потенциальный перевод строки:</h2>
+That floats on high o'er vales and hills,<wbr>
+When all at once I saw a crowd,<wbr>
+A host, of golden daffodils, <wbr>
+A host, of golden daffodils;
+
+<h2>Ссылки</h2>
+<a href="http://mail.ru" target="_blank">Жми сюда!</a>
+<a href="mailto:usr@domain?subject=Вопрос">Написать на почту</a>
+<a href="tel:+375358838530">Позвонить</a>
+<h2>Ссылка для скачивания файла</h2>
+<p align='center'><a id='n1'href="document.pdf" download='name of document' accesskey="t">Скачать PDF-документ</a></p>
+<a id='down' href="#up">Вверх</a>
+<h2>Блок предварительно форматированного текста</h2>
+<pre>
+                             up
+    left
+                                        right
+</pre>
+<h2>Цитата как блок</h2>
+<blockquote>
+  As long as there are those that remember what was, there will always be those that are unable to accept what can be. They will resist.
+</blockquote>
+<hr color="red" size="25" noshade>
+<h2>Списки</h2>
+
+<h3>Упорядоченный список</h3>
+<ol>
+    <li>Первый элемент</li>
+    <li>Второй элемент</li>
+    <li>Третий элемент</li>
+</ol>
+
+{% endblock %}

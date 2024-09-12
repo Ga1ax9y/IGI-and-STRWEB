@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Моя корзина{% endblock %}
+
+{% block content %}
+
+<h1>Содержимое корзины</h1>
+<div>
+    {% for service in customer.cart.all %}
+        <div style="display: flex; align-items: center;">
+            <h2 style="margin-right: 10px;">{{ service.title }} - {{ service.price }}</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="service_title" value="{{ service.title }}">
+                <button type="submit" name="action" value="delete">Удалить из корзины</button>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+<form action="{% url 'order' %}" method="get">
+    <button type="submit" style="background-color: orange; color: white; padding: 10px; border: none; cursor: pointer;">Оформить заказ</button>
+</form>
+{% endblock %}

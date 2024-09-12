@@ -1,0 +1,793 @@
+2024-09-07 23:07:55,124 - main.views - INFO - In about us
+2024-09-07 23:08:04,307 - main.views - INFO - In profile
+2024-09-07 23:08:20,161 - main.views - INFO - In managment
+2024-09-09 17:35:22,679 - django.request - WARNING - Not Found: /favicon.ico
+2024-09-09 17:35:31,365 - main.views - INFO - In orders
+2024-09-09 17:35:34,720 - main.views - INFO - In login
+2024-09-09 17:35:44,004 - main.views - INFO - In login
+2024-09-09 17:35:51,315 - main.views - INFO - In cart
+2024-09-09 17:35:54,622 - main.views - INFO - In cart
+2024-09-09 17:36:55,214 - main.views - INFO - In login
+2024-09-09 17:37:00,707 - main.views - INFO - In profile
+2024-09-09 17:57:37,275 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'main'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 39, in index
+    return index_btn(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 98, in index_btn
+    return render(request,"main/index.html",
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 909, in _resolve_lookup
+    current = current()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py", line 30, in get_absolute_url
+    return reverse("main:service_detail",
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'main' is not a registered namespace
+2024-09-09 17:58:24,645 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-09 17:59:00,490 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-09 17:59:32,069 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 39, in index
+    return index_btn(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 98, in index_btn
+    return render(request,"main/index.html",
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 909, in _resolve_lookup
+    current = current()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py", line 30, in get_absolute_url
+    return reverse("service_detail",
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'service_detail' not found. 'service_detail' is not a valid view function or pattern name.
+2024-09-09 18:02:19,948 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:02:46,091 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:02:56,853 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:03:01,167 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:03:09,482 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:08:24,777 - django.request - ERROR - Internal Server Error: /2024/9/9/4/
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: service_detail() got an unexpected keyword argument 'year'
+2024-09-09 18:09:03,055 - django.request - WARNING - Not Found: /admin
+2024-09-09 18:09:44,582 - django.request - ERROR - Internal Server Error: /2024/9/9/4/
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: service_detail() got an unexpected keyword argument 'year'
+2024-09-09 18:09:59,285 - main.views - INFO - In login
+2024-09-09 18:10:06,239 - main.views - INFO - In login
+2024-09-09 18:10:15,485 - main.views - INFO - In login
+2024-09-09 18:10:23,158 - main.views - INFO - In cart
+2024-09-09 18:15:03,773 - django.request - ERROR - Internal Server Error: /2024/9/9/4/
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: service_detail() got an unexpected keyword argument 'year'
+2024-09-09 18:16:48,653 - django.request - WARNING - Not Found: /admin
+2024-09-09 18:18:31,944 - django.request - ERROR - Internal Server Error: /2024/9/9/4/
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: service_detail() got an unexpected keyword argument 'year'
+2024-09-09 18:19:54,092 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:20:03,784 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:20:11,401 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:20:28,695 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:20:32,246 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:20:35,610 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:20:38,829 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-09 18:20:56,314 - django.request - ERROR - Internal Server Error: /2024/9/9/4/
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: blog/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 48, in service_detail
+    return render(request, 'main/service_detail.html', {'service': service})
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: blog/base.html
+2024-09-09 18:24:48,036 - main.views - INFO - In create
+2024-09-09 18:29:12,510 - main.views - INFO - In login
+2024-09-09 18:29:26,405 - main.views - INFO - In login
+2024-09-09 18:29:34,787 - main.views - INFO - In login
+2024-09-09 18:29:38,763 - main.views - INFO - In cart
+2024-09-09 18:29:54,140 - main.views - INFO - In orders
+2024-09-09 18:30:01,222 - main.views - INFO - In employee profile
+2024-09-09 18:30:04,725 - main.views - INFO - In employee profile
+2024-09-09 18:30:08,359 - main.views - INFO - In employee profile
+2024-09-09 18:30:12,261 - main.views - INFO - In employee profile
+2024-09-09 18:30:25,262 - main.views - INFO - In employee profile
+2024-09-09 18:30:48,587 - main.views - INFO - In orders
+2024-09-09 18:30:50,517 - main.views - INFO - In orders
+2024-09-09 18:31:00,029 - main.views - INFO - In about us
+2024-09-09 19:16:41,992 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 39, in index
+    return index_btn(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 106, in index_btn
+    return render(request,"main/index.html",
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 565, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 9: 'static'. Did you forget to register or load this tag?
+2024-09-09 19:18:44,775 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\cleaningsite\settings.py changed, reloading.
+2024-09-09 19:18:51,249 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\cleaningsite\settings.py changed, reloading.
+2024-09-09 19:21:09,543 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 39, in index
+    return index_btn(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 106, in index_btn
+    return render(request,"main/index.html",
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 565, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 9: 'static'. Did you forget to register or load this tag?
+2024-09-09 19:30:11,956 - django.request - WARNING - Not Found: /company_logos/company_logo.png
+2024-09-09 19:30:14,369 - django.request - WARNING - Not Found: /2024/9/9/4/company_logos/company_logo.png
+2024-09-09 19:30:17,010 - django.request - WARNING - Not Found: /2024/9/9/5/company_logos/company_logo.png
+2024-09-09 19:30:19,670 - django.request - WARNING - Not Found: /2024/9/9/6/company_logos/company_logo.png
+2024-09-11 12:35:06,018 - django.request - WARNING - Not Found: /media/company_logos/company_logo.
+2024-09-11 12:35:09,908 - django.request - WARNING - Not Found: /media/company_logos/company_logo.
+2024-09-11 12:36:04,493 - main.views - INFO - In about us
+2024-09-11 12:36:35,132 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\urls.py changed, reloading.
+2024-09-11 12:36:39,572 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\urls.py changed, reloading.
+2024-09-11 12:36:43,410 - main.views - INFO - In about us
+2024-09-11 12:36:44,637 - main.views - INFO - In about us
+2024-09-11 12:37:50,339 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 12:37:54,698 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 12:40:22,319 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\admin.py changed, reloading.
+2024-09-11 12:40:29,991 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\admin.py changed, reloading.
+2024-09-11 12:44:46,984 - django.request - WARNING - Not Found: /favicon.ico
+2024-09-11 12:45:44,614 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\admin.py changed, reloading.
+2024-09-11 13:02:48,883 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\forms.py changed, reloading.
+2024-09-11 13:04:08,350 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:11:21,502 - main.views - INFO - In about us
+2024-09-11 13:11:21,825 - django.request - ERROR - Internal Server Error: /about
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 128, in about
+    return render(request,"main/about.html",{'informations':inforamation})
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\defaulttags.py", line 197, in render
+    values = list(values)
+TypeError: 'Company' object is not iterable
+2024-09-11 13:12:22,531 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:12:47,427 - main.views - INFO - In about us
+2024-09-11 13:12:47,758 - django.request - ERROR - Internal Server Error: /about
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 128, in about
+    return render(request,"main/about.html",{'inforamation':inforamation})
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 555, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 16: 'endfor', expected 'endblock'. Did you forget to register or load this tag?
+2024-09-11 13:12:54,872 - main.views - INFO - In about us
+2024-09-11 13:12:56,869 - main.views - INFO - In about us
+2024-09-11 13:12:58,282 - main.views - INFO - In about us
+2024-09-11 13:13:00,171 - main.views - INFO - In about us
+2024-09-11 13:13:49,755 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:13:54,569 - main.views - INFO - In about us
+2024-09-11 13:13:55,720 - main.views - INFO - In about us
+2024-09-11 13:13:55,921 - main.views - INFO - In about us
+2024-09-11 13:15:52,646 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:15:57,120 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:16:50,312 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:16:55,651 - main.views - INFO - In about us
+2024-09-11 13:17:12,143 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:17:12,219 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:17:19,070 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:17:19,119 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:17:22,749 - main.views - INFO - In about us
+2024-09-11 13:18:49,250 - main.views - INFO - In about us
+2024-09-11 13:21:04,293 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:21:04,454 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:21:11,215 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:21:16,604 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:21:29,083 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:21:49,247 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:22:16,893 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:22:20,412 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:22:32,258 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:23:53,302 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 13:35:13,904 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:35:14,267 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:35:26,153 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:36:02,757 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\cleaningsite\settings.py changed, reloading.
+2024-09-11 13:36:06,036 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\cleaningsite\settings.py changed, reloading.
+2024-09-11 13:38:42,680 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 47, in index
+    return index_btn(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 114, in index_btn
+    return render(request,"main/index.html",
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 169, in render
+    with context.bind_template(self):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\context.py", line 251, in bind_template
+    processors = template.engine.template_context_processors + self._processors
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\engine.py", line 118, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\engine.py", line 118, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'main.context_processors'
+2024-09-11 13:40:01,758 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:40:02,365 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:45:11,648 - main.views - INFO - In about us
+2024-09-11 13:45:49,520 - main.views - INFO - In about us
+2024-09-11 13:46:13,527 - main.views - INFO - In login
+2024-09-11 13:46:14,407 - main.views - INFO - In profile
+2024-09-11 13:47:16,245 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\admin.py changed, reloading.
+2024-09-11 13:47:16,395 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\admin.py changed, reloading.
+2024-09-11 13:58:11,560 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:58:11,658 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:58:18,361 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:58:19,340 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 13:58:22,020 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 14:03:00,897 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 14:03:01,263 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-11 14:09:43,560 - main.views - INFO - In login
+2024-09-11 14:10:00,797 - main.views - INFO - In login
+2024-09-11 14:10:10,818 - main.views - INFO - In login
+2024-09-11 14:12:44,665 - main.views - INFO - In cart
+2024-09-11 14:13:45,128 - main.views - INFO - In about us
+2024-09-11 16:55:39,943 - main.views - INFO - In about us
+2024-09-11 16:56:13,325 - main.views - INFO - In about us
+2024-09-11 16:56:22,776 - main.views - INFO - In login
+2024-09-11 16:56:23,484 - main.views - INFO - In profile
+2024-09-11 16:56:27,332 - main.views - INFO - In user edit
+2024-09-11 16:56:57,914 - main.views - INFO - In profile
+2024-09-11 17:27:31,031 - main.views - INFO - In profile
+2024-09-11 17:27:32,016 - main.views - INFO - In profile
+2024-09-11 17:34:21,286 - main.views - INFO - In login
+2024-09-11 17:34:23,066 - main.views - INFO - In profile
+2024-09-11 17:34:56,893 - main.views - INFO - In about us
+2024-09-11 17:35:16,270 - main.views - INFO - In login
+2024-09-11 17:35:18,899 - main.views - INFO - In login
+2024-09-11 17:35:40,209 - main.views - INFO - In managment
+2024-09-11 17:37:58,569 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\urls.py changed, reloading.
+2024-09-11 18:04:47,340 - main.views - INFO - In create
+2024-09-11 18:05:08,984 - main.views - INFO - In about us
+2024-09-11 18:05:10,966 - main.views - INFO - In profile
+2024-09-11 18:05:14,340 - main.views - INFO - In profile
+2024-09-11 18:05:46,680 - main.views - INFO - In profile
+2024-09-11 18:05:58,407 - main.views - INFO - In profile
+2024-09-11 18:06:32,438 - main.views - INFO - In profile
+2024-09-11 18:06:42,610 - main.views - INFO - In profile
+2024-09-11 18:17:36,755 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 18:17:52,248 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 18:19:31,457 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\urls.py changed, reloading.
+2024-09-11 18:26:17,675 - django.request - ERROR - Internal Server Error: /news
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 592, in news_view
+    return render(request, 'main/news.html', {
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\base.py", line 909, in _resolve_lookup
+    current = current()
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py", line 126, in get_absolute_url
+    args=[self.publish.year,
+AttributeError: 'News' object has no attribute 'publish'
+2024-09-11 18:26:17,937 - django.request - WARNING - Not Found: /favicon.ico
+2024-09-11 18:26:37,556 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 18:26:41,857 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\models.py changed, reloading.
+2024-09-11 18:26:48,258 - main.views - INFO - In profile
+2024-09-11 18:29:12,412 - main.views - INFO - In orders
+2024-09-11 19:12:47,039 - main.views - INFO - In profile
+2024-09-11 19:13:50,714 - main.views - INFO - In profile
+2024-09-11 19:14:08,034 - main.views - INFO - In orders
+2024-09-12 17:19:35,232 - main.views - INFO - In profile
+2024-09-12 17:19:37,744 - main.views - INFO - In login
+2024-09-12 17:19:40,885 - main.views - INFO - In login
+2024-09-12 17:20:48,646 - main.views - INFO - In cart
+2024-09-12 17:21:02,517 - main.views - INFO - In cart
+2024-09-12 17:21:03,394 - main.views - INFO - In cart
+2024-09-12 17:21:05,948 - main.views - INFO - In login
+2024-09-12 17:28:36,525 - django.request - WARNING - Not Found: /document.pdf
+2024-09-12 17:29:51,257 - django.request - WARNING - Not Found: /document.pdf
+2024-09-12 17:31:37,853 - django.request - WARNING - Not Found: /document.pdf
+2024-09-12 17:37:08,238 - django.request - WARNING - Not Found: /document.pdf
+2024-09-12 22:10:53,922 - main.views - INFO - In orders
+2024-09-12 22:11:48,906 - main.views - INFO - In profile
+2024-09-12 22:11:55,086 - main.views - INFO - In cart
+2024-09-12 22:11:58,756 - main.views - INFO - In about us
+2024-09-12 22:12:37,402 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:12:40,133 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:13:00,724 - main.views - INFO - In cart
+2024-09-12 22:13:02,553 - django.request - ERROR - Internal Server Error: /order
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 391, in make_order
+    return render(request, 'main/order/order.html', {'form': form})
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: main/orderorder.html
+2024-09-12 22:13:02,678 - django.request - WARNING - Not Found: /favicon.ico
+2024-09-12 22:13:57,658 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:14:01,442 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:17:09,323 - main.views - INFO - In login
+2024-09-12 22:17:21,730 - main.views - INFO - In login
+2024-09-12 22:17:27,753 - main.views - INFO - employee is looking for orders
+2024-09-12 22:17:31,249 - main.views - INFO - Someone edited order
+2024-09-12 22:17:39,660 - main.views - INFO - Someone edited order
+2024-09-12 22:17:51,785 - main.views - INFO - Someone edited order
+2024-09-12 22:17:54,923 - main.views - INFO - In orders
+2024-09-12 22:19:40,525 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:30:38,947 - main.views - INFO - In profile
+2024-09-12 22:30:39,087 - django.request - ERROR - Internal Server Error: /profile
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view main.views.user_profile didn't return an HttpResponse object. It returned None instead.
+2024-09-12 22:30:57,329 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:31:00,294 - main.views - INFO - In profile
+2024-09-12 22:31:00,355 - django.request - ERROR - Internal Server Error: /profile
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 217, in user_profile
+    return render(request, 'main/profile/profile.html',
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: main/profile/profile.html
+2024-09-12 22:31:15,115 - main.views - INFO - In profile
+2024-09-12 22:31:25,471 - main.views - INFO - In login
+2024-09-12 22:31:28,303 - main.views - INFO - In login
+2024-09-12 22:31:31,597 - main.views - INFO - In profile
+2024-09-12 22:31:37,801 - main.views - INFO - In login
+2024-09-12 22:31:40,713 - main.views - INFO - In login
+2024-09-12 22:31:43,336 - main.views - INFO - In profile
+2024-09-12 22:31:43,416 - django.request - ERROR - Internal Server Error: /profile
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 216, in user_profile
+    type_of_user = Customer.objects.get(user=request.user)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+main.models.Customer.DoesNotExist: Customer matching query does not exist.
+2024-09-12 22:32:00,339 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:33:41,123 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:33:48,458 - main.views - INFO - In profile
+2024-09-12 22:33:48,500 - django.request - ERROR - Internal Server Error: /profile
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 219, in user_profile
+    'user': type_of_user,
+UnboundLocalError: local variable 'type_of_user' referenced before assignment
+2024-09-12 22:34:11,997 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:34:15,916 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:34:24,278 - main.views - INFO - In profile
+2024-09-12 22:34:24,317 - django.request - ERROR - Internal Server Error: /profile
+Traceback (most recent call last):
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py", line 213, in user_profile
+    type_of_user = None
+NameError: name 'no' is not defined
+2024-09-12 22:34:35,807 - main.views - INFO - In profile
+2024-09-12 22:34:42,098 - main.views - INFO - In login
+2024-09-12 22:34:44,265 - main.views - INFO - In login
+2024-09-12 22:34:45,959 - main.views - INFO - In profile
+2024-09-12 22:34:47,687 - main.views - INFO - In user edit
+2024-09-12 22:34:53,917 - main.views - INFO - In login
+2024-09-12 22:34:57,085 - main.views - INFO - In login
+2024-09-12 22:34:58,399 - main.views - INFO - In profile
+2024-09-12 22:35:00,387 - main.views - INFO - In user edit
+2024-09-12 22:36:12,516 - django.utils.autoreload - INFO - C:\Users\Alexander\Desktop\bsuir\IGI\253505_Stanishewski_21\STRWEB\LR1\mysite\cleaningsite\main\views.py changed, reloading.
+2024-09-12 22:43:30,163 - main.views - INFO - In about us
+2024-09-12 22:43:32,219 - main.views - INFO - In login
+2024-09-12 22:43:32,706 - main.views - INFO - In profile
+2024-09-12 22:43:33,773 - main.views - INFO - In login
+2024-09-12 22:43:35,374 - main.views - INFO - In register
+2024-09-12 22:43:37,885 - main.views - INFO - In profile
+2024-09-12 22:43:46,582 - main.views - INFO - employee is looking for orders
+2024-09-12 22:43:56,243 - main.views - INFO - In orders
+2024-09-12 22:44:00,313 - main.views - INFO - In orders
+2024-09-12 22:44:04,247 - main.views - INFO - In profile
+2024-09-12 22:44:54,628 - main.views - INFO - In about us
