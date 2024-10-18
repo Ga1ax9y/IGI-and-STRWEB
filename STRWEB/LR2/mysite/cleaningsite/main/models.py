@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import date
 from django.urls import reverse
-from re import split as re_split
 # Create your models here.
 
 
@@ -125,9 +124,6 @@ class News(models.Model):
     def get_absolute_url(self):
         return reverse("news_detail",
                        args=[self.id])
-    @property
-    def brief_info(self):
-        return re_split(r'(?<=[.!?])\s', self.summary.strip())[0]
 
 class Review(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='reviews')

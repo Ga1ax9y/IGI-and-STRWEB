@@ -1,10 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
 import matplotlib.pyplot
 from .models import Service,Customer,ServiceType,Employee,EmployeeSpecialization,\
-                        Order,News,Review,AboutUs,FAQ,Vacancy,PromoCode,Company,Partner
+    Order,News,Review,AboutUs,FAQ,Vacancy,PromoCode,Company,Partner
 from .forms import ServiceForm,CustomerRegistrationForm,OrderForm,OrderUpdateForm,\
-                        ServiceTypeForm,EmployeeSpecializationForm,ReviewForm,FAQForm,AnswerForm,\
-                            VacancyForm,PromoCodeForm,NewsForm,FullOrderForm,EmployeeForm
+                    ServiceTypeForm,EmployeeSpecializationForm,ReviewForm,FAQForm,AnswerForm,\
+                    VacancyForm,PromoCodeForm,NewsForm,FullOrderForm,EmployeeForm
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -185,15 +185,6 @@ def user_login(request):
     return render(request, 'main/authorization/login.html', {'form': form})
 
 def get_user_time():
-    """
-    Return current date in user's timezone and a calendar text of the current month.
-
-    Returns:
-        dict: A dictionary with the following keys:
-            * user_timezone: The user's timezone.
-            * current_date_formatted: The current date in the format "%d/%m/%Y".
-            * calendar_text: The calendar text for the current month.
-    """
     user_timezone = tzlocal.get_localzone()
     current_date = datetime.now(user_timezone).date()
     current_date_formatted = current_date.strftime("%d/%m/%Y")
@@ -235,15 +226,6 @@ def user_profile(request):
 
 
 def sort_services(request):
-    """
-    Sort services by price in ascending or descending order.
-
-    If the user passes a GET parameter 'sort_direction' with value 'asc' or 'desc',
-    the services will be sorted in that order. Otherwise, the services will be returned in
-    the order they were added to the database.
-
-    Returns a QuerySet of Service objects.
-    """
     sort_direction = request.GET.get('sort_direction')
 
     if sort_direction == 'asc':
@@ -293,12 +275,6 @@ def user_management(request):
 
 
 def employee_detail(request, employee_id):
-    """
-    This view is responsible for rendering an employee's profile page.
-    :param request: Django request object.
-    :param employee_id: The id of the employee to be rendered.
-    :return: A rendered template with the employee's details.
-    """
     logger.info('In employee profile')
     user_is_superuser = request.user.is_superuser
     employee = get_object_or_404(Employee, id=employee_id)

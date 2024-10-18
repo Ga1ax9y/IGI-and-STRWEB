@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Service, Customer,EmployeeSpecialization,Employee,ServiceType,\
-            Order,News,Review,AboutUs,FAQ,PromoCode, Company, Partner,Vacancy
+            Order,News,Review,AboutUs,FAQ,PromoCode, Company, Partner
 # Register your models here.
 admin.site.register(ServiceType)
 
@@ -49,4 +49,3 @@ class PromoCodeAdmin(admin.ModelAdmin):
 
 admin.site.register(Company)
 admin.site.register(Partner)
-admin.site.register(Vacancy)

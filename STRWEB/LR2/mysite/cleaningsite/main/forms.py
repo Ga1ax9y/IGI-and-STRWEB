@@ -1,5 +1,5 @@
 from .models import Service,Customer,ServiceType,Order,EmployeeSpecialization,Review,FAQ,Vacancy,PromoCode,News,Employee
-from django.forms import ModelForm, TextInput, NumberInput,ModelChoiceField,Select,CheckboxSelectMultiple,DateInput,DateField,CharField, Textarea
+from django.forms import ModelForm, TextInput, NumberInput,ModelChoiceField,Select,CheckboxSelectMultiple,DateInput,DateField,CharField
 from datetime import date
 from django.core.exceptions import ValidationError
 import re
@@ -22,20 +22,20 @@ class ServiceForm(ModelForm):
         fields = ["title","description","price","service_type"]
         widgets = {
             "title" : TextInput(attrs={
-
+                'class' : 'form-control',
                 'placeholder' : 'Введите название услуги'
 
         }),
             "description" : TextInput(attrs={
-
+                'class' : 'form-control',
                 'placeholder' : 'Введите описание услуги'
         }),
             "price" : NumberInput(attrs={
-
+                'class' : 'form-control',
                 'placeholder' : 'Введите стоимость услуги'
         })
             }
-    service_type = ModelChoiceField(queryset=ServiceType.objects.all())
+    service_type = ModelChoiceField(queryset=ServiceType.objects.all(), widget=Select(attrs={'class': 'form-control'}))
 
 class CustomerRegistrationForm(ModelForm):
     birth_date = DateField(
@@ -126,3 +126,6 @@ class FullOrderForm(ModelForm):
     class Meta:
         model = Order
         fields = ['order_code', 'services', 'address', 'date_of_work', 'customer', 'employee']
+
+
+
