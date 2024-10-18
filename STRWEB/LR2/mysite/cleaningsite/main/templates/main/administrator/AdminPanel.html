@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Панель админа{% endblock %}
+
+{% block content %}
+<h1 class="admin-title">Панель администратора</h1>
+<div class="admin-panel">
+    <a href="{% url 'add_specialization' %}" class="admin-link">Добавить специализацию</a>
+    <a href="{% url 'add_service_type' %}" class="admin-link">Добавить тип товара</a>
+    <a href="{% url 'management' %}" class="admin-link">Управление сотрудниками</a>
+    <a href="{% url 'statistics' %}" class="admin-link">Статистика</a>
+</div>
+{% endblock %}

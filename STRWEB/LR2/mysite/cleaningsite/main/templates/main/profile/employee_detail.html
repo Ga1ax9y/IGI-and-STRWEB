@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Профиль сотрудника {{ employee.user.username }}{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="employee-info">
+        {% if employee.photo %}
+        <div class="employee-photo">
+            <img src="{{ employee.photo.url }}" alt="Фото сотрудника" class="employee-photo">
+        </div>
+        {% endif %}
+
+        <div class="employee-details">
+            <h1>{{ employee.full_name }}</h1>
+            <p><strong>Никнейм:</strong> {{ employee.user.username }}</p>
+            <p><strong>ФИО:</strong> {{ employee.full_name }}</p>
+            <p><strong>Рабочий телефон:</strong> {{ employee.work_phone }}</p>
+            <p><strong>Рабочая почта:</strong> {{ employee.work_email }}</p>
+            <p><strong>Описание работ:</strong> {{ employee.description }}</p>
+
+            <p><strong>Специализации:</strong></p>
+            <ul class="specializations-list">
+                {% for specialization in employee.specializations.all %}
+                    <li>{{ specialization.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    {% if user_is_superuser %}
+    <div class="admin-section">
+        <a href="{% url 'update_employee' employee.id %}" class="edit-button">Изменить</a>
+
+        <h2>Заказы {{ employee.full_name }}:</h2>
+        {% for order in orders %}
+        <div class="order-item">
+            <h3>Заказ на {{ order.date_of_work | date:"d/m/Y" }}</h3>
+            <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
+            <p><strong>Адрес:</strong> {{ order.address }}</p>
+            <p><strong>Заказчик:</strong>
+                <a href="{% url 'customer_detail' order.customer.id %}">{{ order.customer.full_name }}</a>
+            </p>
+            <p><strong>Услуги:</strong></p>
+            <ul>
+                {% for service in order.services.all %}
+                    <li>{{ service.title }} - {{ service.price }} руб.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
