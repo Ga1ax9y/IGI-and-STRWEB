@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Изменение заказа{% endblock %}
+
+{% block content %}
+<div class="update-order">
+    <h1 class="update-order-title">Изменение заказа</h1>
+
+    <form method="post" class="update-order-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="submit-button">Сохранить изменения</button>
+    </form>
+</div>
+{% endblock %}

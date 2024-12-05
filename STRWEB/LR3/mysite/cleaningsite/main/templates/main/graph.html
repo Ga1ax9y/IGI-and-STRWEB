@@ -1,0 +1,203 @@
+{% extends 'main/base.html' %}
+
+{% block title %}График{% endblock %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
+<h1>График функции и её разложения в ряд</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <label for="x_start">Начальное значение x:</label>
+    <input type="number" name="x_start" step="0.1" value="-5" required>
+    <label for="x_end">Конечное значение x:</label>
+    <input type="number" name="x_end" step="0.1" value="5" required>
+    <label for="eps">Точность ε:</label>
+    <input type="number" name="eps" step="0.0001" value="0.01" required>
+    <button type="submit">Построить график</button>
+</form>
+
+<canvas id="myChart" width="800" height="400"></canvas>
+
+<input type="hidden" id="chartImage" name="chart_image">
+<button id="downloadButton">Скачать график</button>
+<script>
+    const seriesSegments = {{ series_segments|safe }};
+    const mathSegments = {{ math_segments|safe }};
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    const datasets = [];
+
+    seriesSegments.forEach(segment => {
+        datasets.push({
+            label: 'Разложение функции в ряд',
+            data: [],
+            borderColor: 'blue',
+            fill: false,
+            pointRadius: 2,
+            showLine: true
+        });
+    });
+
+    mathSegments.forEach(segment => {
+        datasets.push({
+            label: 'Функция log((x+1)/(x-1))',
+            data: [],
+            borderColor: 'green',
+            fill: false,
+            pointRadius: 2,
+            showLine: true
+        });
+    });
+
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: { datasets },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                title: { display: true, text: 'График функции и её разложения в ряд' },
+                tooltip: {
+                    enabled: true,
+                    mode: 'nearest',
+                    intersect: false,
+                    callbacks: {
+                        label: function (context) {
+                            const x = context.raw.x.toFixed(2);
+                            const y = context.raw.y.toFixed(2);
+                            return `x: ${x}, y: ${y}`;
+                        }
+                    }
+                },
+                annotation: {
+                    annotations: {
+                        asymptoteLeft: {
+                            type: 'line',
+                            xMin: -1,
+                            xMax: -1,
+                            borderColor: 'red',
+                            borderWidth: 2,
+                            label: {
+                                content: 'x = -1 (асимптота)',
+                                enabled: true,
+                                position: 'start',
+                                xAdjust: -200,
+                                backgroundColor: 'rgba(255, 0, 0, 0.3)',
+                                color: 'black',
+                                font: { size: 12 }
+                            }
+                        },
+                        asymptoteRight: {
+                            type: 'line',
+                            xMin: 1,
+                            xMax: 1,
+                            borderColor: 'red',
+                            borderWidth: 2,
+                            label: {
+                                content: 'x = 1 (асимптота)',
+                                enabled: true,
+                                position: 'end',
+                                xAdjust: 200,
+                                backgroundColor: 'rgba(255, 0, 0, 0.3)',
+                                color: 'black',
+                                font: { size: 12 }
+                            }
+                        },
+                        xAxis: {
+                            type: 'line',
+                            xMin: 0,
+                            xMax: 0,
+                            borderColor: 'black',
+                            borderWidth: 1,
+                            label: {
+                                content: 'x = 0',
+                                enabled: true,
+                                position: 'start',
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                                color: 'black',
+                                font: { size: 12 }
+                            }
+                        },
+                        yAxis: {
+                            type: 'line',
+                            yMin: 0,
+                            yMax: 0,
+                            borderColor: 'black',
+                            borderWidth: 1,
+                            label: {
+                                content: 'y = 0',
+                                enabled: true,
+                                position: 'end',
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                                color: 'black',
+                                font: { size: 12 }
+                            }
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Значение x',
+                        font: { size: 14 }
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.1)',
+                        lineWidth: 1
+                    },
+                    ticks: { color: '#333' },
+                    min: -7,
+                    max: 7
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Значение y',
+                        font: { size: 14 }
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.1)',
+                        lineWidth: 1
+                    },
+                    ticks: { color: '#333' },
+                    min: -5,
+                    max: 5
+                }
+            }
+        }
+    });
+    document.getElementById('downloadButton').addEventListener('click', function() {
+        const link = document.createElement('a');
+        link.href = myChart.toBase64Image();
+        link.download = 'chart.png';
+        link.click();
+    });
+
+    function animateSegmentSimple(segment, datasetIndex, delay) {
+        let index = 0;
+
+        function addPoint() {
+            if (index < segment.length) {
+                myChart.data.datasets[datasetIndex].data.push({ x: segment[index][0], y: segment[index][1] });
+                myChart.update();
+                index++;
+                setTimeout(addPoint, delay);
+            }
+        }
+
+
+        addPoint();
+    }
+
+
+    seriesSegments.forEach((segment, i) => animateSegmentSimple(segment, i, 50));
+    mathSegments.forEach((segment, i) => animateSegmentSimple(segment, i + seriesSegments.length, 50));
+</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Неназначенные заказы{% endblock %}
+
+{% block content %}
+
+<div class="unassigned-orders">
+    <h1 class="unassigned-orders-title">Неназначенные заказы</h1>
+
+    {% if orders %}
+    <ul class="unassigned-orders-list">
+        {% for order in orders %}
+        <li class="unassigned-orders-item">
+            <div class="unassigned-order">
+                <h2 class="unassigned-order-date">Заказ на {{ order.date_of_work |date:"d/m/Y"}}</h2>
+                <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
+                <p><strong>Адрес:</strong> {{ order.address }}</p>
+                <p><strong>Заказчик:</strong>
+                    <a href="{% url 'customer_detail' order.customer.id %}" class="unassigned-order-customer">{{ order.customer.full_name }}</a>
+                </p>
+
+                <p><strong>Услуги:</strong></p>
+                <ul class="unassigned-order-services">
+                    {% for service in order.services.all %}
+                    <li class="unassigned-order-service-item">{{ service.title }} - {{ service.price }} руб.</li>
+                    {% endfor %}
+                </ul>
+
+                <form action="{% url 'edit_order' order.id %}" method="get" class="unassigned-order-form">
+                    <button type="submit" class="submit-button">Оформить заказ</button>
+                </form>
+            </div>
+            <hr class="unassigned-order-divider">
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="unassigned-orders-no-orders">Нет заказов без назначенного сотрудника.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Управление специализациями{% endblock %}
+
+{% block content %}
+<h1>Все специализации</h1>
+
+<div class="specialization-list">
+    {% for specialization in specializations %}
+    <div class="specialization-item">
+        <span>{{ specialization.name }}</span>
+        <div class="specialization-actions">
+            <form method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="edit">
+                <input type="hidden" name="specialization_id" value="{{ specialization.id }}">
+                <button type="submit" class="action-button edit-button">Изменить</button>
+            </form>
+            <form method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="specialization_id" value="{{ specialization.id }}">
+                <button type="submit" class="action-button delete-button">Удалить</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>{% if editing %}Изменение{% else %}Добавление{% endif %} специализации сотрудника</h1>
+<form method="post" class="specialization-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_name">Название специализации:</label>
+        {{ form.name }}
+    </div>
+    <button type="submit" name="action" value="{% if editing %}update{% else %}add{% endif %}" class="submit-button">
+        {% if editing %}Сохранить изменения{% else %}Добавить{% endif %}
+    </button>
+    {% if editing %}
+        <input type="hidden" name="specialization_id" value="{{ specialization.id }}">
+    {% endif %}
+</form>
+{% endblock %}
