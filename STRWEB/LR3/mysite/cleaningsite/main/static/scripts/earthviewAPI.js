@@ -4,7 +4,7 @@ document.getElementById('get-imageNASA').addEventListener('click', async functio
     const lon = document.getElementById('lon').value.trim();
     const dim = document.getElementById('dim').value.trim();
     const date = document.getElementById('date').value.trim();
-    const apiKey = 'JIeRHpyJf2QGtwttXdMrexyno2CPbhKvhZNY3fas';
+    const apiKey = '';
 
     if (!lat || !lon || !date) {
         document.getElementById('image-result').innerHTML = '<p>Введите координаты (широту и долготу) и дату.</p>';
