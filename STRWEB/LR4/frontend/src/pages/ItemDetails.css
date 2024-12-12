@@ -1,0 +1,55 @@
+.service-details-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    max-width: 700px;
+    margin: 40px auto;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+
+  .service-details-container h1 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+
+  .service-details-container p {
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+
+  .service-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .service-description {
+    font-size: 16px;
+    color: #555;
+  }
+
+  .service-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+  }
+
+  .service-details-container .back-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #2980b9;
+    text-decoration: none;
+    border: 1px solid #2980b9;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .service-details-container .back-link:hover {
+    background-color: #2980b9;
+    color: #ffffff;
+  }
