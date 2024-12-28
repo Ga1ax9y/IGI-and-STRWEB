@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Статистика{% endblock %}
+
+{% block content %}
+<div class="statistics">
+    <h1 class="statistics-title">Статистика</h1>
+
+    <h2 class="statistics-subtitle">Клиенты по алфавиту</h2>
+    <ul class="statistics-list">
+        {% for customer in customers %}
+        <li class="statistics-list-item">{{ customer.full_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2 class="statistics-subtitle">Продажи</h2>
+    <p class="statistics-text">Общее количество продаж: <strong>{{ total_sales }} руб</strong></p>
+
+    <h2 class="statistics-subtitle">Статистика продаж</h2>
+    <p class="statistics-text">Среднее: <strong>{{ sales_stats.average }} руб</strong></p>
+    <p class="statistics-text">Медиана: <strong>{{ sales_stats.median }} руб</strong></p>
+    <p class="statistics-text">Мода: <strong>{{ sales_stats.mode }} руб</strong></p>
+
+    <h2 class="statistics-subtitle">Статистика возраста клиентов</h2>
+    <p class="statistics-text">Средний возраст: <strong>{{ age_stats.average }} лет</strong></p>
+    <p class="statistics-text">Возраст (медиана): <strong>{{ age_stats.median }} лет</strong></p>
+    <img src="{{ age_distribution_image_path }}" alt="Age Distribution Chart" class="statistics-image">
+
+    <h2 class="statistics-subtitle">Наиболее популярный тип услуг</h2>
+    <p class="statistics-text">{{ most_popular_service_type }}</p>
+    <img src="{{ service_type_distribution_image_path }}" alt="Service Types Distribution Chart" class="statistics-image">
+
+    <h2 class="statistics-subtitle">Тип услуг с наибольшей прибылью</h2>
+    <p class="statistics-text">{{ most_profitable_service_type }}</p>
+</div>
+{% endblock %}

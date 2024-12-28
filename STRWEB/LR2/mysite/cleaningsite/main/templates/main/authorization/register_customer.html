@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<div class="registration-container">
+    <h2 class="registration-title">Регистрация клиента</h2>
+    <form method="post" class="registration-form">
+        {% csrf_token %}
+
+        <label for="id_username">Имя пользователя:</label>
+        <input type="text" name="username" id="id_username" class="form-input" required>
+
+        <label for="id_password1">Пароль:</label>
+        <input type="password" name="password1" id="id_password1" class="form-input" required>
+
+        <label for="id_password2">Подтверждение пароля:</label>
+        <input type="password" name="password2" id="id_password2" class="form-input" required>
+
+        <label for="id_full_name">ФИО:</label>
+        <input type="text" name="full_name" id="id_full_name" class="form-input" required>
+
+        <label for="id_birth_date">Дата рождения:</label>
+        <input type="date" name="birth_date" id="id_birth_date" class="form-input" required>
+
+        <label for="id_company_name">Название компании:</label>
+        <input type="text" name="company_name" id="id_company_name" class="form-input" required>
+
+        <label for="id_contact_phone">Телефон:</label>
+        <input type="tel" name="contact_phone" id="id_contact_phone" class="form-input" required>
+
+        <label for="id_customer_type">Тип клиента:</label>
+        <select name="customer_type" id="id_customer_type" class="form-input" required>
+            <option value="individual">Индивидуальный</option>
+            <option value="business">Бизнес</option>
+        </select>
+
+        <button type="submit" class="submit-button">Зарегистрироваться</button>
+    </form>
+    <p class="register-link">
+        <a href="{% url 'login' %}">Уже зарегистрированы? Войдите</a>
+    </p>
+</div>
+{% endblock %}
