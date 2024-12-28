@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Создание услуги{% endblock %}
+
+{% block content %}
+    <div class="create-service">
+        <h1 class="create-service-title">Добавить услугу</h1>
+        <form method="post" class="create-service-form">
+            {% csrf_token %}
+            {{ form.title }}
+            {{ form.description }}
+            {{ form.price }}
+            {{ form.service_type }}
+            <button type="submit" class="submit-button">Добавить</button>
+        </form>
+    </div>
+{% endblock %}

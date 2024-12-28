@@ -1,0 +1,14 @@
+
+{% extends 'main/base.html' %}
+
+{% block title %}Логин{% endblock %}
+
+{% block content %}
+<h2>Вход</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="background-color: orange; color: white; padding: 10px; border: none; cursor: pointer;">Войти</button>
+</form>
+<a href="{% url 'register_customer'%}">Зарегистрироваться</a>
+{% endblock %}

@@ -1,0 +1,72 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+<div class="about-company">
+    <h1>О нашей компании</h1>
+
+    <p><strong>Название:</strong> {{ information.name }}</p>
+
+    <p><strong>Описание:</strong> {{ information.description }}</p>
+
+    {% if information.logo %}
+        <p><strong>Логотип:</strong></p>
+        <div class="company-logo">
+            <img src="{{ information.logo.url }}" alt="Логотип компании">
+        </div>
+    {% else %}
+        <p><em>Логотип не загружен</em></p>
+    {% endif %}
+
+    <!-- Видео компании (если загружено) -->
+    {% if information.video %}
+        <p><strong>Видео:</strong></p>
+        <div class="company-video">
+            <video controls>
+                <source src="{{ information.video.url }}" type="video/mp4">
+                Ваш браузер не поддерживает просмотр видео.
+            </video>
+        </div>
+    {% else %}
+        <p><em>Видео не загружено</em></p>
+    {% endif %}
+
+    <p><strong>История компании:</strong></p>
+    <p>{{ information.history }}</p>
+
+    <p><strong>Сертификаты:</strong></p>
+    <div class="certificate">
+        <h1>СЕРТИФИКАТ</h1>
+        <h2>О создании компании и праве на предоставление услуг</h2>
+        <p>Настоящий сертификат подтверждает создание и официальную регистрацию компании ООО "ЧистоМэн", а также её право на предоставление клининговых услуг на территории Республики Беларусь.</p>
+
+
+        <h2>Основные сведения:</h2>
+        <p>Наименование компании: ООО "ЧистоМэн"</p>
+        <p>Дата регистрации: 15 января 2010 года</p>
+        <p>ИНН: 1234567890</p>
+        <p>ОГРН: 9876543210</p>
+        <p>Юридический адрес: г. Минск, ул. Чистая, д. 1, офис 101</p>
+        <p>Фактический адрес: г. Минск, ул. Чистая, д. 1, офис 101</p>
+
+        <h2>Дата выдачи сертификата:</h2>
+        <p>11 сентября 2024 года</p>
+
+        <div class="signature">
+            <span>Генеральный директор: Александр Станишевский</span><br>
+            <span>Подпись:</span>
+            <img src="{% static 'img/signature.png' %}" alt="Подпись Главы">
+            <img src="{% static 'img/stamp.png' %}" alt="Штамп" class="stamp">
+        </div>
+
+        <div class="footer">
+            <p>Этот сертификат подтверждает, что ООО "ЧистоМэн" является надежным и законным поставщиком клининговых услуг, с соблюдением всех норм и стандартов, предусмотренных законодательством Республики Беларусь и Российской Федерации.</p>
+        </div>
+    </div>
+
+    <p><strong>Реквизиты:</strong></p>
+    <p>{{ information.account_details }}</p>
+</div>
+{% endblock %}

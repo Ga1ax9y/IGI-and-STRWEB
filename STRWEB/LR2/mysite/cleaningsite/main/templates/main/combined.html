@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+  Мои API
+{% endblock %}
+
+{% block content %}
+  <h1 class="api-title">Мои API</h1>
+
+  <form method="get" action="{% url 'api_combined_view' %}" class="api-form">
+    <input type="text" name="name" placeholder="Введите имя" value="{{ name }}" class="api-input" />
+    <button type="submit" class="submit-button">Предсказать</button>
+  </form>
+
+  {% if nationality_data %}
+    <h2 class="api-subtitle">Предсказание национальности для "{{ name }}"</h2>
+    <ul class="nationality-list">
+      {% for country in nationality_data.country %}
+        <li class="nationality-item">
+          {{ country.country_id }}: {{ country.probability|floatformat:2 }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if cat_fact_data %}
+    <h2 class="api-subtitle">Случайный факт о котах</h2>
+    <p class="cat-fact">{{ cat_fact_data.fact }}</p>
+    <button onclick="window.location.reload();" class="submit-button">Еще один факт</button>
+  {% endif %}
+{% endblock %}

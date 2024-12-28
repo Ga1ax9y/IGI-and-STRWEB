@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Логин{% endblock %}
+
+{% block content %}
+<section id="top">
+    <img src="\media\other\modern-empty-room.jpg" id="bg" alt="Background" />
+    <h2 id="text">ЧистоМэн</h2>
+    <img src="\media\other\robotmop.png" id="robot" alt="robot" />
+    <img src="\media\other\spider.png" id="man" alt="Man" />
+    <img src="\media\other\deadp.png" id="superhero" alt="Superhero" />
+</section>
+<section id="sec">
+    <h2>Добро пожаловать в ЧистоМэн!</h2>
+    <p>
+        Наши услуги обеспечивают чистоту и комфорт в вашем доме. Мы гордимся качеством, скоростью и безопасностью каждого клинингового решения.
+    </p>
+</section>
+<script>
+// Находим элементы работников
+const robot = document.querySelector('#robot');
+const man = document.querySelector('#man');
+const text = document.querySelector('#text');
+const superhero = document.querySelector('#superhero');
+const topSection = document.querySelector('#top');
+
+window.addEventListener('scroll', () => {
+    let scrollValue = window.scrollY;
+    let sectionHeight = topSection.offsetHeight;
+
+    robot.style.transform = `translateX(-${scrollValue * 0.5}px)`;
+    man.style.transform = `translateX(${scrollValue * 0.5}px)`;
+
+    if (scrollValue <= sectionHeight) {
+        text.style.opacity = scrollValue > 100 ? 1 : 0;
+        text.style.transform = `translateY(${scrollValue * 0.5}px)`;
+    }
+
+    if (scrollValue > sectionHeight / 1.5) {
+        superhero.style.bottom = '-30%';
+    } else {
+        superhero.style.bottom = '-60%';
+    }
+});
+</script>
+<div class="login-container">
+    <h2 class="login-title">Вход</h2>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_username">Имя пользователя:</label>
+            <input type="text" name="username" id="id_username" class="form-input" required>
+        </div>
+        <div class="form-group">
+            <label for="id_password">Пароль:</label>
+            <input type="password" name="password" id="id_password" class="form-input" required>
+        </div>
+        <button type="submit" class="submit-button">Войти</button>
+    </form>
+    <p class="register-link">
+        <a href="{% url 'register_customer' %}">Зарегистрироваться</a>
+    </p>
+</div>
+{% endblock %}

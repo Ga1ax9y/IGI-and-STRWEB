@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Промокоды{% endblock %}
+
+{% block content %}
+
+<div class="promocode-container">
+    {% if is_employee or user_is_superuser %}
+        <h2 class="add-promocode-title">Добавить промокод</h2>
+        <form method="post" class="promocode-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-button">Добавить</button>
+        </form>
+    {% endif %}
+
+    <h1 class="promocode-title">Промокоды</h1>
+    <ul class="promocode-list">
+        {% for promocode in promocodes %}
+            <li class="promocode-item">
+                <h2 class="promocode-code">{{ promocode.code }}</h2>
+                <p class="promocode-description">{{ promocode.description }}</p>
+                <p class="promocode-validity"><strong>Годен до:</strong> {{ promocode.valid_until |date:"d/m/Y"}}</p>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

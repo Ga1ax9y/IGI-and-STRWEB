@@ -1,0 +1,3287 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: white;
+    font-kerning: normal;
+}
+button{
+    cursor: pointer;
+}
+
+h4 {
+    font-family: Arial, sans-serif; /* Шрифт для заголовка */
+    font-size: 24px; /* Размер шрифта */
+    font-weight: bold; /* Жирный текст */
+    text-transform: uppercase; /* Преобразование текста в заглавные буквы */
+    text-indent: 20px; /* Красная строка */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    line-height: 1.5; /* Межстрочный интервал */
+    word-spacing: 2px; /* Интервал между словами */
+    letter-spacing: 0.5px; /* Интервал между символами */
+    overflow-wrap: break-word; /* Перенос длинных слов */
+    hyphens: auto; /* Разбивка слов */
+    text-align: left; /* Выравнивание текста по левому краю */
+    padding: 5px; /* Поля вокруг заголовка */
+    background-color: #f0f0f0; /* Фон для заголовка */
+    border-left: 4px solid #007bff; /* Левый бордер для выделения */
+    position: relative; /* Позиционирование для дополнительных элементов */
+    font-variant: small-caps;
+}
+a[href^="tel:"] {
+    font-weight: bold;
+}
+
+a[href$=".pfd"] {
+    font-weight: lighter;
+
+}
+
+.main.sub{
+    margin-top: 50px;
+}
+
+/* p вложенные в .main только дочерние */
+.main > p{
+    text-align: justify;
+}
+
+/* оформление страницы Контакты */
+.employees-container {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы элементы переносились на новую строку при нехватке места */
+    justify-content: center;
+}
+
+.employee-card {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ececec;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для навигационной панели */
+/* Стили для верхней навигации */
+.upper_nav {
+    display: flex; /* Flexbox для размещения элементов */
+    justify-content: space-between; /* Раздвигаем элементы по сторонам */
+    align-items: center; /* Центрируем элементы по вертикали */
+    padding: 10px 10px; /* Отступы для верхней навигации */
+    background-color: #fff; /* Фон верхней навигации */
+    position: relative; /* Необходимо для псевдоэлементов */
+    z-index: 1; /* Чтобы градиентные линии были под элементом */
+    margin-top: 70px; /* Отступ сверху для размещения ниже navbar */
+}
+
+/* Стили для навигационной панели */
+.navbar {
+    position: fixed; /* Фиксированное позиционирование */
+    padding-bottom: 10px; /* Отступ снизу для навигационной панели */
+    top: 0; /* Привязка к верхней части экрана */
+    left: 0; /* Привязка к левой части экрана */
+    right: 0; /* Привязка к правой части экрана */
+    background-color: #fff; /* Фон навигационной панели */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень под навигацией */
+    z-index: 1000; /* Повышенный z-index, чтобы быть поверх других элементов */
+}
+
+
+
+.nav-list {
+    display: flex; /* Используем Flexbox */
+    flex-wrap: wrap; /* Чтобы элементы переносились на новую строку при нехватке места */
+    list-style-type: none; /* Убираем маркеры */
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* Центрируем элементы */
+    gap: 15px; /* Зазоры между элементами */
+}
+
+.nav-list li {
+    margin: 5px 0;
+}
+
+.nav-list li a {
+    color: black;
+    text-decoration: none; /* Убираем подчеркивание ссылок */
+    padding: 8px 15px;
+    font-size: 16px;
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s ease; /* анимация будет начинаться медленно, ускоряться в середине и замедляться перед завершением */
+}
+
+/* Подсветка при наведении */
+.nav-list li a:hover {
+    background-color: #fdb281;
+}
+
+/* Стили для посещённых ссылок */
+.nav-list li a:visited {
+    color: rgb(50, 45, 45);
+}
+
+/* Градиентная линия под верхней навигацией */
+.upper_nav::after {
+    content: "";
+    display: block; /* Блочный элемент */
+    height: 5px;
+    background: linear-gradient(to right, transparent, #ff6600, transparent); /* Градиентная линия */
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    z-index: -1; /* Помещаем линию за основным содержимым */
+}
+
+/* Стили для логотипа */
+.logo-container {
+    display: flex; /* Flexbox для логотипа и заголовка */
+    align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.logo-button {
+    background: none;
+    border: none;
+}
+
+.logo-button img {
+    height: 80px;
+}
+
+.upper_nav h1 {
+    margin-left: 10px;
+}
+
+/* Стили для ссылок в верхней навигации */
+.upper_nav a {
+    background-color: #ccc;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавное изменение фона и цвета текста при наведении */
+}
+
+.upper_nav a:hover {
+    background-color: #ff6600;
+    color: white;
+}
+
+/* Заголовок в контактах по id*/
+#Contact_h1{
+    text-align: center;
+}
+
+/* Основной контейнер для faq */
+.dictionary-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Заголовок страницы faq */
+.dictionary-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Секция формы вопроса */
+.question-section {
+    margin-bottom: 20px;
+}
+
+/* Общие стили для формы */
+.question-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для параграфов (контейнеров для полей формы) */
+.question-form p {
+    margin-bottom: 15px;
+}
+
+/* Стили для textarea */
+.question-form textarea {
+    min-height: 50px;
+    height: 100px;
+    width: 100%;                 /* Поля заполняют всю ширину */
+    padding: 10px;
+    font-size: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;            /* Позволяем изменять только высоту вручную */
+}
+
+/* Стили для поля ошибки */
+.question-form p.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+/* Стили для меток (label), если они есть */
+.question-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Стили для списка FAQ */
+.faq-section {
+    margin-top: 30px;
+}
+
+.faq-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.faq-item summary {
+    list-style: none;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.faq-item summary::marker {
+    display: none; /* Убираем стандартный маркер */
+}
+
+.faq-item summary:hover {
+    color: #ff6600;
+}
+
+.faq-item summary .faq-date {
+    font-size: 14px;
+    color: #999;
+}
+
+.faq-answer {
+    font-size: 16px;
+    color: #555;
+    margin-top: 15px;
+    line-height: 1.6;
+    display: none;
+}
+
+
+details[open] .faq-answer {
+    display: block;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Секция ответа для сотрудников */
+.answer-section {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.answer-btn {
+    background-color: #f27d2f;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.answer-btn:hover {
+    background-color: #ff6600;
+}
+
+/* Анимация для открытия и закрытия */
+details[open] summary {
+    color: #ff6600;
+}
+
+details summary::after {
+    content: '▼';
+    margin-left: 10px;
+    font-size: 12px;
+    transition: transform 0.3s ease; /* Добавляем анимацию */
+}
+
+details[open] summary::after {
+    transform: rotate(180deg);  /* Поворачиваем на 180 градусов */
+}
+
+/* Основной контейнер для политики конфиденциальности */
+.privacy-policy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки */
+.privacy-policy-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.privacy-policy-container h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.privacy-policy-container h3 {
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Общие стили для параграфов */
+.privacy-policy-container p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Стили для списка */
+.privacy-policy-container ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.privacy-policy-container ul li {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* Стиль для разделов */
+.privacy-policy-container .section {
+    margin-bottom: 30px;
+}
+
+/* Стили для контактной информации */
+.privacy-policy-container .section ul li {
+    font-weight: bold;
+}
+
+/* Основной контейнер слайдера */
+.slider-container {
+    max-width: 800px; /* Максимальная ширина контейнера */
+    margin: 50px auto; /* Центрирование по горизонтали */
+    position: relative;
+}
+
+/* Слайдер */
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 450px; /* Фиксированная высота для всех слайдов */
+}
+
+/* Индивидуальный слайд */
+.slider-slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+/* Активный слайд */
+.slider-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Изображение внутри слайда */
+.slider-slide img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Обрезка по контейнеру, сохраняя пропорции */
+}
+
+/* Подпись к слайду */
+.slider-caption {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    color: white;
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+    padding: 10px 0;
+    text-align: center;
+    margin: 0;
+}
+
+/* Навигационные кнопки (вперед и назад) */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider-nav.prev {
+    left: 10px; /* Расположение кнопки "назад" слева */
+}
+
+.slider-nav.next {
+    right: 10px; /* Расположение кнопки "вперед" справа */
+}
+
+/* Пагинация */
+.slider-pagination {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.slider-pagination div {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-pagination .active {
+    background-color: white;
+}
+
+/* Счетчик слайдов */
+.slider-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+.add-service-btn a {
+    display: inline-block;
+    padding: 10px;
+    background-color: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Стили для блока последней новости */
+.latest-news {
+    position: relative;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.latest-news-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Разместить элементы по горизонтали */
+    gap: 20px; /* Расстояние между изображением и текстом */
+}
+
+.latest-news-image {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.latest-news-text {
+    position: relative;
+    flex: 1; /* Текст занимает оставшееся пространство */
+    padding-left: 20px;
+}
+
+/* Стиль заголовка */
+.latest-news-text h3 a {
+    font-size: 22px;
+    color: #333;
+    text-decoration: none;
+}
+
+.latest-news-text h3 a:hover {
+    color: #ff6600;
+}
+
+/* Стиль описания */
+.latest-news-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Позиционирование текста относительно изображения */
+.latest-news-text {
+    position: absolute;
+    top: 20px;
+    left: 280px; /* Отступ от изображения */
+}
+
+/* Стили для заголовка и формы сортировки */
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sort-form form {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.sort-form select,
+.sort-form input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.sort-form input[type="text"]:focus {
+    background-color: rgb(213, 208, 208)
+
+}
+
+.sort-form button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Контейнер услуг как CSS Grid */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Сетка с 3 колонками */
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* Блок услуги */
+.service-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распределение пространства между элементами */
+    min-height: 350px;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Плавное изменение */
+    opacity: 0; /* Начальное состояние - невидимо */
+    transform: translateY(20px); /* Сдвиг вниз */
+}
+
+.service-item.visible {
+    opacity: 1; /* Конечное состояние - видно */
+    transform: translateY(0); /* Сдвиг на место */
+}
+
+/* Эффект при наведении на .service-item */
+.service-item:hover {
+    transform: scale(1.04); /* Увеличиваем элемент на 5% */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Увеличиваем тень */
+}
+
+/* Сделаем ссылку на всю ячейку */
+.service-item a {
+    display: block; /* Ссылка будет блочной, чтобы охватывать весь блок */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit; /* Сохраняем цвет текста внутри ячейки */
+}
+
+/* Заголовок услуги */
+.service-item h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Эффект при наведении на заголовок */
+.service-item h2 a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.service-item h2 a:hover {
+    color: #ff6600;
+}
+
+/* Текст внутри блоков */
+.service-item p {
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Кнопки должны быть внизу */
+.service-item form {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Кнопка */
+.service-item button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+
+    &:hover{
+        background-color: #e65c00;
+    }
+}
+
+
+
+/* Управление блоками для администратора */
+.admin-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Стили для карты */
+.map {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Партнеры */
+.partners-section {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.partners-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.partner-item {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid #ff6600;
+
+    /* Эффект при наведении на блок партнера */
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+
+
+.partner-logo {
+    max-width: 100px;
+    max-height: 100px;
+
+}
+
+/* Ссылки для логотипов партнёров */
+.partner-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.tag-links > a{
+    color: red;
+}
+
+.tag-links > a:hover{
+    color: green;
+}
+
+.tag-links > a:visited{
+    color: blueviolet;
+}
+
+.tag-table tr:first-child td,
+.tag-ol > ol > li:first-child{
+    background-color: green;
+}
+
+.tag-table tr:last-child td,
+.tag-ol > ol > li:last-child{
+    background-color: blueviolet;
+}
+
+.tag-table tr:nth-child(2) td,
+.tag-ol > ol > li:nth-child(2){
+    background-color: red;
+}
+
+.tag-table tr:nth-child(3n) td,
+.tag-ol > ol > li:nth-child(3n){
+    background-color: rgb(199, 169, 33);
+}
+
+.tag-form input[type="checkbox"]:disabled + span{
+background: red;
+}
+
+.tag-form input[type="checkbox"]:checked + span{
+    background: green;
+}
+
+.tag-form input[type="checkbox"]:required + span{
+    background: blue;
+}
+
+input[type="number"]:invalid {
+    background: red;
+}
+
+input[type="number"]:in-range {
+    background: green;
+}
+
+q:lang(de) {
+    quotes: "\201E" "\201C";
+}
+q:lang(en) {
+    quotes: "\201C" "\201D";
+}
+q:lang(fr),
+q:lang(ru)
+{ quotes: "\00AB" "\00BB";
+}
+
+p.new::before{
+    content: "Начало теста: ";
+}
+
+p.first-letter::first-letter {
+    color: red;
+    font-size: 180%;
+
+}
+
+p.new::after{
+    content: " - написал я";
+}
+
+.tag-ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.tag-ul li:before {
+    content: "\2665";
+}
+
+/* выделение текста */
+.tag-ul::selection {
+    background-color: yellow;
+    color: black;
+}
+
+.selection-ul li::selection {
+    color: red;
+    background-color: yellow;
+  }
+
+/* Стили для контейнера вакансий */
+.vacancies-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Стили для элемента вакансии */
+.vacancy-item {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.vacancy-image{
+    float: left;
+    width: 10%; /* Ширина изображения */
+}
+/* Стили для текстовой информации о вакансии */
+.vacancy-info {
+    float: left;
+    width: 70%;
+    margin-right: 20px;
+}
+
+/* Стили для даты публикации вакансии */
+.vacancy-date {
+    float: left;
+    width: 25%;
+    text-align: right;
+}
+
+/* Очищение float */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Стили для формы вакансии */
+.news-form,
+.vacancy-form {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Группы полей формы */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Стили для полей ввода */
+.news-form input[type="text"],
+.news-form textarea,
+.vacancy-form input[type="text"],
+.vacancy-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+
+}
+
+
+/* Поле ввода: эффекты при наведении и фокусе */
+.news-form input[type="text"]:hover,
+.news-form textarea:hover,
+.vacancy-form input[type="text"]:hover,
+.vacancy-form textarea:hover {
+    border-color: #888;
+}
+
+.news-form input[type="text"]:focus,
+.news-form textarea:focus,
+.vacancy-form input[type="text"]:focus,
+.vacancy-form textarea:focus {
+    border-color: #ff6600;
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .vacancy-image {
+        float: none;
+        width: 30%;
+    }
+
+    .vacancy-info,
+    .vacancy-date {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        text-align: left;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .vacancy-image {
+        width: 30%;
+    }
+
+    .vacancy-info {
+        width: 60%;
+    }
+
+    .vacancy-date {
+        width: 10%;
+    }
+}
+
+@media (min-width: 1025px) {
+    .vacancy-image {
+        width: 10%;
+    }
+
+    .vacancy-info {
+        width: 70%;
+    }
+
+    .vacancy-date {
+        width: 25%;
+    }
+}
+
+/* Стили для основного контейнера "О нас" */
+.about-company {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка */
+.about-company h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Стили для параграфов */
+.about-company p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Стили для логотипа компании */
+.company-logo {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.company-logo img {
+    max-width: 200px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Трансформация логотипа при наведении */
+.company-logo img:hover {
+    transform: rotate(1turn);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Усиление тени */
+}
+
+/* Стили для видео компании */
+.company-video {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.company-video video {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для выделенных элементов */
+.about-company strong {
+    color: #ff6600;
+}
+
+/* Общие стили для контейнера отзывов */
+.reviews-container {
+    max-width: 800px;
+    margin: 20px auto; /* Центрирование по горизонтали с отступами сверху и снизу */
+    padding: 20px; /* Внутренние отступы */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для контейнера */
+    background-color: #f9f9f9; /* Фоновый цвет */
+}
+
+/* Стили заголовков */
+.form-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.reviews-title {
+    font-size: 28px;
+    color: #ff6600;
+    margin: 30px 0;
+}
+
+/* Стили для формы отзывов */
+.review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Метка для полей ввода */
+.form-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Стили для текстовых полей и выбора */
+.review-form select,
+.review-form textarea {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.review-form select:focus,
+.review-form textarea:focus {
+    border-color: #ff6600;
+    outline: none; /* Убираем стандартное выделение */
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Кнопка общая */
+.submit-button {
+    background-color: #ff6600;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #e65c00;
+}
+.submit-button:disabled{
+    background-color: #ccc;
+}
+
+/* Стили для списка отзывов */
+.reviews-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+}
+
+/* Стили для каждого отзыва */
+.review-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовков отзывов */
+.review-author {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Стили для оценки */
+.review-rating {
+    color: #ff6600;
+}
+
+/* Стили для текста отзыва */
+.review-text {
+    margin: 10px 0;
+}
+
+/* Стили для разделителей между отзывами */
+.review-divider {
+    border: none;
+    border-top: 1px solid #eee; /* линия для разделения */
+    margin-top: 10px;
+}
+
+/* Контейнер для формы логина */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    background-color: #fff;
+}
+
+/* Заголовок формы */
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Поля ввода */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Учет отступов и границ в размере */
+    transition: border-color 0.3s;
+    margin-bottom: 15px;
+}
+
+.form-input:hover {
+    border-color: #888;
+}
+
+/* Ссылка на регистрацию */
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Стилизация ссылки */
+.register-link a {
+    color: #ff6600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Изменение цвета ссылки при наведении */
+.register-link a:hover {
+    color: #e55c00;
+}
+
+/* Контейнер для формы регистрации */
+.registration-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Заголовок формы */
+.registration-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Контейнер для страницы с промокодами */
+.promocode-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки для добавления промокода */
+.add-promocode-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Форма для добавления промокодов */
+.promocode-form input[type="text"],
+.promocode-form textarea,
+.promocode-form input[type="date"] {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.promocode-form input[type="text"]:hover,
+.promocode-form textarea:hover,
+.promocode-form input[type="date"]:hover {
+    border-color: #888;
+}
+
+/* Заголовок для списка промокодов */
+.promocode-title {
+    font-size: 28px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* Стили для списка промокодов */
+.promocode-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Стили для каждого промокода */
+.promocode-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Код промокода */
+.promocode-code {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Описание промокода */
+.promocode-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+/* Срок действия промокода */
+.promocode-validity {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+/* Разделительная линия */
+.promocode-item hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* Контейнер для страницы с услугой */
+.service-detail-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок услуги */
+.service-detail-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Дата добавления */
+.service-detail-date {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Описание услуги */
+.service-detail-description {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6; /* Увеличение межстрочного интервала для читаемости */
+}
+
+/* Стоимость услуги */
+.service-detail-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6600;
+    margin-bottom: 15px;
+}
+
+/* Тип услуги */
+.service-detail-type {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Контейнер корзины */
+.cart-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок страницы корзины */
+.cart-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Список товаров в корзине */
+.cart-items {
+    margin-bottom: 30px;
+}
+
+/* Элемент корзины */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Название товара в корзине */
+.cart-item-title {
+    font-size: 20px;
+    color: #333;
+    margin-right: 20px;
+}
+
+/* Кнопка удалить */
+.cart-delete-btn {
+    background-color: #ff6666;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-delete-btn:hover {
+    background-color: #ff4d4d;
+}
+
+/* Форма оформления заказа */
+.cart-checkout-form {
+    text-align: center;
+}
+
+/* Кнопка оформить заказ */
+.cart-checkout-btn {
+    background-color: orange;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-checkout-btn:hover {
+    background-color: #ff9900;
+}
+
+
+/* Контейнер формы заказа */
+.order-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок страницы */
+.order-title {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Сама форма заказа */
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Поля ввода и чекбоксы */
+.order-form input[type="text"],
+.order-form textarea,
+.order-form select,
+.order-form input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.order-form input[type="text"]:focus,
+.order-form textarea:focus,
+.order-form select:focus {
+    border-color: #888;
+}
+
+/* Стиль для поля с множественным выбором услуг (чекбоксы) */
+.order-form .checkbox-select-multiple {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Отдельный стиль для чекбоксов */
+.order-form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Кнопка отправки формы */
+.order-submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+}
+
+.order-submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Основной контейнер профиля */
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок профиля */
+.profile-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Фото сотрудника */
+.employee-photo {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль для списка специализаций */
+.specializations-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.specializations-list li {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Ссылки для заказов */
+.orders-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1E90FF;
+    text-decoration: none;
+}
+
+.orders-link:hover {
+    text-decoration: underline;
+}
+
+/* Кнопка изменить профиль */
+.profile-edit-btn {
+    background-color: #FFA500;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-edit-btn:hover {
+    background-color: #FF8C00;
+}
+
+/* Кнопка выхода из аккаунта */
+.logout-btn {
+    background-color: #FF4500;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #E63946;
+}
+
+/* Основной контейнер для заказов */
+.profile-orders-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок страницы заказов */
+.profile-orders-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Форма сортировки и фильтрации */
+.profile-sort-filter-form {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Поля выбора */
+.profile-select-field {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Кнопка сортировки */
+.profile-sort-button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-sort-button:hover {
+    background-color: #FF8C00;
+}
+
+/* Список заказов */
+.profile-orders-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-order-item {
+    margin-bottom: 20px;
+}
+
+/* Список услуг в заказе */
+.profile-services-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+/* Ссылки на сотрудников и заказчиков */
+.profile-employee-link, .profile-customer-link {
+    color: #1E90FF;
+    text-decoration: none;
+}
+
+.profile-employee-link:hover, .profile-customer-link:hover {
+    text-decoration: underline;
+}
+
+/* Кнопки удаления и изменения заказа */
+.profile-order-action-form {
+    display: inline-block;
+    margin-right: 10px;
+}
+.delete-button,
+.profile-delete-button {
+    background-color: #FF4500;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.delete-button:hover,
+.profile-delete-button:hover {
+    background-color: #E63946;
+}
+
+.profile-edit-button {
+    background-color: #1E90FF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-edit-button:hover {
+    background-color: #1C86EE;
+}
+
+/* Сообщение, если нет заказов */
+.profile-no-orders-message {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+}
+
+/* Основной контейнер для формы редактирования сотрудника */
+.employee-edit-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+.employee-edit-container h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Форма редактирования сотрудника */
+.employee-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Стили для полей формы */
+.employee-edit-form input[type="text"],
+.employee-edit-form input[type="email"],
+.employee-edit-form input[type="file"],
+.employee-edit-form select,
+.employee-edit-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.employee-edit-form input[type="text"]:focus,
+.employee-edit-form input[type="email"]:focus,
+.employee-edit-form input[type="file"]:focus,
+.employee-edit-form select:focus,
+.employee-edit-form textarea:focus {
+    border-color: #1E90FF;
+}
+
+#pagination {
+    display: flex;              /* Используем Flexbox для выравнивания элементов */
+    justify-content: center;    /* Выравнивание по горизонтали */
+    align-items: center;        /* Выравнивание по вертикали (если нужно) */
+    gap: 10px;                  /* Добавляем промежутки между кнопками */
+    margin: 20px 0;             /* Отступы сверху и снизу, если нужно */
+}
+
+/* Кнопка сохранения */
+.save-button {
+    background-color: #1E90FF;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+    background-color: #1C86EE;
+}
+
+
+/* Кнопка редактирования для суперпользователей */
+.edit-button {
+    display: inline-block;
+    background-color: #1E90FF;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #1C86EE;
+}
+/* Админ-секция */
+.admin-section {
+    margin-top: 30px;
+}
+
+.admin-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+/* Блоки заказов */
+.order-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-item h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.order-item p {
+    margin: 5px 0;
+}
+
+.order-item ul {
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+/* Контейнер для списка новостей */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+}
+
+/* Обычная новость */
+.news-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Описание новости */
+.news-content {
+    flex: 1;
+}
+
+.news-brief {
+    overflow: hidden; /* Скрываем все, что выходит за границы */
+    text-overflow: ellipsis; /* Добавить многоточие */
+    white-space: nowrap; /* Запретить перенос строк */
+    width: 950px;
+    font-size: 16px;
+    color: #555;
+}
+
+.read-more-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Стили для последней новости */
+.highlighted-news {
+    background-color: #ffebcc;
+}
+
+.list-news-image {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+/* Контейнер для статьи */
+.news-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Изображение статьи */
+.news-image {
+    max-width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Текст с многоколоночным отображением */
+.news-text {
+    column-count: 2; /* Две колонки для текста */
+    column-gap: 40px; /* Расстояние между колонками */
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;
+    width: 100%;
+}
+
+.answer-faq-container{
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.answer-faq-container textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1.1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+/* Стили для поля ввода при фокусе */
+.answer-faq-container textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+/* Контейнер формы */
+.edit-profile-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для всех полей формы */
+.edit-profile-container input,
+.edit-profile-container select,
+.edit-profile-container textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.edit-profile-container input:focus,
+.edit-profile-container select:focus,
+.edit-profile-container textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+/* Стили для кнопки отмены */
+.cancel-btn {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Основные стили для страницы профиля клиента */
+.customer-profile {
+    color: #333;
+    padding: 20px;
+}
+
+.customer-profile-name {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff9900;
+}
+
+/* Секция деталей клиента */
+.customer-profile-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Секция заказов клиента (для администратора) */
+.customer-orders {
+    margin-top: 30px;
+}
+
+.customer-orders-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Форма фильтра дат */
+.date-filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.date-filter-form-group {
+    flex: 1;
+}
+
+.date-filter-form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.date-filter-form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Заказы клиента */
+.customer-order {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.customer-order-date {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.customer-order-employee {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+.customer-order-employee:hover {
+    text-decoration: underline;
+}
+
+.customer-order-services {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.customer-order-service-item {
+    margin-bottom: 5px;
+}
+
+/* Основной контейнер для страницы неназначенных заказов */
+.unassigned-orders {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* Заголовок страницы */
+.unassigned-orders-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #ff9900;
+}
+
+/* Список заказов */
+.unassigned-orders-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Каждый элемент заказа */
+.unassigned-orders-item {
+    margin-bottom: 20px;
+}
+
+/* Блок заказа */
+.unassigned-order {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Дата заказа */
+.unassigned-order-date {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Ссылка на клиента */
+.unassigned-order-customer {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+.unassigned-order-customer:hover {
+    text-decoration: underline;
+}
+
+/* Список услуг */
+.unassigned-order-services {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.unassigned-order-service-item {
+    margin-bottom: 5px;
+}
+
+/* Форма и кнопка оформления заказа */
+.unassigned-order-form {
+    margin-top: 20px;
+}
+
+
+/* Разделитель между заказами */
+.unassigned-order-divider {
+    margin-top: 30px;
+    border: 1px solid #ddd;
+}
+
+/* Стиль сообщения об отсутствии заказов */
+.unassigned-orders-no-orders {
+    text-align: center;
+    font-size: 1.2em;
+    color: #e74c3c;
+    margin-top: 50px;
+}
+
+/* Основной контейнер для страницы изменения заказа */
+.update-order {
+    padding: 20px;
+    color: #333;
+}
+
+/* Заголовок страницы */
+.update-order-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff9900; /* Основной цвет для заголовков */
+}
+
+/* Форма изменения заказа */
+.update-order-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Элементы формы */
+.update-order-form input,
+.update-order-form select,
+.update-order-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Контейнер для формы редактирования услуги */
+.edit-service-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок формы */
+.edit-service-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Общие стили для полей формы */
+.edit-service-form textarea,
+.edit-service-form input[type="text"],
+.edit-service-form input[type="number"],
+.edit-service-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+/* Изменение цвета границы при наведении */
+.edit-service-form textarea:hover,
+.edit-service-form input[type="text"]:hover,
+.edit-service-form input[type="number"]:hover,
+.edit-service-form select:hover {
+    border-color: #888;
+}
+
+/* Стили для заголовка API */
+.api-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Стили для формы API */
+.api-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Стили для поля ввода */
+.api-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Стили для заголовков предсказания */
+.api-subtitle {
+    font-size: 1.5em;
+    margin: 20px 0 10px;
+    color: #555;
+}
+
+/* Стили для списка национальностей */
+.nationality-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Стили для элементов списка национальностей */
+.nationality-item {
+    background-color: #f4f4f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Стили для факта о котах */
+.cat-fact {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Стили для заголовка панели администратора */
+.admin-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Контейнер для панели администратора */
+.admin-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Стили для ссылок в панели администратора */
+.admin-link {
+    text-decoration: none;
+    color: #007BFF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s;
+}
+
+/* Эффект при наведении на ссылки */
+.admin-link:hover {
+    background-color: #e2e6ea;
+}
+
+/* Стили для списка специализаций */
+.specialization-list {
+    margin-bottom: 20px;
+}
+
+.specialization-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Стили для кнопок действий */
+.specialization-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+/* Стили для формы добавления/изменения специализации */
+.specialization-form {
+    margin-top: 20px;
+}
+
+/* Стили для формы специализации */
+.specialization-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для текстовых полей */
+.specialization-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.user-table th, .user-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-table a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.user-table a:hover {
+    text-decoration: underline; /* Добавляем подчеркивание при наведении */
+}
+
+/* Основной контейнер для добавления услуги */
+.create-service {
+    background-color: #f9f9f9;
+    padding: 20px;
+    color: #333;
+}
+
+/* Заголовок страницы */
+.create-service-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff9900;
+}
+
+/* Формы редактирования */
+.create-service-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Поля ввода и текстовые области */
+.create-service-form input,
+.create-service-form textarea,
+.create-service-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Основной контейнер для статистики */
+.statistics {
+    background-color: #f9f9f9;
+    padding: 20px;
+    color: #333;
+}
+
+/* Заголовок страницы */
+.statistics-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff9900;
+}
+
+/* Подзаголовки */
+.statistics-subtitle {
+    font-size: 1.8em;
+    margin-top: 20px;
+    color: #444;
+}
+
+/* Список клиентов */
+.statistics-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.statistics-list-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Текстовая информация */
+.statistics-text {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Изображения графиков */
+.statistics-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Основной контейнер для сертификата */
+.certificate {
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-image: url('/static/img/coat.png');
+    background-size: 300px 300px;
+    background-repeat: no-repeat; /* Не повторяет изображение */
+    background-position: center;
+    border: 30px solid rgb(164, 34, 34); /* Пространство для изображений границ */
+    border-image: url('/static/img/border.png') 300 stretch;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Georgia', serif;
+    color: #333;
+    text-align: center;
+    background-clip: padding-box; /* Избегаем наложения фона на границы */
+}
+
+/* Заголовок сертификата */
+.certificate h1 {
+
+    font-size: 3em;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #e8d524, #815635); /* Градиент */
+    -webkit-background-clip: text; /* Клипирование фона по тексту */
+    background-clip: text; /* Клипирование фона по тексту */
+    -webkit-text-fill-color: transparent; /* Прозрачный цвет текста */
+    text-transform: uppercase;
+}
+
+/* Подзаголовки */
+.certificate h2 {
+    font-size: 1.8em;
+    margin: 20px 0;
+    color: #555;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Текст сертификата */
+.certificate p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* Список услуг */
+.certificate ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.certificate ul li {
+    font-size: 1.1em;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+/* Подпись и печать */
+.signature {
+    margin-top: 40px;
+    text-align: right;
+    font-style: italic;
+}
+
+.signature img {
+    max-width: 200px; /* Максимальная ширина изображения */
+    height: auto; /* Автоматическая высота */
+}
+
+/* Штамп */
+.stamp {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    height: 200px;
+    width: 200px;
+    z-index: 5; /* Штамп будет выше футера, но ниже подписи */
+}
+
+/* Низ страницы сертификата */
+.footer {
+    position: relative;
+    z-index: 0;
+    margin-top: 50px;
+    font-size: 1em;
+    color: #777;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Добавление градиентной подложки для выделения текста */
+.certificate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.9));
+    z-index: -1;
+}
+
+.animation-container {
+    margin: 20px;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: white;
+}
+
+@keyframes moveAlongLine {
+    0% {
+        transform: translate(-40px, -50%); /* Начальная позиция чуть левее */
+    }
+    50% {
+        transform: translate(180px, -50%); /* Движение вправо до края контейнера */
+    }
+    100% {
+        transform: translate(-40px, -50%); /* Возврат в начальную позицию */
+    }
+}
+
+/* Пол */
+.floor {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Цвет пола */
+    opacity: 1; /* снчала видимый */
+    animation: disappear 0.5s 4s forwards; /* Исчезает за 1 секунду после 4 секунд */
+}
+
+/* Коричневая линия */
+.brown-line {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: #8B4513;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: disappear 1s forwards; /* Исчезает за 1 секунду */
+    animation-delay: 2s;
+}
+@keyframes disappear {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Швабра */
+.mop-container {
+    position: absolute;
+    top: -10px;
+    width: 80px;
+    height: 80px;
+    opacity: 1; /* Сразу видимая */
+    animation:  moveAlongLine 2s ease-in-out infinite, disappear 0.3s 4s forwards; /* Исчезает вместе с полом */
+}
+
+@keyframes mopDisappear {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes moveSponge {
+    0% {
+        transform: rotate(0deg) translate(0, 0) rotate(0deg); /* Начальная позиция */
+    }
+    50% {
+        transform: rotate(180deg) translate(-80px, 80px) rotate(-180deg); /* Движение наискосок */
+    }
+    100% {
+        transform: rotate(0deg) translate(0, 0) rotate(0deg); /* Возвращение в начальную позицию */
+    }
+}
+
+@keyframes disappear {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Губка */
+.sponge-container {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    opacity: 0; /* Начальная непрозрачность */
+    animation: spongeAppear 1s forwards, moveSponge 2s forwards 5s 2;
+    animation-delay: 5s; /* Задержка перед появлением */
+}
+
+@keyframes spongeAppear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.line {
+    fill: #8B4513;
+    opacity: 1;
+    animation: lineDisappear 1s forwards;
+    animation-delay: 8s;
+}
+
+@keyframes lineDisappear {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+/* Текст */
+.company-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: #ff6600;
+    opacity: 0;
+    animation: textAppear 1s forwards;
+    animation-delay: 9s;
+}
+
+@keyframes textAppear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+.loader {
+    display: none; /* Скрываем лоадер по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Убедитесь, что лоадер находится поверх других элементов */
+}
+
+.dot {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+    animation: none;
+}
+
+.dot::before, .dot::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: inherit;
+    border-radius: 50%;
+    animation: wave 1s infinite ease-in-out;
+}
+
+.dot::before {
+    top: -20px;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+.dot::after {
+    bottom: -20px;
+    animation-delay: calc(var(--i) * 0.1s);
+    animation-name: wave-opposite;
+}
+
+.dot:nth-child(1) { background-color: #ff4d4d; --i: 0; }
+.dot:nth-child(2) { background-color: #ff884d; --i: 1; }
+.dot:nth-child(3) { background-color: #ffc14d; --i: 2; }
+.dot:nth-child(4) { background-color: #d4ff4d; --i: 3; }
+.dot:nth-child(5) { background-color: #94ff4d; --i: 4; }
+.dot:nth-child(6) { background-color: #4dff73; --i: 5; }
+.dot:nth-child(7) { background-color: #4dffcc; --i: 6; }
+.dot:nth-child(8) { background-color: #4dd0ff; --i: 7; }
+.dot:nth-child(9) { background-color: #4d91ff; --i: 8; }
+.dot:nth-child(10) { background-color: #a14dff; --i: 9; }
+.dot:nth-child(11) { background-color: #ff4dff; --i: 10; }
+
+@keyframes wave {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0; }
+    50% { transform: translate(-50%, 10px); opacity: 1; }
+}
+
+@keyframes wave-opposite {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0; }
+    50% { transform: translate(-50%, -10px); opacity: 1; }
+}
+
+table{
+    width: 80%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+td,th{
+    border: 2px solid transparent;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+td:empty{
+    background-color: plum;
+}
+
+.topCaption{
+    caption-side: top;
+}
+
+
+employee-table-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-table th,
+.employee-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.employee-table th {
+    cursor: pointer;
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+.employee-table th.sort-asc::after {
+    content: ' ▲';
+}
+
+.employee-table th.sort-desc::after {
+    content: ' ▼';
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+
+    /* Стили для кнопки "Добавить сотрудника" */
+    #addEmployeeBtn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    #addEmployeeBtn:hover {
+        background-color: #0056b3;
+    }
+
+    /* Стили для формы добавления сотрудника */
+    #employeeForm {
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #employeeForm h3 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    #employeeForm h4 {
+        font-size: 20px;
+        margin-top: 10px;
+        color: #333;
+    }
+
+    /* Стиль для полей ввода в форме */
+    #employeeForm input,
+    #employeeForm select,
+    #employeeForm textarea {
+        width: 95%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #fff;
+    }
+
+
+
+    /* Стили для формы при скрытии */
+    #employeeForm[style="display:none;"] {
+        display: none;
+    }
+
+    /* Стили для блока с подробной информацией о сотруднике */
+    .employee-details {
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: none; /* Скрыт по умолчанию */
+        word-wrap: break-word; /* Автоматический перенос длинных строк */
+    }
+
+    .employee-details h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .employee-details p {
+        font-size: 16px;
+        color: #555;
+        margin: 5px 0;
+    }
+
+    .employee-details strong {
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* Для длинных строк в пути к фото или других длинных данных */
+    .employee-details .long-text {
+        word-wrap: break-word;
+        overflow-wrap: break-word; /* Для поддержки старых браузеров */
+        word-break: break-all; /* Прерывает длинные строки для предотвращения выхода за рамки */
+        white-space: normal; /* Разрешает перенос строк */
+    }
+
+    /* Стили для блока с сообщением о премировании */
+    #bonusMessage {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 20px;
+        display: none; /* Скрыт по умолчанию */
+    }
+
+
+
+    /* Стили для контейнера поиска */
+    .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Стили для текстового поля ввода */
+    #searchInput {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+    #searchInput:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    /* Стили для кнопки поиска */
+    #searchBtn {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #searchBtn:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+    #searchBtn:active {
+        background-color: #003f7f;
+        transform: translateY(0);
+    }
+
+    .checkbox-cell input[type="checkbox"] {
+        transform: scale(3); /* Увеличиваем чекбокс в 1.5 раза */
+        margin: 17px; /* Добавляем отступ, чтобы не было слишком тесно */
+    }
+
+
+    /* Стили для заголовков */
+.ip-api-title, .nasa-photo-title, .earth-image-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Стили для меток и инпутов на странице с IP */
+.ip-label {
+    font-size: 16px;
+    color: #333;
+}
+
+.ip-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Кнопка для получения информации о IP */
+.ip-button {
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745; /* Зеленая кнопка */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ip-button:hover {
+    background-color: #218838; /* Темно-зеленый при наведении */
+}
+
+/* Стили для результатов на странице с IP */
+.ip-result-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Кнопка для получения изображения NASA */
+.nasa-button {
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff; /* Синяя кнопка */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nasa-button:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+}
+
+/* Стили для результатов фото NASA */
+.nasa-result-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Стили для формы получения изображения Земли */
+.earth-image-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.earth-label {
+    font-size: 16px;
+    color: #333;
+}
+
+.earth-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.earth-button {
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff; /* Синяя кнопка */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.earth-button:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+}
+
+/* Стили для результатов изображения Земли */
+#image-result img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+#top {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#text {
+    position: absolute;
+    color: #ff6600;
+    font-size: 6rem;
+    bottom: 50%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+    transform: translateY(0);
+}
+
+#robot{
+    position: absolute;
+    bottom: 0;
+    width: 30%;
+    height: auto;
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+#man {
+    position: absolute;
+    bottom: 0;
+    width: 30%;
+    height: auto;
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+#superhero {
+    position: absolute;
+    bottom: -30%; /* Начальная позиция супергероя снизу (не виден) */
+    left: 50%;
+    width: 20%;
+    height: auto;
+    transition: bottom 0.5s ease; /* Плавное движение вверх */
+    z-index: 3;
+    transform: translateX(-50%); /* Центрируем изображение по горизонтали */
+}
+
+#robot {
+    left: 10%;
+}
+
+#man {
+    right: 10%;
+}
+
+#sec {
+    padding: 100px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#sec h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ff6600;
+}
+
+#sec p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    font-weight: 300;
+    color: #ff6600;
+}
+
+
+#house {
+    position: relative;
+    width: 100%;
+    height: 200vh; /* Высота для прокрутки */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#houseImage {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.worker {
+    position: absolute;
+    transition: transform 0.3s ease; /* Плавное движение */
+}
+
+/* Примерные позиции работников внутри дома */
+#workerRoom1 { top: 18.3%; left: 40%; width: 8%; } /* Комната 1 */
+#workerRoom2 { top: 17.8%; left: 60%; width: 14%; } /* Комната 2 */
+#workerRoom3 { top: 35.5%; left: 60%; width: 10%; } /* Комната 3 */
+#workerOutside { top: 82%; left: 60%; width: 17%; } /* Работник снаружи */

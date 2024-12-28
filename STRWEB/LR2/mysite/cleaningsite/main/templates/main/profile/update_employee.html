@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Изменить сотрудника{% endblock %}
+
+{% block content %}
+<div class="employee-edit-container">
+    <h1>Изменить сотрудника {{ employee.full_name }}</h1>
+
+    <form method="post" enctype="multipart/form-data" class="employee-edit-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="save-button">Сохранить изменения</button>
+    </form>
+</div>
+{% endblock %}

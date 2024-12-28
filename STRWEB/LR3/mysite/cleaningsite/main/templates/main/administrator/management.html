@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Управление пользователями{% endblock %}
+
+{% block content %}
+    <h1>Управление пользователями</h1>
+
+    <div class="user-management">
+        <!-- Таблица для сотрудников -->
+        <h2>Сотрудники:</h2>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Имя пользователя</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'employee_detail' employee.id %}">{{ employee.user.username }}</a>
+                        </td>
+                        <td>
+                            <form method="post" class="inline-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="remove">
+                                <input type="hidden" name="username" value="{{ employee.user.username }}">
+                                <button type="submit" class="delete-button">Уволить</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Таблица для клиентов -->
+        <h2>Клиенты:</h2>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Имя пользователя</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'customer_detail' customer.id %}">{{ customer.user.username }}</a>
+                        </td>
+                        <td>
+                            <form method="post" class="inline-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="add">
+                                <input type="hidden" name="username" value="{{ customer.user.username }}">
+                                <button type="submit" class="edit-button">Сделать сотрудником</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

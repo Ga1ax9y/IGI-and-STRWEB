@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Словарь{% endblock %}
+
+{% block content %}
+
+<div class="dictionary-container">
+    <h1 class="dictionary-title">Словарь терминов и понятий</h1>
+
+    <!-- Форма для отправки вопросов -->
+    {% if is_auth %}
+        <div class="question-section">
+            <form method="post" class="question-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="submit-button">Отправить</button>
+            </form>
+        </div>
+    {% endif %}
+
+    <!-- Список часто задаваемых вопросов (FAQ) -->
+    <div class="faq-section">
+        {% for faq in faqs %}
+            <details class="faq-item">
+                <summary class="faq-question">{{ faq.question }} </summary>
+                <p class="faq-answer">{{ faq.answer|default:"На вопрос еще не ответили" }}</p>
+
+                {% if is_employee and not faq.answer or user_is_superuser and not faq.answer %}
+                    <div class="answer-section">
+                        <form action="{% url 'answer_faq' faq.id %}" method="get" class="answer-form">
+                            <button type="submit" class="answer-btn">Ответить на вопрос</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </details>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

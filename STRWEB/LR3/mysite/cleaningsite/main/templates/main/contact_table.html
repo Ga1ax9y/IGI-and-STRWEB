@@ -1,0 +1,111 @@
+{% extends 'main/base.html' %}
+{% load static%}
+{% block title %}Таблица контактов{% endblock %}
+
+{% block content %}
+
+<h1>Список сотрудников</h1>
+
+
+<!-- Кнопка для отображения формы добавления сотрудника -->
+<button id="addEmployeeBtn">Добавить сотрудника</button>
+
+<div class="loader" id="loader" style="display: none;">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+<!-- Форма для добавления сотрудника -->
+<div id="employeeForm" style="display:none;">
+    <h3>Добавить нового сотрудника</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h4>Создание пользователя</h4>
+        {{ user_form.as_p }}
+
+        <h4>Создание сотрудника</h4>
+        {{ employee_form.as_p }} 
+
+        <button type="submit" id="employeeFormSubmit" class="submit-button">Добавить сотрудника</button>
+    </form>
+    <br>
+    <button id="cancelBtn" class="cancel-btn">Отмена</button>
+</div>
+<script src="{% static 'scripts/addEmployeeForm.js' %}" defer></script>
+
+<!-- Контейнер для таблицы сотрудников -->
+<div class="employee-table-container">
+    <br>
+    <button id="bonusBtn" class="submit-button">Премировать</button>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Введите текст для фильтрации" />
+        <button id="searchBtn">Найти</button>
+    </div>
+
+    <table class="employee-table" id="employeeTable">
+        <thead>
+            <tr>
+                <th>Выбор</th>
+                <th data-type="string">ФИО<span class="sort-indicator"></span></th>
+                <th>Фото</th>
+                <th data-type="string">Описание работ<span class="sort-indicator"></span></th>
+                <th data-type="string">Телефон<span class="sort-indicator"></span></th>
+                <th data-type="string">Почта<span class="sort-indicator"></span></th>
+            </tr>
+        </thead>
+        <tbody id="employeeTbody">
+            {% for employee in employees %}
+            <tr class="employee-row">
+                <td class="checkbox-cell">
+                    <input type="checkbox" name="selected_employees" value="{{ employee.id }}">
+                </td>
+                <td>{{ employee.full_name }}</td>
+                <td>
+                    {% if employee.photo %}
+                        <img src="{{ employee.photo.url }}" alt="{{ employee.full_name }}" class="employee-photo">
+                    {% else %}
+                        <span>Нет фото</span>
+                    {% endif %}
+                </td>
+                <td>{{ employee.description }}</td>
+                <td>{{ employee.work_phone }}</td>
+                <td>{{ employee.work_email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination" id="pagination">
+        <button id="prevPage" onclick="changePage(currentPage - 1)">Назад</button>
+        <span id="pageInfo">Страница 1</span>
+        <button id="nextPage" onclick="changePage(currentPage + 1)">Вперед</button>
+    </div>
+
+    <!-- Блок для отображения подробной информации о сотруднике -->
+    <div id="employeeDetails" class="employee-details" style="display: none;">
+        <h2>Подробности сотрудника</h2>
+        <p><strong>ФИО: </strong><span id="detailFullName"></span></p>
+        <p><strong>Путь к фото: </strong><span id="detailPhoto"></span></p>
+        <p><strong>Описание работ: </strong><span id="detailDescription"></span></p>
+        <p><strong>Телефон: </strong><span id="detailPhone"></span></p>
+        <p><strong>Почта: </strong><span id="detailEmail"></span></p>
+    </div>
+
+    <div id="bonusMessage" style="margin-top: 20px;"></div>
+    <script src="{% static 'scripts/worker_bonus.js' %}" defer></script>
+
+
+</div>
+<script src="{% static 'scripts/contact_table.js' %}" defer></script>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Моя страница{% endblock %}</title>
+    <link rel="icon" href="/media/company_logos/company_logo.png" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Arial&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!--Навигация -->
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'news' %}">Новости</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                <li><a href="{% url 'reviews_list' %}">Отзывы</a></li>
+                <li><a href="{% url 'vacancies' %}">Вакансии</a></li>
+                <li><a href="{% url 'login' %}">Логин</a></li>
+                <li><a href="{% url 'promo_codes' %}">Промокоды</a></li>
+                <li><a href="{% url 'faq_list' %}">FAQ</a></li>
+                <li><a href="{% url 'api_combined_view' %}">API</a></li>
+                <li><a href="{% url 'tags' %}">Тэги</a></li>
+
+                {% if user_is_superuser %}
+                <li><a href="{% url 'orders' %}">Все заказы</a></li>
+                <li><a href="{% url 'adminpanel' %}">Панель управления</a></li>
+                {% elif is_customer %}
+                <li><a href="{% url 'cart' %}">Моя корзина</a></li>
+                <!--<li><a href="{% url 'orders' %}">Мои заказы</a></li>-->
+                {% elif is_employee %}
+                <li><a href="{% url 'unassigned_orders' %}">Доступные заказы</a></li>
+               <!-- <li><a href="{% url 'orders' %}">Мои заказы</a></li>-->
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="upper_nav">
+            <div class="logo-item">
+                <form action="{% url 'home' %}" method="get" class="logo-form">
+                    <button type="submit" class="logo-button">
+                        <img src="/media/company_logos/company_logo.png" alt="Go to Home" />
+                    </button>
+                </form>
+            </div>
+            <h1>ЧистоМэн</h1>
+            <a href="{% url 'profile' %}">Мой профиль</a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <br>
+        <a href="{% url 'politics'%}">Политика конфиденциальности</a>
+    </footer>
+
+
+
+</body>
+</html>

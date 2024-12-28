@@ -1,0 +1,128 @@
+.news-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.news-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #27ae60;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    display: flex;
+    gap: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-item-image {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.news-item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.news-item-title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.news-item-description {
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #555;
+}
+
+.news-item-author {
+    font-size: 0.875rem;
+    color: #888;
+}
+
+/* Стили для формы */
+.news-form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.news-form h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.news-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.news-form input,
+.news-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.news-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.news-form button {
+    background-color: #27ae60;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.news-form button:hover {
+    background-color: #218c4f;
+}
+
+.news-item-actions button {
+    background-color: #4caf50;
+    margin-top: 5px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.news-item-actions button:hover {
+    background-color: #218c4f;
+}

@@ -1,0 +1,42 @@
+{% extends "main/base.html" %}
+
+{% block title %}{{ service.title }}{% endblock %}
+
+{% block content %}
+<div class="service-detail-container">
+    <h1 class="service-detail-title">{{ service.title }}</h1>
+    <p class="service-detail-date">Добавлено: {{ service.publish|date:"d/m/Y" }}</p>
+    <p class="service-detail-description">Описание: {{ service.description }}</p>
+    <p class="service-detail-price">Стоимость: {{ service.price }} руб</p>
+    <p class="service-detail-type">Тип услуги: {{ service.service_type }}</p>
+
+    <div class="service-actions">
+        {% if user_is_superuser %}
+            <!-- Кнопка удаления только для суперпользователя -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="service_title" value="{{ service.title }}">
+                <button type="submit" name="action" value="delete" class="delete-button">Удалить</button>
+            </form>
+        {% endif %}
+            <br>
+        {% if user_is_superuser or is_employee %}
+            <!-- Кнопка изменения для суперпользователей и сотрудников -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="service_title" value="{{ service.title }}">
+                <button type="submit" name="action" value="edit" class="submit-button">Изменить</button>
+            </form>
+        {% endif %}
+
+        {% if is_customer %}
+            <!-- Кнопка добавления в корзину для авторизованных пользователей -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="service_title" value="{{ service.title }}">
+                <button type="submit" name="action" value="buy" class="submit-button">Добавить в корзину</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

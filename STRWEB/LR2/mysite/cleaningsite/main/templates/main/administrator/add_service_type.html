@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Управление типами услуг{% endblock %}
+
+{% block content %}
+<h1>Все типы услуг</h1>
+
+<div class="specialization-list">
+    {% for servicetype in servicetypes %}
+    <div class="specialization-item">
+        <span>{{ servicetype.name }}</span>
+        <div class="specialization-actions">
+            <form method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="edit">
+                <input type="hidden" name="servicetype_id" value="{{ servicetype.id }}">
+                <button type="submit" class="action-button edit-button">Изменить</button>
+            </form>
+            <form method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="servicetype_id" value="{{ servicetype.id }}">
+                <button type="submit" class="action-button delete-button">Удалить</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>{% if editing %}Изменение{% else %}Добавление{% endif %} типа услуги</h1>
+<form method="post" class="service-type-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_name">Название типа услуги:</label>
+        {{ form.name }}
+    </div>
+    <button type="submit" name="action" value="{% if editing %}update{% else %}add{% endif %}" class="submit-button">
+        {% if editing %}Сохранить изменения{% else %}Добавить{% endif %}
+    </button>
+    {% if editing %}
+        <input type="hidden" name="servicetype_id" value="{{ servicetype.id }}">
+    {% endif %}
+</form>
+{% endblock %}

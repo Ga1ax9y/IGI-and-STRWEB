@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Моя страница{% endblock %}</title>
+    <link rel="icon" href="/media/company_logos/company_logo.png" type="image/png">
+    <style>
+        .partners {
+            display: flex;
+            flex-wrap: wrap; /* Позволяет переносить элементы на новую строку при необходимости */
+            gap: 20px; /* Расстояние между элементами */
+            padding: 20px;
+        }
+
+        .partner {
+            text-align: center;
+        }
+
+        .partner img {
+            max-width: 100px;
+            height: auto;
+            border: 1px solid #ddd; /* Граница вокруг изображения */
+            border-radius: 5px; /* Скругление углов изображения */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ЧистоМэн</h1>
+        <!-- Навигация -->
+        <nav>
+            <form action="{% url 'home' %}" method="get">
+                <button type="submit" style="border: none; background: none; width: 70px; height: 60px;">
+                    <img src="/media/company_logos/company_logo.png" alt="Go to Home" style="width: 100%; height: 100%;" />
+                </button>
+            </form>
+            <a href="{% url 'home'%}">Главная </a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'news'%}">Новости</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'about'%}">О нас</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'contacts'%}">Контакты</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'reviews_list'%}">Отзывы</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'vacancies'%}">Вакансии</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'login'%}">Логин</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'profile'%}">Мой профиль</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'promo_codes'%}">Промокоды</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'faq_list'%}">FAQ</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'api_combined_view'%}">API</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'tags'%}">Тэги</a>
+            <td width="20">&nbsp;</td>
+            {% if user_is_superuser %}
+            <a href="{% url 'orders'%}">Все заказы</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'adminpanel'%}">Панель управления</a>
+            <td width="20">&nbsp;</td>
+            {% elif is_customer %}
+            <a href="{% url 'cart'%}">Моя корзина</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'orders'%}">Мои заказы</a>
+            <td width="20">&nbsp;</td>
+            {% elif is_employee %}
+            <a href="{% url 'unassigned_orders'%}">Доступные заказы</a>
+            <td width="20">&nbsp;</td>
+            <a href="{% url 'orders'%}">Мои заказы</a>
+            <td width="20">&nbsp;</td>
+            {% endif %}
+
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <h3>Наши партнёры</h3>
+        <div class="partners">
+            {% for partner in partners %}
+                <div class="partner">
+                    {% if partner.logo %}
+                        <a href="{{ partner.link }}" target="_blank" >
+                            <img src="{{ partner.logo.url }}" alt="{{ partner.name }}">
+                        </a>
+                    {% endif %}
+                </div>
+            {% empty %}
+                <p>Пока нет партнёров.</p>
+            {% endfor %}
+        </div>
+        <a href="{% url 'politics'%}">Политика конфиденциальности</a>
+    </footer>
+
+
+</body>
+</html>

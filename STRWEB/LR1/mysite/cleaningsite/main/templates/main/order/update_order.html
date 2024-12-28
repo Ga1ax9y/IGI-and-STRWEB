@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Изменение заказа{% endblock %}
+
+{% block content %}
+<h1>Изменение заказа</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="background-color: blue; color: white; padding: 10px; border: none; cursor: pointer;">Сохранить изменения</button>
+</form>
+{% endblock %}

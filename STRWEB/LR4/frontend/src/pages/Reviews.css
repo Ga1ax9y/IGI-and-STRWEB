@@ -1,0 +1,119 @@
+/* Общий контейнер для страницы отзывов */
+.reviews-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок страницы */
+.reviews-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Форма для добавления отзыва */
+.review-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-form h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Поля ввода */
+.review-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.review-form input,
+.review-form textarea {
+    margin-bottom: 12px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+}
+
+/* Поле ввода для рейтинга */
+.review-form input[type="number"] {
+    max-width: 100px;
+}
+
+/* Кнопка отправки */
+.review-form button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-form button:hover {
+    background-color: #45a049;
+}
+
+/* Сообщение для неавторизованных пользователей */
+.reviews-container p {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Список отзывов */
+.reviews-list {
+    margin-top: 20px;
+}
+
+.review-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review-item h3 {
+    margin: 0 0 5px;
+    color: #333;
+}
+
+.review-item p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.review-item small {
+    display: block;
+    margin-top: 10px;
+    color: #888;
+}
+
+.review-item button {
+    background-color: #4caf50;
+    margin-top: 5px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.review-item button:hover {
+    background-color: #218c4f;
+}
