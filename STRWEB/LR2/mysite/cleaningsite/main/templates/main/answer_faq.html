@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Ответ на вопрос{% endblock %}
+
+{% block content %}
+
+<h1 class="title">Ответить на вопрос</h1>
+
+<form method="post" class="answer-faq-container">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="submit-button">Отправить ответ</button>
+</form>
+
+{% endblock %}

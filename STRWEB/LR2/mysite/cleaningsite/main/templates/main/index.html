@@ -1,0 +1,146 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<!-- Блок с баннерами -->
+<div class="banner-wrapper">
+    <!-- Радиокнопки для управления баннерами -->
+    <input type="radio" name="banner" id="banner1" checked>
+    <input type="radio" name="banner" id="banner2">
+    <input type="radio" name="banner" id="banner3">
+
+    <!-- Баннеры -->
+    <div class="banners">
+        <div class="banner">
+            <img src="/media/ad_banners/banner1.png" alt="Banner 1">
+        </div>
+        <div class="banner">
+            <img src="/media/ad_banners/banner2.png" alt="Banner 2">
+        </div>
+        <div class="banner">
+            <img src="/media/ad_banners/banner3.png" alt="Banner 3">
+        </div>
+    </div>
+
+    <!-- Метки для радиокнопок -->
+    <div class="banner-nav">
+        <label for="banner1" class="banner-nav-button"></label>
+        <label for="banner2" class="banner-nav-button"></label>
+        <label for="banner3" class="banner-nav-button"></label>
+    </div>
+</div>
+
+
+
+<br>
+
+<!-- Блок с последней новостью -->
+<div class="latest-news">
+    <h2>Последняя новость</h2>
+    <div class="latest-news-content">
+        <img src="{{ last_news.image.url }}" alt="{{ last_news.title }}" class="latest-news-image">
+        <div class="latest-news-text">
+            <h3>
+                <a href="{{ last_news.get_absolute_url }}">
+                    {{ last_news.title }}
+                </a>
+            </h3>
+            <p>{{ last_news.description|truncatewords:30 }}</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Форма сортировки и поиска услуг -->
+<div class="service-header">
+    <h2>Список доступных услуг:</h2>
+    <!-- Кнопка для суперпользователя -->
+{% if user_is_superuser %}
+<div class="add-service-btn">
+    <a href="{% url 'create' %}">Добавить услугу</a>
+</div>
+{% endif %}
+    <div class="sort-form">
+        <form action="{% url 'home' %}" method="get">
+            <select name="sort_direction" id="sort_direction">
+                <option value="asc">По возрастанию цены</option>
+                <option value="desc">По убыванию цены</option>
+            </select>
+            <button type="submit">Отсортировать</button>
+        </form>
+
+        <form method="GET" action="">
+            <input type="text" name="service_title" placeholder="Название сервиса" >
+            <button type="submit">Поиск</button>
+        </form>
+    </div>
+</div>
+
+<!-- Блок с услугами -->
+<div class="services-container">
+    {% for service in services %}
+    <div class="service-item">
+        <h2>
+            <a href="{{ service.get_absolute_url }}">
+                {{ service.title }}
+            </a>
+        </h2>
+        <p>{{ service.description }}</p>
+        <p>{{ service.price }} руб</p>
+        <p>{{ service.service_type }}</p>
+
+        {% if is_employee or user_is_superuser %}
+        <div class="admin-actions">
+            {% if user_is_superuser %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="service_title" value="{{ service.title }}">
+                <button type="submit" name="action" value="delete">Удалить</button>
+            </form>
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="service_title" value="{{ service.title }}">
+                <button type="submit" name="action" value="edit">Изменить</button>
+            </form>
+        </div>
+        {% else %}
+        {% if is_authenticated %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="service_title" value="{{ service.title }}">
+            <button type="submit" name="action" value="buy">Добавить в корзину</button>
+        </form>
+        {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+
+<br>
+
+<!-- Блок с картой -->
+<div class="map">
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A4d17f9ed629e5f75f0e1aee4be9088e9d05c110fda440333075de66b2ae35cfd&amp;source=constructor" width="555" height="278" frameborder="0"></iframe>
+</div>
+
+<div class="partners-section">
+    <h3>Наши партнёры</h3>
+    <div class="partners-container">
+        {% for partner in partners %}
+        <div class="partner-item">
+            {% if partner.logo %}
+            <a href="{{ partner.link }}" target="_blank" class="partner-link">
+                <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="partner-logo">
+            </a>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>Пока нет партнёров.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

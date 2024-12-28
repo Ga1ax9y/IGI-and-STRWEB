@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Профиль клиента {{ customer.user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="customer-profile">
+    <h1 class="customer-profile-name">{{ customer.full_name }}</h1>
+
+    <div class="customer-profile-details">
+        <p><strong>Никнейм:</strong> {{ customer.user.username }}</p>
+        <p><strong>ФИО пользователя:</strong> {{ customer.full_name }}</p>
+        <p><strong>Название компании:</strong> {{ customer.company_name }}</p>
+        <p><strong>Телефон:</strong> {{ customer.contact_phone }}</p>
+        <p><strong>Тип заказчика:</strong> {{ customer.get_customer_type_display }}</p>
+    </div>
+
+    {% if user_is_superuser %}
+    <div class="customer-orders">
+        <h1 class="customer-orders-title">Заказы {{ customer.full_name }}:</h1>
+
+        <form method="get" action="{% url 'customer_detail' customer.id %}" class="date-filter-form">
+            <div class="date-filter-form-group">
+                <label for="start_date" class="date-filter-form-label">Дата начала:</label>
+                <input type="date" id="start_date" name="start_date" value="{{ start_date|default_if_none:'' }}" class="date-filter-form-input">
+            </div>
+            <div class="date-filter-form-group">
+                <label for="end_date" class="date-filter-form-label">Дата окончания:</label>
+                <input type="date" id="end_date" name="end_date" value="{{ end_date|default_if_none:'' }}" class="date-filter-form-input">
+            </div>
+            <button type="submit" class="submit-button">Применить</button>
+        </form>
+
+        {% if start_date and end_date %}
+        <div class="orders-summary">
+            <h2 class="orders-summary-title">Заказы за период с {{ start_date | date:"d/m/Y"}} по {{ end_date | date:"d/m/Y"}}</h2>
+            <p><strong>Общая стоимость услуг:</strong> {{ total_cost }} руб.</p>
+        </div>
+        {% endif %}
+
+        {% for order in orders %}
+        <div class="customer-order">
+            <h2 class="customer-order-date">Заказ на {{ order.date_of_work | date:"d/m/Y" }}</h2>
+            <p><strong>Код заказа:</strong> {{ order.order_code }}</p>
+            <p><strong>Адрес:</strong> {{ order.address }}</p>
+            <p><strong>Сотрудник:</strong>
+                {% if order.employee %}
+                <a href="{% url 'employee_detail' order.employee.id %}" class="customer-order-employee">{{ order.employee.full_name }}</a>
+                {% else %}
+                    Не назначен
+                {% endif %}
+            </p>
+            <p><strong>Услуги:</strong></p>
+            <ul class="customer-order-services">
+                {% for service in order.services.all %}
+                    <li class="customer-order-service-item">{{ service.title }} - {{ service.price }} руб.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
