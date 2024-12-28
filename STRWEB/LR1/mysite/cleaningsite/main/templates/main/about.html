@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+<h1>О нашей компании</h1>
+
+<!-- Название компании -->
+<p><strong>Название:</strong> {{ information.name }}</p>
+
+<!-- Описание компании -->
+<p><strong>Описание:</strong> {{ information.description }}</p>
+
+<!-- Логотип компании (если загружен) -->
+{% if information.logo %}
+    <p><strong>Логотип:</strong></p>
+    <img src="{{ information.logo.url }}" alt="Логотип компании" style="max-width: 200px;">
+{% else %}
+    <p><em>Логотип не загружен</em></p>
+{% endif %}
+
+<!-- Видео компании (если загружено) -->
+{% if information.video %}
+    <p><strong>Видео:</strong></p>
+    <video width="320" height="240" controls>
+        <source src="{{ information.video.url }}" type="video/mp4">
+        Ваш браузер не поддерживает просмотр видео.
+    </video>
+{% else %}
+    <p><em>Видео не загружено</em></p>
+{% endif %}
+
+<!-- История компании -->
+<p><strong>История компании:</strong></p>
+<p>{{ information.history }}</p>
+
+<!-- Сертификаты компании -->
+<p><strong>Сертификаты:</strong></p>
+<p>{{ information.certificate }}</p>
+
+<!-- Реквизиты компании -->
+<p><strong>Реквизиты:</strong></p>
+<p>{{ information.account_details }}</p>
+
+{% endblock %}

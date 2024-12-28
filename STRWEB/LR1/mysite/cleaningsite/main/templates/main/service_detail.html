@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+{% block title %}{{ service.title }}{% endblock %}
+{% block content %}
+ <h1>{{ service.title }}</h1>
+ <p class="date">
+    Добавлено {{ service.publish }}
+ </p>
+ <p> Описание: {{ service.description }}</p>
+ <p> Стоимость: {{ service.price }} руб</p>
+ <p> Тип услуги: {{ service.service_type }}</p>
+{% endblock %}
+
+

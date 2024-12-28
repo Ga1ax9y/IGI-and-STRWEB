@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Отзывы{% endblock %}
+
+{% block content %}
+
+{% if is_customer%}
+    <h2>Оставить отзыв</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+{% endif %}
+
+<h1>Отзывы</h1>
+<ul>
+    {% for review in reviews %}
+        <li>
+            <h3>{{ review.customer.full_name }}</h3>
+            <p>Оценка: {{ review.rating }}/5</p>
+            <p>{{ review.text }}</p>
+            <p><small>Дата добавления: {{ review.date|date:"d/m/Y" }}</small></p>
+            <hr>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

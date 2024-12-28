@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Изменить профиль{% endblock %}
+
+{% block content %}
+<h1>Редактирование профиля</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить изменения</button>
+</form>
+<br>
+<button onclick="window.location.href = '{% url 'profile' %}';">Отменить изменения</button>
+{% endblock %}
