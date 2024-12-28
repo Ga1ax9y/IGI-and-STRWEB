@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Управление пользователями{% endblock %}
+
+{% block content %}
+    <h1>Управление пользователями</h1>
+
+    <div style="display: flex;">
+        <div style="flex: 1;">
+            <h2>Сотрудники:</h2>
+            <ul>
+                {% for employee in employees %}
+                    <li>
+                        <a href="{% url 'employee_detail' employee.id %}">{{ employee.user.username }}</a>
+                        <form method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="remove">
+                            <input type="hidden" name="username" value="{{ employee.user.username }}">
+                            <button type="submit" style="background-color: red; color: white; padding: 5px; border: none; cursor: pointer;">Уволить</button>
+                        </form>
+                    </li>
+                    <br>
+                {% endfor %}
+            </ul>
+        </div>
+        <div style="flex: 1;">
+            <h2>Клиенты:</h2>
+            <ul>
+                {% for customer in customers %}
+                    <li>
+                        <a href="{% url 'customer_detail' customer.id %}">{{ customer.user.username }}</a>
+                        <form method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="add">
+                            <input type="hidden" name="username" value="{{ customer.user.username }}">
+                            <button type="submit" style="background-color: green; color: white; padding: 5px; border: none; cursor: pointer;">Сделать сотрудником</button>
+                        </form>
+                    </li>
+                    <br>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
