@@ -1,0 +1,13 @@
+
+{% extends 'main/base.html' %}
+
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+<h1>О нашей компании</h1>
+
+{% for info in informations %}
+    <p>{{info.summary}}</p>
+{% endfor %}
+
+{% endblock %}

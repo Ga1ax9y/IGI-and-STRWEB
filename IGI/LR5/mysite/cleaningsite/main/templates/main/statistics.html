@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Статистика{% endblock %}
+
+{% block content %}
+<h1>Статистика</h1>
+
+<h2>Клиенты по алфавиту</h2>
+<ul>
+    {% for customer in customers %}
+    <li>{{ customer.full_name }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Продажи</h2>
+<p>Общее количесто продаж : {{ total_sales }} руб</p>
+
+<h2>Статистика продаж</h2>
+<p>Среднее: {{ sales_stats.average }} руб</p>
+<p>Медиана: {{ sales_stats.median }} руб</p>
+<p>Мода: {{ sales_stats.mode }} руб</p>
+
+<h2>Статистика возраста клиентов</h2>
+<p>Средний возраст: {{ age_stats.average }} лет</p>
+<p>Возраст (медиана): {{ age_stats.median }} лет</p>
+<img src="{{ age_distribution_image_path }}" alt="Age Distribution Chart">
+<h2>Наиболее популярный тип услуг</h2>
+<p>{{ most_popular_service_type }}</p>
+<img src="{{ service_type_distribution_image_path }}" alt="Service Types Distribution Chart">
+<h2>Тип услуг с наибольшей прибылью</h2>
+<p>{{ most_profitable_service_type }}</p>
+
+{% endblock %}
