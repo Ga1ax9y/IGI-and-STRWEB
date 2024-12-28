@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+<p><h1>Новости</h1></p>
+<p>
+{% if is_employee or user_is_superuser %}
+    <h2>Добавить новость</h2>
+    <form method="post" enctype="multipart/form-data">  
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить</button>
+    </form>
+{% endif %}
+</p>
+
+<div >
+    {% for news in news_list %}
+    <div >
+        <img src="{{ news.image.url }}" alt="{{ news.title }}" width="250" height="auto">
+        <div >
+            <h2 >{{ news.title }}</h2>
+            <p>{{ news.summary }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

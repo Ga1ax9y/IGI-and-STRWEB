@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Моя страница{% endblock %}</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <a href="{% url 'home'%}">Главная</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'news'%}">Новости</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'about'%}">О нас</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'contacts'%}">Контакты</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'reviews_list'%}">Отзывы</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'vacancies'%}">Вакансии</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'login'%}">Логин</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'profile'%}">Мой профиль</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'promo_codes'%}">Промокоды</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'faq_list'%}">FAQ</a>
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <a href="{% url 'api_combined_view'%}">API</a>
+            </td>
+            {% if user_is_superuser %}
+                <td width="20">&nbsp;</td>
+                <td>
+                    <a href="{% url 'orders'%}">Все заказы</a>
+                </td>
+                <td width="20">&nbsp;</td>
+                <td>
+                    <a href="{% url 'adminpanel'%}">Панель управления</a>
+                </td>
+            {% elif is_customer %}
+                <td width="20">&nbsp;</td>
+                <td>
+                    <a href="{% url 'cart'%}">Моя корзина</a>
+                </td>
+                <td width="20">&nbsp;</td>
+                <td>
+                    <a href="{% url 'orders'%}">Мои заказы</a>
+                </td>
+            {% elif is_employee %}
+                <td width="20">&nbsp;</td>
+                <td>
+                    <a href="{% url 'unassigned_orders'%}">Доступные заказы</a>
+                </td>
+                <td width="20">&nbsp;</td>
+                <td>
+                    <a href="{% url 'orders'%}">Мои заказы</a>
+                </td>
+            {% endif %}
+        </tr>
+    </table>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <br>
+    <a href="{% url 'politics'%}">Политика конфиденциальности</a>
+</body>
+</html>
