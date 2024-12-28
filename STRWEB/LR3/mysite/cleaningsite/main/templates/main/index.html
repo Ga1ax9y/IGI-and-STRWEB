@@ -1,0 +1,189 @@
+{% extends 'main/base.html' %}
+{% load static%}
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<!-- Блок с баннерами -->
+<div  class="slider-container">
+    <div class="slider">
+        <div class="slider-slide" data-link="https://github.com/Ga1ax9y">
+            <img src="/media/ad_banners/banner1.png" alt="Slide 1" height="400px">
+            <p class="slider-caption">Скидка на первую покупку 30 процентов</p>
+        </div>
+        <div class="slider-slide" data-link="https://github.com/Ga1ax9y">
+            <img src="/media/ad_banners/banner2.png" alt="Slide 2" height="400px">
+            <p class="slider-caption">В будние дни скидка 25 процентов</p>
+        </div>
+        <div class="slider-slide" data-link="https://github.com/Ga1ax9y">
+            <img src="/media/ad_banners/banner3.png" alt="Slide 3" height="400px">
+            <p class="slider-caption">Логотип компании</p>
+        </div>
+        <button class="slider-nav prev" onclick="slider.prevSlide()">←</button>
+        <button class="slider-nav next" onclick="slider.nextSlide()">→</button>
+
+        <div class="slider-pagination"></div>
+        <div class="slider-info">
+            <span id="slider-counter">1/3</span>
+        </div>
+    </div>
+</div>
+{% if user_is_superuser %}
+<div class="slider-settings-form">
+    <h3>Настройки слайдера</h3>
+    <form method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        {{ slider_form.as_p }}
+        <button type="submit" name="action" value="update_slider_settings">Сохранить настройки</button>
+    </form>
+</div>
+{% endif %}
+<script>
+    const sliderSettings = {
+        loop: {{ slider_settings.loop|yesno:"true,false" }},
+        navs: {{ slider_settings.navs|yesno:"true,false" }},
+        pags: {{ slider_settings.pags|yesno:"true,false" }},
+        auto: {{ slider_settings.auto|yesno:"true,false" }},
+        stopMouseHover: {{ slider_settings.stopMouseHover|yesno:"true,false" }},
+        delay: {{ slider_settings.auto_slide_delay }} * 1000
+    };
+
+</script>
+<br>
+
+<!-- Блок с последней новостью -->
+<div class="latest-news">
+    <h2>Последняя новость</h2>
+    <div class="latest-news-content">
+        <img src="{{ last_news.image.url }}" alt="{{ last_news.title }}" class="latest-news-image">
+        <div class="latest-news-text">
+            <h3>
+                <a href="{{ last_news.get_absolute_url }}">
+                    {{ last_news.title }}
+                </a>
+            </h3>
+            <p>{{ last_news.description|truncatewords:30 }}</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Форма сортировки и поиска услуг -->
+<div class="service-header">
+    <h2>Список доступных услуг:</h2>
+    <!-- Кнопка для суперпользователя -->
+{% if user_is_superuser %}
+<div class="add-service-btn">
+    <a href="{% url 'create' %}">Добавить услугу</a>
+</div>
+{% endif %}
+    <div class="sort-form">
+        <form action="{% url 'home' %}" method="get">
+            <select name="sort_direction" id="sort_direction">
+                <option value="asc">По возрастанию цены</option>
+                <option value="desc">По убыванию цены</option>
+            </select>
+            <button type="submit">Отсортировать</button>
+        </form>
+
+        <form method="GET" action="">
+            <input type="text" name="service_title" placeholder="Название сервиса" >
+            <button type="submit">Поиск</button>
+        </form>
+    </div>
+</div>
+
+<!-- Блок с услугами -->
+<input type="hidden" id="isAuthenticated" value="{{ is_authenticated|yesno:'true,false' }}">
+<input type="hidden" id="isEmployee" value="{{ is_employee|yesno:'true,false' }}">
+<input type="hidden" id="isSuperuser" value="{{ user_is_superuser|yesno:'true,false' }}">
+<div class="services-container" id="services-container">
+
+</div>
+
+<div class="pagination" id="pagination">
+    <button id="prev-page" onclick="changePage(currentPage - 1)" class="submit-button" >Назад</button>
+    <span id="page-info">Страница 1</span>
+    <button id="next-page" onclick="changePage(currentPage + 1)" class="submit-button">Вперед</button>
+</div>
+
+<script>
+
+    const isAuthenticated = document.getElementById('isAuthenticated').value === 'true';
+    const isEmployee = document.getElementById('isEmployee').value === 'true';
+    const isSuperuser = document.getElementById('isSuperuser').value === 'true';
+
+
+    const services = JSON.parse('{{ services_data|safe }}');
+    let currentPage = 1;
+    const itemsPerPage = 3;
+
+    function displayServices(page) {
+        const servicesContainer = document.getElementById('services-container');
+        servicesContainer.innerHTML = '';
+
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const servicesToShow = services.slice(start, end);
+
+        servicesToShow.forEach((service, index) => {
+            const serviceItem = document.createElement('div');
+            serviceItem.classList.add('service-item');
+
+            serviceItem.innerHTML = `
+                <a href="${service.url}">
+                    <h2>${service.title}</h2>
+                    <p>${service.description}</p>
+                    <p>${service.price} руб</p>
+                    <p>${service.service_type}</p>
+                </a>
+            `;
+
+            servicesContainer.appendChild(serviceItem);
+
+
+            setTimeout(() => {
+                serviceItem.classList.add('visible');
+            }, index * 100);
+        });
+
+        document.getElementById('page-info').textContent = `Страница ${page}`;
+        document.getElementById('prev-page').disabled = page === 1;
+        document.getElementById('next-page').disabled = end >= services.length;
+    }
+
+    function changePage(page) {
+        if (page < 1 || (page - 1) * itemsPerPage >= services.length) return;
+        currentPage = page;
+        displayServices(currentPage);
+    }
+    //загрузка страницы без учета изображений
+    document.addEventListener('DOMContentLoaded', () => {
+        displayServices(currentPage);
+    });
+</script>
+<br>
+
+<!-- Блок с картой -->
+<div class="map">
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A4d17f9ed629e5f75f0e1aee4be9088e9d05c110fda440333075de66b2ae35cfd&amp;source=constructor" width="555" height="278" frameborder="0"></iframe>
+</div>
+
+<div class="partners-section">
+    <h3>Наши партнёры</h3>
+    <div class="partners-container">
+        {% for partner in partners %}
+        <div class="partner-item">
+            {% if partner.logo %}
+            <a href="{{ partner.link }}" target="_blank" class="partner-link">
+                <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="partner-logo">
+            </a>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>Пока нет партнёров.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{% static 'scripts/slider.js' %}"></script>
+{% endblock %}

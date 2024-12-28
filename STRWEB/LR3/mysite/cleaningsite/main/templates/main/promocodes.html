@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Промокоды{% endblock %}
+
+{% block content %}
+
+<div class="promocode-container">
+    {% if is_employee or user_is_superuser %}
+        <h2 class="add-promocode-title">Добавить промокод</h2>
+        <form method="post" class="promocode-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-button">Добавить</button>
+        </form>
+    {% endif %}
+
+    <h1 class="promocode-title">Промокоды</h1>
+    <ul class="promocode-list">
+        {% for promocode in promocodes %}
+            <li class="promocode-item">
+                <h2 class="promocode-code">{{ promocode.code }}</h2>
+                <p class="promocode-description">{{ promocode.description }}</p>
+                <p class="promocode-validity"><strong>Годен до:</strong> {{ promocode.valid_until |date:"d/m/Y"}}</p>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Всплывающее окно для ввода даты рождения -->
+<div id="birthModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5);">
+    <div style="background:white; margin:15% auto; padding:20px; width:300px; text-align:center;">
+        <h2>Введите вашу дату рождения</h2>
+        <input type="date" id="birthDate">
+        <button onclick="checkAge()">Проверить возраст</button>
+        <div id="message" style="margin-top: 15px;"></div>
+        <button onclick="closeModal()">Закрыть</button>
+    </div>
+</div>
+<script src="{% static 'scripts/birthday.js' %}" defer></script>
+{% endblock %}

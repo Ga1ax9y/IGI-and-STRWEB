@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Задание 7{% endblock %}
+
+{% block content %}
+<h1>Сортировка Летних и Зимних Дат</h1>
+
+<!-- Форма для метода с class/extends -->
+<h2>Реализация с class/extends</h2>
+<form id="classForm">
+    <label for="month">Месяц:</label>
+    <input type="text" id="classMonth" required>
+    <label for="day">День:</label>
+    <input type="number" id="classDay" min="1" max="31" required>
+    <button type="button" onclick="addClassDate()">Добавить дату</button>
+    <input type="file" id="classFile" onchange="handleFileUpload(event, 'class')">
+</form>
+<div id="classResult"></div>
+<div id="allDates"></div>
+<!-- Форма для метода с прототипным наследованием -->
+<h2>Реализация с прототипным наследованием</h2>
+<form id="prototypeForm">
+    <label for="month">Месяц:</label>
+    <input type="text" id="protoMonth" required>
+    <label for="day">День:</label>
+    <input type="number" id="protoDay" min="1" max="31" required>
+    <button type="button" onclick="addProtoDate()">Добавить дату</button>
+    <input type="file" id="protoFile" onchange="handleFileUpload(event, 'prototype')">
+</form>
+<div id="protoResult"></div>
+
+<div id="allDates2"></div>
+
+<script src="{% static 'scripts/task7class.js' %}"></script>
+<script src="{% static 'scripts/task7func.js' %}"></script>
+{% endblock %}

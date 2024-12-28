@@ -1,0 +1,540 @@
+{% extends 'main/base.html' %}
+{% load static%}
+{% block title %} Словарь {% endblock %}
+{% block content %}
+<br>
+<div id="countdown">Оставшееся время: <span id="time-remaining"></span></div>
+<button id="reset-timer">Перезапустить таймер</button>
+<script src="{% static 'scripts/timer.js' %}" defer></script>
+
+<h2>Введите вашу дату рождения:</h2>
+<input type="date" id="birthDate">
+<button onclick="checkAge()">Проверить</button>
+
+<p id="message"></p>
+
+
+<!--Специальные символы -->
+<div class="animation-container">
+  <!-- Пол -->
+  <div class="floor" id="floor">
+    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="300px" height="300px" viewBox="0 0 290.658 290.658"
+    xml:space="preserve">
+ <g>
+   <g>
+     <rect y="139.474" style="fill:#588dc9;" width="290.658" height="11.711"/>
+   </g>
+ </g>
+ </svg>
+  </div>
+  <div class="brown-line"></div>
+  <!-- Швабра -->
+  <div class="mop-container">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" width="200px" height="200px" viewBox="0 0 576.61 576.609" xml:space="preserve">
+          <g>
+              <g>
+                  <path d="M460.17,2.065l-4.494-1.635C454.883,0.144,454.051,0,453.219,0c-3.002,0-5.719,1.894-6.742,4.714L324.891,338.102 c-1.627-0.201-3.271-0.354-4.916-0.479c-1.654-0.124-3.328-0.191-5.001-0.229c-26.02-0.641-53.751,8.874-74.138,31.537 l58.485,11.37l4.752,0.928l4.752,0.928l19.011,3.7l4.753,0.928l4.752,0.928l52.25,10.155c-0.115-2.113-0.287-4.16-0.555-6.13 c-2.793-20.626-17.107-36.558-36.5-45.708c-1.434-0.68-2.889-1.339-4.379-1.941c-1.473-0.593-2.975-1.129-4.486-1.654 L464.456,11.265C465.803,7.545,463.881,3.424,460.17,2.065z"/>
+                  <path fill="yellow" d="M301.721,400.258L228.3,385.98c-26.88,43.061-36.625,96.639-60.798,123.691c-9.008,10.089-27.091,34.989-55.778,39.847 l156.385,19.125l42.83-63.753l-18.895,66.68l41.205,5.039c0,0,48.5-95.797,55.596-159.407l-62.338-12.125L301.721,400.258z"/>
+              </g>
+          </g>
+      </svg>
+  </div>
+
+  <!-- Окно -->
+  <div class="window" id="window">
+      <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 512 512"  xml:space="preserve">
+ <style type="text/css">
+     .st0{fill:#588dc9;}
+ </style>
+ <g>
+     <rect y="233.666" class="st0" width="68.805" height="32"/>
+     <path class="st0" d="M457,6.556h-78.562H133.562H51H0v213.992h68.805c21.531-41.382,47.711-143.367,59.054-189.992h256.282
+         c11.343,46.625,37.523,148.61,59.054,189.992H512V6.556H457z"/>
+     <path class="st0" d="M382.453,430.556H129.547l-64.79-151.641H0v217.883c0,0,24.282,19.453,68.805,0
+         c44.523-19.454,44.523,15.562,89.046,0l-18.046-42.242h232.39l-18.046,42.242c44.523,15.562,44.523-19.454,89.046,0
+         c44.523,19.453,68.805,0,68.805,0V278.915h-64.758L382.453,430.556z"/>
+     <rect x="443.195" y="233.666" class="st0" width="68.805" height="32"/>
+
+         <rect class="line" x="262.664" y="107.222" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 298.3835 572.0344)" class="st0" width="9.999" height="233.997"/>
+
+         <rect class="line" x="295.879" y="225.346" transform="matrix(0.7071 0.7071 -0.7071 0.7071 304.7441 -123.027)" width="9.999" height="161.999"/>
+ </g>
+ </svg>
+  </div>
+
+  <!-- Губка -->
+  <div class="sponge-container">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" width="80" height="80">
+          <path fill="yellow" d="M24,7.2l-2.8,1c-3.4,1.2-7,1.2-10.4,0L8,7.2C6.1,6.5,4,7.4,3,9.4l0,0c-1.4,2.9-1.4,6.3,0,9.3l0,0c0.9,1.9,3,2.9,5,2.2l2.8-1c3.4-1.2,7-1.2,10.4,0l2.8,1c1.9,0.7,4.1-0.2,5-2.2l0,0c1.4-2.9,1.4-6.3,0-9.3l0,0C28,7.4,25.9,6.5,24,7.2z"/>
+      </svg>
+  </div>
+
+  <!-- Название компании -->
+  <div class="company-name">ЧистоМэн</div>
+</div>
+<div class="loader">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<p>&#9749;</p>
+<p contenteditable="true">&lt;</p>
+<a id='up' href="#down">Вниз (якорь)</a>
+<input type="button" accesskey="t" hidden/>
+<div itemscope itemtype="https://schema.org/Movie">
+    <h1 itemprop="name">Avatar</h1>
+    <span>
+      Director: <span itemprop="director">James Cameron</span> (born August 16,
+      1954)
+    </span>
+    <span itemprop="genre">Science fiction</span>
+    <a href="https://youtu.be/0AY1XIkX7bY" itemprop="trailer">Trailer</a>
+</div>
+<em>I</em> like <b>apples</b> and <b>oranges</b>.
+My favorite kind of orange is the mandarin,
+properly known as <i>citrus reticulata</i>.
+Oranges at my local store cost
+<s>$1 each</s> $2 for 3 <small>(plus tax)</small>.
+
+<strong>Warning:</strong> Eating <u>too many</u> oranges
+can give you heart burn.
+
+The point x<sub>10</sub> is the 10<sup>th</sup> point.
+
+
+<h2>Пример фрагмента кода:</h2>
+<pre><code>var x = 10;</code></pre>
+
+<h2>Пример переменной (курсив):</h2>
+<p><em>x</em> = 10</p>
+
+<h2>Пример результата работы программы:</h2>
+<samp>Hello, world!</samp>
+
+<h2>Пример ввода пользователя:</h2>
+<kbd>Ctrl+C</kbd>
+
+<h2>Пример сокращения:</h2>
+<abbr title="As soon as possible">ASAP</abbr>
+
+<h2>Пример определения</h2>
+<p><dfn title="API">API</dfn> — это интерфейс прикладного программирования.</p>
+
+<h2>Пример цитаты:</h2>
+<p>Цитата на английском: <q cite="https://parade.com/1219723/alexandra-hurtado/thanos-quotes/" lang="en">As long as there are those that remember what was, there will always be those that are unable to accept what can be. They will resist.</q></p>
+<p>Цитата на французском : <q lang="fr">Ce que femme veut, Dieu le veut</q>.</p>
+<p>Цитата на немецком: <q lang="de">Der Mensch, versuche die Gotter nicht</q>.</p>
+<p>Цитата на русском: <q lang="de">Нету таких</q>.</p>
+
+<h2>Пример даты времени:</h2>
+At <time datetime="15:00">3 o'clock</time>
+on <time datetime="1984-12-7">December 7th</time>.
+
+<h2>Выделение текста:</h2>
+I would like a <mark>pair</mark> of <mark>pears</mark>
+
+<h2>Перевод строки:</h2>
+I <mark>WANDERED</mark> lonely as a cloud<br>
+That floats on high o'er vales and hills,<br>
+When all at once I saw a crowd,<br>
+A host, of golden daffodils;<br>
+A host, of golden daffodils;
+
+<h2>Потенциальный перевод строки:</h2>
+That floats on high o'er vales and hills,<wbr>
+When all at once I saw a crowd,<wbr>
+A host, of golden daffodils, <wbr>
+A host, of golden daffodils;
+
+<h2>Ссылки</h2>
+<div class="tag-links">
+<a href="http://mail.ru" target="_blank">Жми сюда!</a>
+<a href="mailto:usr@domain?subject=Вопрос">Написать на почту</a>
+<a href="tel:+375358838530">Позвонить</a>
+</div>
+<h2>Ссылка для скачивания файла</h2>
+<p align='center'><a id='n1'href="document.pdf" download='name of document' accesskey="t">Скачать PDF-документ</a></p>
+
+<h2>Блок предварительно форматированного текста</h2>
+<pre>
+                             up
+    left
+                                        right
+</pre>
+<h2>Цитата как блок</h2>
+<blockquote>
+  As long as there are those that remember what was, there will always be those that are unable to accept what can be. They will resist.
+</blockquote>
+<h2>Статья</h2>
+<article>
+  <p class="first-letter">
+     Первый абзац статьи начинается с выделенной буквы.
+  </p>
+  <p class="new">Ловля льва в пустыне с
+    помощью метода золотого сечения.</p>
+  <p>Метод ловли льва простым перебором.</p>
+
+</article>
+<hr color="red" size="25" noshade>
+
+<h2>Списки</h2>
+
+<h3>Упорядоченный список</h3>
+<div class="tag-ol">
+<ol>
+    <li type="A">Первый элемент</li>
+    <li>Второй элемент</li>
+    <li>Третий элемент</li>
+    <li>Четвертый элемент</li>
+</ol>
+</div>
+<h3>Маркированный список</h3>
+<div class="selection-ul">
+<ul class="tag-ul">
+  <li >Первый элемент</li>
+  <li>Второй элемент</li>
+  <li>Третий элемент</li>
+  <li>Четвертый элемент</li>
+</ul>
+</div>
+<h3>Список определений</h3>
+<dl>
+  <dt>Черепа́хи</dt>
+ <dd>
+  — отряд пресмыкающихся, один из четырёх современных отрядов этого класса.
+  Характерной особенностью строения черепах является костно-роговой или костно-кожистый панцирь,
+  состоящий из двух частей: карапакса и пластрона, и служащий основной защитой от врагов.
+ </dd>
+ <dt>Вы́хухоль, или русская выхухоль, или хоху́ля,</dt>
+ <dd>
+  — вид млекопитающих отряда насекомоядных из трибы Desmanini подсемейства Talpinae семейства кротовых.
+ </dd>
+</dl>
+
+<h3>Фигуры</h3>
+<figure>
+  <!--Подпись-->
+  <figcaption>Listing 23. Using the code element</figcaption>
+  <code>
+    var fruits = ["apples", "oranges", "mangoes", "cherries"];<br>
+    document.writeln("I like " + fruits.length + " fruits");
+  </code>
+</figure>
+
+<figure>
+  <p ><img src="/media/other/vihuhol.jpg" alt="" height="300" width="500"></p>
+  <figcaption>Изображение выхухоли</figcaption>
+</figure>
+
+<h2>Вертикальная навигация</h2>
+<aside>
+  <a href="{% url 'home'%}">Главная </a><br>
+  <a href="{% url 'news'%}">Новости</a><br>
+  <a href="{% url 'about'%}">О нас</a>
+</aside>
+
+<h2>Детальное описание</h2>
+<details>
+  <summary>Kinds of Triathlon</summary>
+  There are different kinds of triathlon - sprint, Olympic and so on. I am aiming for Olympic, which consists of the following:
+  <ol>
+    <li>1.5km swim</li>
+    <li>40km cycle</li>
+    <li>10km run</li>
+  </ol>
+</details>
+
+<h2>Таблицы</h2>
+<!--Все кроме border устаревшее-->
+<h3>Без заголовочных ячеек</h3>
+<div class="tag-table">
+<table border="3">
+  <tr>
+      <td> Row 1, Cell 1 </td>
+      <td> Row 1, Cell 2 </td>
+  </tr>
+  <tr>
+      <td> Row 2, Cell 1 </td>
+      <td> Row 2, Cell 2 </td>
+  </tr>
+  <tr>
+    <td> Row 3, Cell 1 </td>
+    <td> Row 3, Cell 2 </td>
+</tr>
+<tr>
+  <td> Row 4, Cell 1 </td>
+  <td> Row 4, Cell 2 </td>
+</tr>
+</table>
+</div>
+
+<h3>С заголовоными ячейками</h3>
+<div class="tag-htable">
+<table class="topCaption" >
+<caption>Заголовок таблицы</caption>
+  <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+  </tr>
+  <tr>
+      <td> Row 1, Cell 1 </td>
+      <td> Row 1, Cell 2 </td>
+  </tr>
+  <tr>
+      <td> Row 2, Cell 1 </td>
+      <td></td>
+  </tr>
+  <tr>
+    <td> Row 3, Cell 1 </td>
+    <td> Row 3, Cell 2 </td>
+</tr>
+</table>
+</div>
+<h3>Запутанная таблица</h3>
+<!--headers для слабовидящих-->
+<table border ="1">
+  <tr>
+    <td id='rank'> Rank</td>
+    <td id='name'> Name</td>
+    <td id='color'>Color</td>
+    <td id='size'>Size</td>
+  </tr>
+  <tr bgcolor="yellow" bordercolor="red">
+    <th id="first" headers="rank">Favorite:</th>
+    <td headers="name first"> Row 1, Cell 1</td>
+    <td headers="color first"> Row 1, Cell 2</td>
+    <td headers='size first'rowspan="3">Row 1, Cell 3</td>
+  </tr>
+  <tr>
+    <th id="second" headers="rank">2nd Favorite:</th>
+    <td colspan="2" width="400" headers="name second">
+      Row 2, Cell 1
+    </td>
+  </tr>
+  <tr>
+    <th id="third" headers="rank">3nd Favorite:</th>
+    <td headers="name third">
+      Row 3, Cell 1
+    </td>
+    <td headers="color third">
+      Row 3, Cell 2
+    </td>
+  </tr>
+</table>
+<h2>Форма с различными типами input</h2>
+<form action="" class="tag-form">
+  {% csrf_token %}
+    <label for="text">Текст:</label>
+    <input type="text" id="text" name="text">
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <br>
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password">
+    <br>
+    <label for="number">Число:</label>
+    <input type="number" id="number" name="number" min="0" max="100">
+    <br>
+    <label for="url">URL:</label>
+    <input type="url" id="url" name="url">
+    <br>
+    <label for="tel">Телефон:</label>
+    <input type="tel" id="tel" name="tel">
+    <br>
+    <label for="date">Дата:</label>
+    <input type="date" id="date" name="date">
+    <br>
+    <label for="time">Время:</label>
+    <input type="time" id="time" name="time">
+    <br>
+    <label for="color">Цвет:</label>
+    <input type="color" id="color" name="color">
+    <br>
+    <label for="range">Диапазон:</label>
+    <input type="range" id="range" name="range" min="0" max="100">
+    <br>
+    <label for="checkbox">Чекбокс:</label>
+    <input type="checkbox" id="checkbox" name="checkbox" required><span>Windows 1</span>
+    <input type="checkbox" id="checkbox" name="checkbox" ><span>Windows 2</span>
+    <input type="checkbox" id="checkbox" name="checkbox" checked><span>Windows 3</span>
+    <input type="checkbox" id="checkbox" name="checkbox" disabled><span>Windows 10</span>
+    <br>
+    <label for="radio">Радио-кнопки:</label>
+    <input type="radio" id="radio1" name="radio" value="option1">
+    <label for="radio1">Опция 1</label>
+    <input type="radio" id="radio2" name="radio" value="option2" checked>
+    <label for="radio2">Опция 2</label>
+    <br>
+    <label for="textarea">Текстовая область:</label>
+    <textarea id="textarea" name="textarea" rows="4"></textarea>
+    <br>
+    <label for="select">Выбор:</label>
+    <select id="select" name="select">
+        <option selected value="option1">Опция 1</option>
+        <option value="option2">Опция 2</option>
+        <option value="option3" disabled>Опция 3</option>
+    </select>
+    <br>
+    <select size="7" name="list">
+      <option value="v1">Not in group</option>
+      <optgroup label="Group 1">
+        <option value="v2">Item G1-1</option>
+        <option value="v3">Item G1-2</option>
+      </optgroup>
+      <optgroup label="Group 2">
+        <option value="v4">Item G2-1</option>
+        <option value="v5">Item G2-2</option>
+      </optgroup>
+    </select>
+    <br>
+    Month:&nbsp;<input type="month" name="month"><br>
+    Week:&nbsp;<input type="week" name="week"><br>
+    <br>
+    <button type="submit">Отправить</button>
+    <input type="reset" value="Очистить">
+</form>
+
+<h2>Форма с изображением</h2>
+<form action="" method="post">
+  {% csrf_token %}
+  Click on the image to send:
+  <br><br>
+  <input type="image" name="img" src="/media/company_logos/company_logo.png"
+         width="200">
+</form>
+<h2>Форма с файлом</h2>
+<form action="http://server.com" method="post"
+      enctype="multipart/form-data"
+      accept="image/jpeg,image/png,image/gif" >
+      {% csrf_token %}
+        Select file:<br><br>
+        <input type="file" name="fileinput">
+        <br><br>
+        <input type="submit" value="Send!">
+</form>
+<h2>Поле для ввода многострочного текста</h2>
+<form action="" method="post">
+  {% csrf_token %}
+  <textarea name="desc" cols="45" rows="10"
+            placeholder="Input description"
+            required maxlength="450"></textarea>
+  <br><br>
+  <input type="submit" value="Send!">
+</form>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <p>
+   Fruit: <input list="fruitlist" id="fave" name="fave" />
+  </p>
+  <button type="submit">Submit Vote</button>
+</form>
+
+<datalist id="fruitlist">
+  <option value="Apples" label="Lovely Apples" />
+  <option value="Oranges">Refreshing Oranges</option>
+  <option value="Cherries" />
+</datalist>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <button type="button" name="btn">
+      <p>Paragraph 1</p>
+      <p>Paragraph 2</p>
+  </button>
+</form>
+
+<h2>Группировка элементов в форме</h2>
+<form action="" method="post">
+  {% csrf_token %}
+  <fieldset title="Login info">
+    <legend>User info</legend>
+    User: <input type="text" name="usr"><br>
+    Pass: <input type="password" name="pass">
+    <br>
+    <input type="submit" value="Login">
+  </fieldset>
+</form>
+<h2>Object</h2>
+<object width="560" height="349"
+data="http://www.youtube.com/v/Qhl8jUJewPQ?version=3"
+type="application/x-shockwave-flash">
+<param name="allowFullScreen" value="true">
+  <b>Sorry!</b> We can't display this content
+</object>
+<br>
+<h2>Адаптивное изображение</h2>
+<img src="/media/employee_photos/worker2.png"
+sizes="(max-width: 40em) 100vw, 50vw"
+srcset="/media/employee_photos/worker2.jpg 400w"
+>
+<!--tags video embet iframe object-->
+<h2>Видео</h2>
+<video width="700" height="500"
+       src="/media/other/Stanishewski.mp4"
+       autoplay loop controls preload="none" muted poster="/media/employee_photos/worker5.jpg">
+  Video cannot be displayed
+</video>
+
+<h2>Аудио</h2>
+<audio controls>
+  <source src="/media/other/boy-next-door.mp3" />
+  <source src="/media/other/boy-next-door.mp3" />
+</audio>
+<a id='down' href="#up">Вверх</a>
+
+
+<!-- Флажок для активации элементов управления -->
+ <br>
+<label>
+    <input type="checkbox" id="styleToggle" > Настроить стиль текста и фона
+</label>
+
+<!-- Контейнер для элементов управления (по умолчанию скрыт) -->
+<div class="control-panel" id="controlPanel" style="display: none;">
+    <label>Размер шрифта:
+        <input type="range" id="fontSizeControl" min="12" max="32" value="16">
+    </label>
+    <label>Цвет текста:
+        <input type="color" id="textColorControl" value="#333333">
+    </label>
+    <label>Цвет фона:
+        <input type="color" id="backgroundColorControl" value="#f5f5f5">
+    </label>
+</div>
+<script>
+  const styleToggle = document.getElementById("styleToggle");
+  const controlPanel = document.getElementById("controlPanel");
+  const fontSizeControl = document.getElementById("fontSizeControl");
+  const textColorControl = document.getElementById("textColorControl");
+  const backgroundColorControl = document.getElementById("backgroundColorControl");
+
+
+  styleToggle.addEventListener("change", function() {
+      controlPanel.style.display = styleToggle.checked ? "block" : "none";
+  });
+
+  fontSizeControl.addEventListener("input", function() {
+      document.body.style.fontSize = fontSizeControl.value + "px";
+  });
+
+  textColorControl.addEventListener("input", function() {
+      document.body.style.color = textColorControl.value;
+  });
+
+  backgroundColorControl.addEventListener("input", function() {
+      document.body.style.backgroundColor = backgroundColorControl.value;
+  });
+</script>
+{% endblock %}

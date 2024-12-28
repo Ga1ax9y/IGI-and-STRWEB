@@ -1,0 +1,60 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h1 class="profile-title">Данные профиля</h1>
+
+    <!-- Если суперпользователь -->
+    {% if is_superuser %}
+        <p><strong>Имя :</strong> {{ nickname.username }}</p>
+    {% elif is_employee %}
+        <!-- Если у сотрудника есть фото -->
+        {% if user.photo %}
+            <div class="profile-photo">
+                <img src="{{ user.photo.url }}" alt="Фото сотрудника" class="employee-photo">
+            </div>
+        {% endif %}
+        <p><strong>Никнейм :</strong> {{ nickname.username }}</p>
+        <p><strong>ФИО пользователя:</strong> {{ user.full_name }}</p>
+        <p><strong>Рабочий телефон:</strong> {{ user.work_phone }}</p>
+        <p><strong>Рабочая почта:</strong> {{ user.work_email }}</p>
+        <p><strong>Описание работ:</strong> {{ user.description }}</p>
+        <p><strong>День рождения:</strong> {{ user.birth_date |date:"d/m/Y"}}</p>
+        <p><strong>Специализации:</strong></p>
+        <ul class="specializations-list">
+            {% for specialization in user.specializations.all %}
+                <li>{{ specialization.name }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'orders' %}" class="orders-link">Мои заказы</a>
+    {% else %}
+        <p><strong>Никнейм:</strong> {{ nickname.username }}</p>
+        <p><strong>ФИО пользователя:</strong> {{ user.full_name }}</p>
+        <p><strong>Имя компании:</strong> {{ user.company_name }}</p>
+        <p><strong>Контактный телефон:</strong> {{ user.contact_phone }}</p>
+        <p><strong>Вид пользователя:</strong> {{ user.get_customer_type_display }}</p>
+        <a href="{% url 'orders' %}" class="orders-link">Мои заказы</a>
+    {% endif %}
+
+    <!-- Кнопка "Изменить профиль" -->
+    {% if not is_superuser %}
+        <form action="{% url 'edit_profile' %}" method="get">
+            <button type="submit" class="profile-edit-btn">Изменить</button>
+        </form>
+        <br>
+    {% endif %}
+
+    <!-- Дополнительная информация о времени и календаре -->
+    <p><strong>Часовой пояс:</strong> {{user_zone.user_timezone}}</p>
+    <p><strong>Сегодняшнее число:</strong> {{user_zone.current_date_formatted}}</p>
+    <pre>Календарь: {{user_zone.calendar_text}}</pre>
+
+    <!-- Кнопка выхода из аккаунта -->
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit" name="action" value="logout" class="logout-btn">Выйти из аккаунта</button>
+    </form>
+</div>
+{% endblock %}

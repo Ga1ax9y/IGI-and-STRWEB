@@ -1,0 +1,74 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+  Мои API
+{% endblock %}
+
+{% block content %}
+  <h1 class="api-title">Мои API</h1>
+
+  <form method="get" action="{% url 'api_combined_view' %}" class="api-form">
+    <input type="text" name="name" placeholder="Введите имя" value="{{ name }}" class="api-input" />
+    <button type="submit" class="submit-button">Предсказать</button>
+  </form>
+
+  {% if nationality_data %}
+    <h2 class="api-subtitle">Предсказание национальности для "{{ name }}"</h2>
+    <ul class="nationality-list">
+      {% for country in nationality_data.country %}
+        <li class="nationality-item">
+          {{ country.country_id }}: {{ country.probability|floatformat:2 }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if cat_fact_data %}
+    <h2 class="api-subtitle">Случайный факт о котах</h2>
+    <p class="cat-fact">{{ cat_fact_data.fact }}</p>
+    <button onclick="window.location.reload();" class="submit-button">Еще один факт</button>
+  {% endif %}
+
+  <script src="{% static 'scripts/ipadressAPI.js' %}"></script>
+  <h2 class="ip-api-title">Информация о IP </h2>
+  <div class="ip-form-container">
+      <label for="ip-input" class="ip-label">Введите IP:</label>
+      <br>
+      <input type="text" id="ip-input" class="ip-input" placeholder="e.g. 8.8.8.8">
+
+      <button id="get-location" class="submit-button" onclick="getGeoData()">Получить информацию</button>
+  </div>
+
+
+  <div id="result" class="ip-result-container">
+  </div>
+
+  <h2 class="nasa-photo-title">Астрономическое фото дня от NASA</h2>
+  <div class="nasa-form-container">
+      <button id="get-image" class="submit-button">Получить изображение</button>
+  </div>
+
+  <div id="image-result" class="nasa-result-container">
+  </div>
+
+  <script src="{% static 'scripts/dayphotoAPI.js' %}" defer></script>
+  <script src="{% static 'scripts/earthviewAPI.js' %}" defer></script>
+
+  <h2 class="earth-image-title">Получение изображения Земли от NASA</h2>
+
+  <div class="earth-image-form-container">
+      <label for="lat" class="earth-label">Широта (lat):</label>
+      <input type="number" id="lat" class="earth-input" placeholder="например, 1.5" step="any" value="53.911">
+      <label for="lon" class="earth-label">Долгота (lon):</label>
+      <input type="number" id="lon" class="earth-input" placeholder="например, 100.75" step="any" value="27.594">
+      <label for="dim" class="earth-label">Размер изображения (dim):</label>
+      <input type="number" id="dim" class="earth-input" value="0.2" step="any">
+      <label for="date" class="earth-label">Дата (YYYY-MM-DD):</label>
+      <input type="date" id="date" class="earth-input" value="2021-02-01">
+      <button id="get-imageNASA" class="submit-button">Получить изображение</button>
+  </div>
+
+
+
+
+{% endblock %}
